@@ -12,7 +12,7 @@ import {
 import { PageHeader } from '@/components/ui/PageHeader';
 import { useAppData } from '@/context/AppDataContext';
 import { useUser } from '@/context/UserContext';
-import { USER_BASE } from '@/types';
+import { USER_BASE, type UserId } from '@/types';
 import { generateIcs, downloadIcs } from '@/lib/ics-export';
 import {
   CALENDAR_WEEKDAYS,
@@ -26,6 +26,11 @@ import {
 import type { Task } from '@/lib/sync/types';
 
 type AddMode = 'task' | 'event' | null;
+
+function creatorLabel(id: string): string {
+  if (id === 'user1' || id === 'user2') return USER_BASE[id as UserId].name;
+  return 'Mitglied';
+}
 
 export function Kalender() {
   const { userId, userColors, getAssigneeColor } = useUser();
@@ -312,7 +317,7 @@ export function Kalender() {
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm">{ev.title}</p>
                   <p className="text-[10px] text-white/30">
-                    Termin · {USER_BASE[ev.createdBy].name}
+                    Termin · {creatorLabel(ev.createdBy)}
                     {ev.description ? ` · ${ev.description}` : ''}
                   </p>
                 </div>

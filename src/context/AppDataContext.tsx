@@ -17,6 +17,11 @@ import {
 } from 'react';
 
 import type { Expense, ExpenseCategory } from '@/types/expense';
+import type { PantryItem } from '@/types/pantry';
+import type { BureaucracyDeadline } from '@/types/bureaucracy-deadline';
+import type { MentalLoadEvent, MentalLoadType } from '@/types/mental-load';
+import { MENTAL_LOAD_WEIGHTS } from '@/types/mental-load';
+import { toDateKey } from '@/lib/calendar-utils';
 
 import {
   createDefaultMealPlan,
@@ -44,8 +49,6 @@ import type { Ingredient } from '@/types/recipe';
 import { loadFromStorage, saveToStorage, createId, subscribeToStorage } from '@/lib/storage';
 
 import { ingredientCategoryToShopping } from '@/lib/shopping-categories';
-
-import type { UserId } from '@/types';
 
 import { isSupabaseConfigured } from '@/lib/supabase/client';
 
@@ -79,6 +82,16 @@ import {
 
   subscribeToHousehold,
 
+  upsertPantryItem,
+
+  deletePantryItem,
+
+  upsertBureaucracyDeadline,
+
+  deleteBureaucracyDeadline,
+
+  upsertMentalLoadEvent,
+
   type RealtimeChange,
 
 } from '@/lib/supabase/sync';
@@ -98,6 +111,12 @@ const KEYS = {
   events: 'haushalt-events',
 
   mealPlan: 'haushalt-mealplan',
+
+  pantry: 'haushalt-pantry',
+
+  bureaucracy: 'haushalt-bureaucracy',
+
+  mentalLoad: 'haushalt-mental-load',
 
 } as const;
 
@@ -169,9 +188,9 @@ interface AppDataContextValue {
 
   shoppingItems: ShoppingListItem[];
 
-  addShoppingItem: (name: string, category: ShoppingListItem['category'], quantity?: string, createdBy?: UserId) => Promise<void>;
+  addShoppingItem: (name: string, category: ShoppingListItem['category'], quantity?: string, createdBy?: string) => Promise<void>;
 
-  addIngredientsToShopping: (ingredients: Ingredient[], createdBy: UserId) => Promise<void>;
+  addIngredientsToShopping: (ingredients: Ingredient[], createdBy: string) => Promise<void>;
 
   toggleShoppingItem: (id: string) => Promise<void>;
 
@@ -207,6 +226,30 @@ interface AppDataContextValue {
 
   setMealForDay: (weekday: number, slot: MealSlot, recipeId: string | null) => void;
 
+
+
+  pantryItems: PantryItem[];
+
+  addPantryItem: (data: Omit<PantryItem, 'id' | 'createdAt' | 'updatedAt'>) => void;
+
+  removePantryItem: (id: string) => void;
+
+
+
+  bureaucracyDeadlines: BureaucracyDeadline[];
+
+  addBureaucracyDeadline: (data: Omit<BureaucracyDeadline, 'id' | 'createdAt' | 'updatedAt' | 'completed'>) => void;
+
+  toggleBureaucracyDeadline: (id: string) => void;
+
+  removeBureaucracyDeadline: (id: string) => void;
+
+
+
+  mentalLoadEvents: MentalLoadEvent[];
+
+  recordMentalLoad: (userId: string, type: MentalLoadType, description: string) => void;
+
 }
 
 
@@ -231,6 +274,12 @@ function loadLocalData() {
 
     mealPlan: loadMealPlan(),
 
+    pantry: loadFromStorage<PantryItem[]>(KEYS.pantry, []),
+
+    bureaucracyDeadlines: loadFromStorage<BureaucracyDeadline[]>(KEYS.bureaucracy, []),
+
+    mentalLoad: loadFromStorage<MentalLoadEvent[]>(KEYS.mentalLoad, []),
+
   };
 
 }
@@ -250,6 +299,12 @@ function cacheLocally(data: ReturnType<typeof loadLocalData>) {
   saveToStorage(KEYS.events, data.events);
 
   saveToStorage(KEYS.mealPlan, data.mealPlan);
+
+  saveToStorage(KEYS.pantry, data.pantry);
+
+  saveToStorage(KEYS.bureaucracy, data.bureaucracyDeadlines);
+
+  saveToStorage(KEYS.mentalLoad, data.mentalLoad);
 
 }
 
@@ -313,7 +368,7 @@ function upsertShoppingItemInList(
 
   quantity: string | undefined,
 
-  createdBy: UserId,
+  createdBy: string,
 
 ): { next: ShoppingListItem[]; item: ShoppingListItem } {
 
@@ -437,6 +492,12 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
   const [mealPlan, setMealPlan] = useState<MealPlanEntry[]>(local.mealPlan);
 
+  const [pantryItems, setPantryItems] = useState<PantryItem[]>(local.pantry);
+
+  const [bureaucracyDeadlines, setBureaucracyDeadlines] = useState<BureaucracyDeadline[]>(local.bureaucracyDeadlines);
+
+  const [mentalLoadEvents, setMentalLoadEvents] = useState<MentalLoadEvent[]>(local.mentalLoad);
+
   const [isShoppingBusy, setIsShoppingBusy] = useState(false);
 
 
@@ -467,6 +528,12 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     setEvents(data.events);
 
     setMealPlan(data.mealPlan);
+
+    setPantryItems(data.pantry);
+
+    setBureaucracyDeadlines(data.bureaucracyDeadlines);
+
+    setMentalLoadEvents(data.mentalLoad);
 
     cacheLocally(data);
 
@@ -710,6 +777,108 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
         break;
 
+      case 'pantry_items':
+
+        if (change.eventType === 'DELETE') {
+
+          setPantryItems((prev) => {
+
+            const next = prev.filter((p) => p.id !== change.id);
+
+            saveToStorage(KEYS.pantry, next);
+
+            return next;
+
+          });
+
+        } else {
+
+          setPantryItems((prev) => {
+
+            const next = prev.some((p) => p.id === change.item.id)
+
+              ? prev.map((p) => (p.id === change.item.id ? change.item : p))
+
+              : [...prev, change.item];
+
+            saveToStorage(KEYS.pantry, next);
+
+            return next;
+
+          });
+
+        }
+
+        break;
+
+      case 'bureaucracy_deadlines':
+
+        if (change.eventType === 'DELETE') {
+
+          setBureaucracyDeadlines((prev) => {
+
+            const next = prev.filter((d) => d.id !== change.id);
+
+            saveToStorage(KEYS.bureaucracy, next);
+
+            return next;
+
+          });
+
+        } else {
+
+          setBureaucracyDeadlines((prev) => {
+
+            const next = prev.some((d) => d.id === change.item.id)
+
+              ? prev.map((d) => (d.id === change.item.id ? change.item : d))
+
+              : [...prev, change.item];
+
+            saveToStorage(KEYS.bureaucracy, next);
+
+            return next;
+
+          });
+
+        }
+
+        break;
+
+      case 'mental_load_events':
+
+        if (change.eventType === 'DELETE') {
+
+          setMentalLoadEvents((prev) => {
+
+            const next = prev.filter((e) => e.id !== change.id);
+
+            saveToStorage(KEYS.mentalLoad, next);
+
+            return next;
+
+          });
+
+        } else {
+
+          setMentalLoadEvents((prev) => {
+
+            const next = prev.some((e) => e.id === change.item.id)
+
+              ? prev.map((e) => (e.id === change.item.id ? change.item : e))
+
+              : [change.item, ...prev];
+
+            saveToStorage(KEYS.mentalLoad, next);
+
+            return next;
+
+          });
+
+        }
+
+        break;
+
     }
 
   }, []);
@@ -904,6 +1073,36 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
     if (useCloud) return;
 
+    saveToStorage(KEYS.pantry, pantryItems);
+
+  }, [pantryItems, useCloud]);
+
+
+
+  useEffect(() => {
+
+    if (useCloud) return;
+
+    saveToStorage(KEYS.bureaucracy, bureaucracyDeadlines);
+
+  }, [bureaucracyDeadlines, useCloud]);
+
+
+
+  useEffect(() => {
+
+    if (useCloud) return;
+
+    saveToStorage(KEYS.mentalLoad, mentalLoadEvents);
+
+  }, [mentalLoadEvents, useCloud]);
+
+
+
+  useEffect(() => {
+
+    if (useCloud) return;
+
     return subscribeToStorage(KEYS.tasks, () => setTasks(loadTasksWithoutPrefab()));
 
   }, [useCloud]);
@@ -986,7 +1185,7 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
     quantity?: string,
 
-    createdBy: UserId = 'user1',
+    createdBy: string = 'user1',
 
   ) => {
 
@@ -1036,7 +1235,7 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
 
 
-  const addIngredientsToShopping = useCallback(async (ingredients: Ingredient[], createdBy: UserId) => {
+  const addIngredientsToShopping = useCallback(async (ingredients: Ingredient[], createdBy: string) => {
 
     for (const ing of ingredients) {
 
@@ -1303,6 +1502,91 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
 
 
+  const addPantryItem = useCallback((data: Omit<PantryItem, 'id' | 'createdAt' | 'updatedAt'>) => {
+    const now = new Date().toISOString();
+    const item: PantryItem = { ...data, id: createId(), createdAt: now, updatedAt: now };
+    setPantryItems((prev) => {
+      const next = [...prev, item];
+      saveToStorage(KEYS.pantry, next);
+      return next;
+    });
+    void cloudWrite(() => upsertPantryItem(item));
+  }, [cloudWrite]);
+
+
+
+  const removePantryItem = useCallback((id: string) => {
+    setPantryItems((prev) => {
+      const next = prev.filter((p) => p.id !== id);
+      saveToStorage(KEYS.pantry, next);
+      return next;
+    });
+    void cloudWrite(() => deletePantryItem(id), { skipEchoGuard: true });
+  }, [cloudWrite]);
+
+
+
+  const addBureaucracyDeadline = useCallback((
+    data: Omit<BureaucracyDeadline, 'id' | 'createdAt' | 'updatedAt' | 'completed'>,
+  ) => {
+    const now = new Date().toISOString();
+    const deadline: BureaucracyDeadline = { ...data, id: createId(), completed: false, createdAt: now, updatedAt: now };
+    setBureaucracyDeadlines((prev) => {
+      const next = [...prev, deadline];
+      saveToStorage(KEYS.bureaucracy, next);
+      return next;
+    });
+    void cloudWrite(() => upsertBureaucracyDeadline(deadline));
+  }, [cloudWrite]);
+
+
+
+  const toggleBureaucracyDeadline = useCallback((id: string) => {
+    setBureaucracyDeadlines((prev) => {
+      const updated = prev.map((d) =>
+        d.id === id ? { ...d, completed: !d.completed, updatedAt: new Date().toISOString() } : d,
+      );
+      const item = updated.find((d) => d.id === id);
+      if (item) void cloudWrite(() => upsertBureaucracyDeadline(item));
+      saveToStorage(KEYS.bureaucracy, updated);
+      return updated;
+    });
+  }, [cloudWrite]);
+
+
+
+  const removeBureaucracyDeadline = useCallback((id: string) => {
+    setBureaucracyDeadlines((prev) => {
+      const next = prev.filter((d) => d.id !== id);
+      saveToStorage(KEYS.bureaucracy, next);
+      return next;
+    });
+    void cloudWrite(() => deleteBureaucracyDeadline(id), { skipEchoGuard: true });
+  }, [cloudWrite]);
+
+
+
+  const recordMentalLoad = useCallback((userId: string, type: MentalLoadType, description: string) => {
+    const now = new Date().toISOString();
+    const event: MentalLoadEvent = {
+      id: createId(),
+      userId,
+      type,
+      weight: MENTAL_LOAD_WEIGHTS[type],
+      description,
+      date: toDateKey(new Date()),
+      createdAt: now,
+    };
+    setMentalLoadEvents((prev) => {
+      const next = [event, ...prev];
+      saveToStorage(KEYS.mentalLoad, next);
+      return next;
+    });
+    void cloudWrite(() => upsertMentalLoadEvent(event));
+  }, [cloudWrite]);
+
+
+
   return (
 
     <AppDataContext.Provider
@@ -1356,6 +1640,24 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
         mealPlan,
 
         setMealForDay,
+
+        pantryItems,
+
+        addPantryItem,
+
+        removePantryItem,
+
+        bureaucracyDeadlines,
+
+        addBureaucracyDeadline,
+
+        toggleBureaucracyDeadline,
+
+        removeBureaucracyDeadline,
+
+        mentalLoadEvents,
+
+        recordMentalLoad,
 
       }}
 

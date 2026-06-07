@@ -6,11 +6,6 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-const USER_NAMES: Record<string, string> = {
-  user1: 'Clara',
-  user2: 'Pascal',
-};
-
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
@@ -19,19 +14,18 @@ Deno.serve(async (req) => {
   try {
     const body = await req.json();
     const senderUserId = body.senderUserId as string;
+    const senderName = (body.senderName as string) ?? 'Jemand';
     const title = (body.title as string) ?? 'Haushalt';
     const messageBody = (body.body as string) ?? 'Die Einkaufsliste wurde aktualisiert.';
     const url = (body.url as string) ?? '/Clascal/einkauf';
     const householdId = (body.householdId as string) ?? 'clara-pascal';
 
-    if (senderUserId !== 'user1' && senderUserId !== 'user2') {
-      return new Response(JSON.stringify({ error: 'Ungültiger senderUserId' }), {
+    if (!senderUserId?.trim()) {
+      return new Response(JSON.stringify({ error: 'senderUserId fehlt' }), {
         status: 400,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
-
-    const partnerUserId = senderUserId === 'user1' ? 'user2' : 'user1';
 
     const supabaseUrl = Deno.env.get('SUPABASE_URL');
     const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
@@ -50,9 +44,9 @@ Deno.serve(async (req) => {
 
     const { data: subscriptions, error: dbError } = await supabase
       .from('push_subscriptions')
-      .select('endpoint, p256dh, auth')
+      .select('endpoint, p256dh, auth, user_id')
       .eq('household_id', householdId)
-      .eq('user_id', partnerUserId);
+      .neq('user_id', senderUserId);
 
     if (dbError) {
       return new Response(JSON.stringify({ error: dbError.message }), {
@@ -62,11 +56,10 @@ Deno.serve(async (req) => {
     }
 
     if (!subscriptions?.length) {
-      const partnerName = USER_NAMES[partnerUserId] ?? 'Partner';
       return new Response(
         JSON.stringify({
           sent: 0,
-          error: `${partnerName} hat noch keine Push-Benachrichtigungen aktiviert.`,
+          error: 'Keine Push-Registrierungen der anderen Mitglieder gefunden.',
         }),
         { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } },
       );
@@ -96,7 +89,7 @@ Deno.serve(async (req) => {
     return new Response(
       JSON.stringify({
         sent,
-        partner: USER_NAMES[partnerUserId],
+        sender: senderName,
         errors: errors.length ? errors : undefined,
       }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } },

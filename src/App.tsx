@@ -11,22 +11,36 @@ import { Einkauf } from '@/pages/Einkauf';
 import { Essen } from '@/pages/Essen';
 import { RecipeDetail } from '@/pages/RecipeDetail';
 import { Settings } from '@/pages/Settings';
+import { Radar } from '@/pages/Radar';
+
+function LoadingScreen() {
+  return (
+    <div className="flex min-h-dvh items-center justify-center text-sm text-white/40">
+      Wird geladen…
+    </div>
+  );
+}
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated } = useUser();
+  const { isAuthenticated, authLoading } = useUser();
+
+  if (authLoading) return <LoadingScreen />;
   if (!isAuthenticated) return <Navigate to="/" replace />;
   return <>{children}</>;
 }
 
-function AppRoutes() {
-  const { isAuthenticated } = useUser();
+function HomeRoute() {
+  const { isAuthenticated, authLoading } = useUser();
 
+  if (authLoading) return <LoadingScreen />;
+  if (isAuthenticated) return <Navigate to="/dashboard" replace />;
+  return <ProfileSelect />;
+}
+
+function AppRoutes() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <ProfileSelect />}
-      />
+      <Route path="/" element={<HomeRoute />} />
       <Route
         element={
           <ProtectedRoute>
@@ -35,6 +49,7 @@ function AppRoutes() {
         }
       >
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/radar" element={<Radar />} />
         <Route path="/haushaltsbuch" element={<Haushaltsbuch />} />
         <Route path="/kalender" element={<Kalender />} />
         <Route path="/einkauf" element={<Einkauf />} />

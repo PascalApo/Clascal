@@ -36,7 +36,7 @@ export function AppLayout() {
               </Link>
               <motion.button
                 whileTap={{ scale: 0.95 }}
-                onClick={logout}
+                onClick={() => void logout()}
                 className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm transition-colors accent-bg-muted hover:bg-white/10"
                 aria-label="Abmelden"
               >

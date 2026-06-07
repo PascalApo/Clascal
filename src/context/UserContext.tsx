@@ -21,8 +21,9 @@ import {
 } from '@/lib/user-colors';
 
 interface UserContextValue {
+  authLoading: boolean;
   user: UserProfile | null;
-  userId: UserId | null;
+  userId: string | null;
   theme: UserTheme | null;
   userColors: Record<UserId, string>;
   login: (id: UserId) => void;
@@ -33,24 +34,31 @@ interface UserContextValue {
   getThemeForUser: (id: UserId) => UserTheme;
   getAssigneeColor: (assignedTo: UserId | 'both') => string;
   themeStyle: CSSProperties;
+  getOtherMemberNames: () => string;
 }
 
 const UserContext = createContext<UserContextValue | null>(null);
 
-const STORAGE_KEY = 'haushalt-active-user';
+const LEGACY_STORAGE_KEY = 'haushalt-active-user';
 
-function getStoredUser(): UserId | null {
-  const stored = localStorage.getItem(STORAGE_KEY);
+function getStoredLegacyUser(): UserId | null {
+  const stored = localStorage.getItem(LEGACY_STORAGE_KEY);
   if (stored === 'user1' || stored === 'user2') return stored;
   return null;
 }
 
-function buildProfile(id: UserId, colors: Record<UserId, string>): UserProfile {
+function buildLegacyProfile(id: UserId, colors: Record<UserId, string>): UserProfile {
   return { ...USER_BASE[id], accentColor: colors[id] };
 }
 
+function getPartnerName(userId: UserId): string {
+  return USER_BASE[userId === 'user1' ? 'user2' : 'user1'].name;
+}
+
 export function UserProvider({ children }: { children: ReactNode }) {
-  const [userId, setUserId] = useState<UserId | null>(getStoredUser);
+  const authLoading = false;
+
+  const [legacyUserId, setLegacyUserId] = useState<UserId | null>(getStoredLegacyUser());
   const [userColors, setUserColorsState] = useState(loadUserColors);
 
   const setUserColor = useCallback((id: UserId, color: string) => {
@@ -62,9 +70,12 @@ export function UserProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  const resetUserColor = useCallback((id: UserId) => {
-    setUserColor(id, DEFAULT_USER_COLORS[id]);
-  }, [setUserColor]);
+  const resetUserColor = useCallback(
+    (id: UserId) => {
+      setUserColor(id, DEFAULT_USER_COLORS[id]);
+    },
+    [setUserColor],
+  );
 
   const getThemeForUser = useCallback(
     (id: UserId) => buildTheme(userColors[id]),
@@ -76,8 +87,18 @@ export function UserProvider({ children }: { children: ReactNode }) {
     [userColors],
   );
 
-  const user = userId ? buildProfile(userId, userColors) : null;
-  const theme = userId ? buildTheme(userColors[userId]) : null;
+  const isAuthenticated = legacyUserId !== null;
+  const userId = legacyUserId;
+
+  const user: UserProfile | null = useMemo(() => {
+    if (legacyUserId) return buildLegacyProfile(legacyUserId, userColors);
+    return null;
+  }, [legacyUserId, userColors]);
+
+  const theme = useMemo(() => {
+    if (legacyUserId) return buildTheme(userColors[legacyUserId]);
+    return null;
+  }, [legacyUserId, userColors]);
 
   const themeStyle = useMemo((): CSSProperties => {
     if (!theme) return {};
@@ -100,30 +121,37 @@ export function UserProvider({ children }: { children: ReactNode }) {
   }, [userColors]);
 
   const login = useCallback((id: UserId) => {
-    localStorage.setItem(STORAGE_KEY, id);
-    setUserId(id);
+    localStorage.setItem(LEGACY_STORAGE_KEY, id);
+    setLegacyUserId(id);
   }, []);
 
   const logout = useCallback(() => {
-    localStorage.removeItem(STORAGE_KEY);
-    setUserId(null);
+    localStorage.removeItem(LEGACY_STORAGE_KEY);
+    setLegacyUserId(null);
   }, []);
+
+  const getOtherMemberNames = useCallback(() => {
+    if (!legacyUserId) return 'Partner';
+    return getPartnerName(legacyUserId);
+  }, [legacyUserId]);
 
   return (
     <UserContext.Provider
       value={{
+        authLoading,
         user,
         userId,
         theme,
         userColors,
         login,
         logout,
-        isAuthenticated: userId !== null,
+        isAuthenticated,
         setUserColor,
         resetUserColor,
         getThemeForUser,
         getAssigneeColor: getAssigneeColorFn,
         themeStyle,
+        getOtherMemberNames,
       }}
     >
       {children}

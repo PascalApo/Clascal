@@ -1,4 +1,5 @@
-import { getSupabaseClient, HOUSEHOLD_ID, isSupabaseConfigured } from './client';
+import { getSupabaseClient, isSupabaseConfigured } from './client';
+import { HOUSEHOLD_ID } from './client';
 import { recipeFromRow } from './recipe-mappers';
 import type { Recipe } from '@/types/recipe';
 

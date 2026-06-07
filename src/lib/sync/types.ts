@@ -7,7 +7,7 @@ export interface SyncItem {
   id: string;
   createdAt: string;
   updatedAt: string;
-  createdBy: 'user1' | 'user2';
+  createdBy: string;
 }
 
 export type ShoppingCategoryId =

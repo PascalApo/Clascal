@@ -41,7 +41,6 @@ import { collectMealPlanIngredients } from '@/lib/meal-plan-ingredients';
 
 import { notifyPartnerShoppingUpdate } from '@/lib/push/partner-notify';
 
-import { getPartnerName } from '@/types/user';
 
 import {
 
@@ -65,7 +64,7 @@ import type { ShoppingListItem } from '@/lib/sync/types';
 
 export function Einkauf() {
 
-  const { userId } = useUser();
+  const { userId, user, getOtherMemberNames } = useUser();
 
   const { getRecipeById } = useRecipes();
 
@@ -115,7 +114,7 @@ export function Einkauf() {
 
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const partnerName = userId ? getPartnerName(userId) : 'Partner';
+  const partnerLabel = getOtherMemberNames();
 
 
 
@@ -191,7 +190,7 @@ export function Einkauf() {
 
     setNotifyError(null);
 
-    const result = await notifyPartnerShoppingUpdate(userId);
+    const result = await notifyPartnerShoppingUpdate(userId, user?.name ?? 'Jemand');
 
     if (result.ok) {
 
@@ -556,10 +555,10 @@ export function Einkauf() {
           <Bell size={16} />
         )}
         {notifyState === 'sent'
-          ? `${partnerName} informiert`
+          ? `${partnerLabel} informiert`
           : notifyState === 'error'
             ? notifyError ?? 'Fehler'
-            : `${partnerName} informieren`}
+            : `${partnerLabel} informieren`}
       </motion.button>
 
       {notifyState === 'error' && notifyError && (

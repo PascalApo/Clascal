@@ -14,7 +14,7 @@ export interface Expense {
   amount: number;
   category: ExpenseCategory;
   source: 'manual' | 'pdf';
-  createdBy: 'user1' | 'user2';
+  createdBy: string;
   createdAt: string;
 }
 

@@ -1,5 +1,5 @@
-import { getSupabaseClient, HOUSEHOLD_ID, isSupabaseConfigured } from '@/lib/supabase/client';
-import type { UserId } from '@/types/user';
+import { getSupabaseClient, isSupabaseConfigured } from '@/lib/supabase/client';
+import { HOUSEHOLD_ID } from '@/lib/supabase/client';
 
 function urlBase64ToUint8Array(base64String: string): Uint8Array {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
@@ -22,7 +22,7 @@ export function getVapidPublicKey(): string | null {
   return key || null;
 }
 
-async function savePushSubscription(userId: UserId, subscription: PushSubscription): Promise<void> {
+async function savePushSubscription(userId: string, subscription: PushSubscription): Promise<void> {
   const sb = getSupabaseClient();
   if (!sb) throw new Error('Supabase nicht konfiguriert');
 
@@ -47,7 +47,7 @@ async function savePushSubscription(userId: UserId, subscription: PushSubscripti
 }
 
 export async function ensurePushSubscription(
-  userId: UserId,
+  userId: string,
 ): Promise<{ ok: true } | { ok: false; error: string }> {
   if (!isSupabaseConfigured) {
     return { ok: false, error: 'Supabase nicht konfiguriert' };

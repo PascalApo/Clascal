@@ -15,8 +15,12 @@ import type {
 import type { MealPlanEntry } from '@/types/meal-plan';
 
 import type { Expense } from '@/types/expense';
+import type { PantryItem } from '@/types/pantry';
+import type { BureaucracyDeadline } from '@/types/bureaucracy-deadline';
+import type { MentalLoadEvent } from '@/types/mental-load';
 
-import { getSupabaseClient, HOUSEHOLD_ID } from './client';
+import { getSupabaseClient } from './client';
+import { HOUSEHOLD_ID } from './client';
 
 import {
 
@@ -45,6 +49,18 @@ import {
 
   expenseFromRow,
 
+  pantryToRow,
+
+  pantryFromRow,
+
+  bureaucracyToRow,
+
+  bureaucracyFromRow,
+
+  mentalLoadToRow,
+
+  mentalLoadFromRow,
+
 } from './mappers';
 
 
@@ -61,7 +77,13 @@ export type SyncTable =
 
   | 'meal_plan'
 
-  | 'expenses';
+  | 'expenses'
+
+  | 'pantry_items'
+
+  | 'bureaucracy_deadlines'
+
+  | 'mental_load_events';
 
 
 
@@ -79,6 +101,12 @@ export interface HouseholdData {
 
   expenses: Expense[];
 
+  pantry: PantryItem[];
+
+  bureaucracyDeadlines: BureaucracyDeadline[];
+
+  mentalLoad: MentalLoadEvent[];
+
 }
 
 
@@ -91,7 +119,17 @@ export async function fetchAllData(): Promise<HouseholdData | null> {
 
 
 
-  const [shoppingRes, usageRes, tasksRes, eventsRes, mealRes, expensesRes] = await Promise.all([
+  const [
+    shoppingRes,
+    usageRes,
+    tasksRes,
+    eventsRes,
+    mealRes,
+    expensesRes,
+    pantryRes,
+    bureaucracyRes,
+    mentalLoadRes,
+  ] = await Promise.all([
 
     sb.from('shopping_items').select('*').eq('household_id', HOUSEHOLD_ID).order('created_at', { ascending: false }),
 
@@ -104,6 +142,12 @@ export async function fetchAllData(): Promise<HouseholdData | null> {
     sb.from('meal_plan').select('*').eq('household_id', HOUSEHOLD_ID),
 
     sb.from('expenses').select('*').eq('household_id', HOUSEHOLD_ID).order('created_at', { ascending: false }),
+
+    sb.from('pantry_items').select('*').eq('household_id', HOUSEHOLD_ID).order('expires_on', { ascending: true }),
+
+    sb.from('bureaucracy_deadlines').select('*').eq('household_id', HOUSEHOLD_ID).order('due_date', { ascending: true }),
+
+    sb.from('mental_load_events').select('*').eq('household_id', HOUSEHOLD_ID).order('event_date', { ascending: false }),
 
   ]);
 
@@ -121,6 +165,12 @@ export async function fetchAllData(): Promise<HouseholdData | null> {
 
   if (expensesRes.error) throw expensesRes.error;
 
+  if (pantryRes.error) throw pantryRes.error;
+
+  if (bureaucracyRes.error) throw bureaucracyRes.error;
+
+  if (mentalLoadRes.error) throw mentalLoadRes.error;
+
 
 
   return {
@@ -136,6 +186,12 @@ export async function fetchAllData(): Promise<HouseholdData | null> {
     mealPlan: mealPlanFromRows(mealRes.data ?? []),
 
     expenses: (expensesRes.data ?? []).map((r) => expenseFromRow(r)),
+
+    pantry: (pantryRes.data ?? []).map((r) => pantryFromRow(r)),
+
+    bureaucracyDeadlines: (bureaucracyRes.data ?? []).map((r) => bureaucracyFromRow(r)),
+
+    mentalLoad: (mentalLoadRes.data ?? []).map((r) => mentalLoadFromRow(r)),
 
   };
 
@@ -176,6 +232,18 @@ export async function migrateLocalToCloud(local: HouseholdData): Promise<void> {
   }
 
   await sb.from('meal_plan').upsert(mealPlanToRows(local.mealPlan));
+
+  if (local.pantry.length > 0) {
+    await sb.from('pantry_items').upsert(local.pantry.map(pantryToRow));
+  }
+
+  if (local.bureaucracyDeadlines.length > 0) {
+    await sb.from('bureaucracy_deadlines').upsert(local.bureaucracyDeadlines.map(bureaucracyToRow));
+  }
+
+  if (local.mentalLoad.length > 0) {
+    await sb.from('mental_load_events').upsert(local.mentalLoad.map(mentalLoadToRow));
+  }
 
 }
 
@@ -430,6 +498,56 @@ export async function deleteExpense(id: string) {
 
 
 
+// ── Pantry ──
+
+export async function upsertPantryItem(item: PantryItem) {
+  const sb = getSupabaseClient();
+  if (!sb) return;
+  const { error } = await sb.from('pantry_items').upsert(pantryToRow(item));
+  if (error) throw error;
+}
+
+export async function deletePantryItem(id: string) {
+  const sb = getSupabaseClient();
+  if (!sb) return;
+  const { error } = await sb.from('pantry_items').delete().eq('id', id);
+  if (error) throw error;
+}
+
+// ── Bureaucracy ──
+
+export async function upsertBureaucracyDeadline(deadline: BureaucracyDeadline) {
+  const sb = getSupabaseClient();
+  if (!sb) return;
+  const { error } = await sb.from('bureaucracy_deadlines').upsert(bureaucracyToRow(deadline));
+  if (error) throw error;
+}
+
+export async function deleteBureaucracyDeadline(id: string) {
+  const sb = getSupabaseClient();
+  if (!sb) return;
+  const { error } = await sb.from('bureaucracy_deadlines').delete().eq('id', id);
+  if (error) throw error;
+}
+
+// ── Mental Load ──
+
+export async function upsertMentalLoadEvent(event: MentalLoadEvent) {
+  const sb = getSupabaseClient();
+  if (!sb) return;
+  const { error } = await sb.from('mental_load_events').upsert(mentalLoadToRow(event));
+  if (error) throw error;
+}
+
+export async function deleteMentalLoadEvent(id: string) {
+  const sb = getSupabaseClient();
+  if (!sb) return;
+  const { error } = await sb.from('mental_load_events').delete().eq('id', id);
+  if (error) throw error;
+}
+
+
+
 // ── Realtime ──
 
 export type RealtimeChange =
@@ -456,7 +574,19 @@ export type RealtimeChange =
 
   | { table: 'meal_plan'; eventType: 'DELETE'; weekday: number }
 
-  | { table: 'meal_plan'; eventType: 'INSERT' | 'UPDATE'; entry: MealPlanEntry };
+  | { table: 'meal_plan'; eventType: 'INSERT' | 'UPDATE'; entry: MealPlanEntry }
+
+  | { table: 'pantry_items'; eventType: 'DELETE'; id: string }
+
+  | { table: 'pantry_items'; eventType: 'INSERT' | 'UPDATE'; item: PantryItem }
+
+  | { table: 'bureaucracy_deadlines'; eventType: 'DELETE'; id: string }
+
+  | { table: 'bureaucracy_deadlines'; eventType: 'INSERT' | 'UPDATE'; item: BureaucracyDeadline }
+
+  | { table: 'mental_load_events'; eventType: 'DELETE'; id: string }
+
+  | { table: 'mental_load_events'; eventType: 'INSERT' | 'UPDATE'; item: MentalLoadEvent };
 
 
 
@@ -586,6 +716,18 @@ export function parseRealtimeChange(table: SyncTable, payload: PostgresChangePay
 
       }
 
+      case 'pantry_items':
+
+        return { table, eventType, item: pantryFromRow(newRow) };
+
+      case 'bureaucracy_deadlines':
+
+        return { table, eventType, item: bureaucracyFromRow(newRow) };
+
+      case 'mental_load_events':
+
+        return { table, eventType, item: mentalLoadFromRow(newRow) };
+
     }
 
   }
@@ -607,7 +749,7 @@ function assertValidHouseholdId(): string {
   const id = HOUSEHOLD_ID?.trim();
   if (!id) {
     throw new Error(
-      '[Realtime] VITE_HOUSEHOLD_ID ist undefined oder leer – Subscription abgebrochen.',
+      '[Realtime] Haushalt-ID ist leer – Subscription abgebrochen.',
     );
   }
   return id;
@@ -764,6 +906,9 @@ export async function subscribeToHousehold(
     'calendar_events',
     'meal_plan',
     'expenses',
+    'pantry_items',
+    'bureaucracy_deadlines',
+    'mental_load_events',
   ];
 
   const subscriptions: TableSubscription[] = tables.map(() => ({

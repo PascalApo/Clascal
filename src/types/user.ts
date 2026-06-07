@@ -1,7 +1,7 @@
 export type UserId = 'user1' | 'user2';
 
 export interface UserProfile {
-  id: UserId;
+  id: string;
   name: string;
   accentColor: string;
 }

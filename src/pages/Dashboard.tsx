@@ -5,10 +5,17 @@ import {
   CalendarDays,
   ShoppingCart,
   ChefHat,
+  Radar,
   ArrowRight,
 } from 'lucide-react';
 
 const modules = [
+  {
+    to: '/radar',
+    icon: Radar,
+    title: 'Haushalts-Radar',
+    desc: 'Wochen-Briefing & Proaktiv-Plan',
+  },
   {
     to: '/haushaltsbuch',
     icon: Wallet,
@@ -48,7 +55,7 @@ export function Dashboard() {
           Alles im Blick
         </h2>
         <p className="mt-2 text-sm text-white/40">
-          Finanzen, Planung, Einkauf und Essen — alles an einem Ort.
+          Radar, Finanzen, Planung, Einkauf und Essen — alles vernetzt.
         </p>
       </motion.div>
 
