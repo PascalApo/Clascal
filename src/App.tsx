@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { UserProvider, useUser } from '@/context/UserContext';
 import { AppDataProvider } from '@/context/AppDataContext';
+import { RecipesProvider } from '@/context/RecipesContext';
 import { AppLayout } from '@/components/layout/AppLayout';
 import { ProfileSelect } from '@/pages/ProfileSelect';
 import { Dashboard } from '@/pages/Dashboard';
@@ -50,9 +51,11 @@ export default function App() {
   return (
     <UserProvider>
       <AppDataProvider>
-        <BrowserRouter basename="/Clascal">
-          <AppRoutes />
-        </BrowserRouter>
+        <RecipesProvider>
+          <BrowserRouter basename="/Clascal">
+            <AppRoutes />
+          </BrowserRouter>
+        </RecipesProvider>
       </AppDataProvider>
     </UserProvider>
   );

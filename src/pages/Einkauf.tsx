@@ -25,6 +25,7 @@ import { PageHeader } from '@/components/ui/PageHeader';
 import { QuantitySelect } from '@/components/einkauf/QuantitySelect';
 
 import { QuantityBadge } from '@/components/einkauf/QuantityBadge';
+import { MealPlanShoppingChecklist } from '@/components/einkauf/MealPlanShoppingChecklist';
 
 import { useAppData } from '@/context/AppDataContext';
 
@@ -456,7 +457,7 @@ export function Einkauf() {
 
       </div>
 
-
+      <MealPlanShoppingChecklist />
 
       <div className="glass-card space-y-3 p-4">
 

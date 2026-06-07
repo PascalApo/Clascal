@@ -1,19 +1,25 @@
 import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, Users, ShoppingCart, Minus, Plus, Flame } from 'lucide-react';
+import { ArrowLeft, Clock, Users, ShoppingCart, Minus, Plus, Flame, Leaf } from 'lucide-react';
 import { useUser } from '@/context/UserContext';
 import { useAppData } from '@/context/AppDataContext';
-import { getRecipeById, scaleIngredients } from '@/lib/recipes';
+import { useRecipes } from '@/context/RecipesContext';
+import { scaleIngredients } from '@/lib/recipes';
 
 export function RecipeDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { userId } = useUser();
   const { addIngredientsToShopping } = useAppData();
+  const { getRecipeById, loading } = useRecipes();
   const recipe = id ? getRecipeById(id) : undefined;
   const [servings, setServings] = useState(recipe?.servings ?? 2);
   const [added, setAdded] = useState(false);
+
+  if (loading) {
+    return <p className="py-20 text-center text-white/40">Rezept wird geladen…</p>;
+  }
 
   if (!recipe) {
     return (
@@ -57,7 +63,17 @@ export function RecipeDetail() {
         animate={{ opacity: 1, y: 0 }}
         className="glass-card border p-5 accent-border"
       >
-        <h1 className="font-display text-xl font-bold accent-gradient-text">{recipe.name}</h1>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="rounded-lg px-2 py-0.5 text-[10px] accent-bg-muted accent-text">
+            {recipe.mealCategory}
+          </span>
+          {recipe.isHealthy && (
+            <span className="flex items-center gap-1 rounded-lg bg-green-500/15 px-2 py-0.5 text-[10px] text-green-400">
+              <Leaf size={10} /> Gesund
+            </span>
+          )}
+        </div>
+        <h1 className="mt-2 font-display text-xl font-bold accent-gradient-text">{recipe.name}</h1>
         <p className="mt-2 text-sm text-white/50">{recipe.description}</p>
         <div className="mt-4 flex flex-wrap gap-3 text-xs text-white/40">
           <span className="flex items-center gap-1">
@@ -139,16 +155,20 @@ export function RecipeDetail() {
 
       <div className="glass-card p-4">
         <h3 className="mb-3 text-sm font-medium text-white/60">Zubereitung</h3>
-        <ol className="space-y-3">
-          {recipe.steps.map((step, i) => (
-            <li key={i} className="flex gap-3 text-sm">
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold accent-bg-muted accent-text">
-                {i + 1}
-              </span>
-              <span className="text-white/70 leading-relaxed">{step}</span>
-            </li>
-          ))}
-        </ol>
+        {recipe.steps.length === 0 ? (
+          <p className="text-sm text-white/35">Keine Schritte hinterlegt.</p>
+        ) : (
+          <ol className="space-y-4">
+            {recipe.steps.map((step, i) => (
+              <li key={i} className="flex gap-3 text-sm">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold accent-bg-muted accent-text">
+                  {i + 1}
+                </span>
+                <span className="pt-1 leading-relaxed text-white/75">{step}</span>
+              </li>
+            ))}
+          </ol>
+        )}
       </div>
     </div>
   );

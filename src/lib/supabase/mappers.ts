@@ -158,7 +158,9 @@ export function mealPlanToRows(plan: MealPlanEntry[]) {
   return plan.map((entry) => ({
     household_id: HOUSEHOLD_ID,
     weekday: entry.weekday,
-    recipe_id: entry.recipeId,
+    breakfast_recipe_id: entry.breakfastRecipeId,
+    dinner_recipe_id: entry.dinnerRecipeId,
+    recipe_id: entry.dinnerRecipeId,
     updated_at: now,
   }));
 }
@@ -166,14 +168,17 @@ export function mealPlanToRows(plan: MealPlanEntry[]) {
 export function mealPlanFromRows(rows: Record<string, unknown>[]): MealPlanEntry[] {
   const base: MealPlanEntry[] = Array.from({ length: 7 }, (_, i) => ({
     weekday: i as MealPlanEntry['weekday'],
-    recipeId: null,
+    breakfastRecipeId: null,
+    dinnerRecipeId: null,
   }));
   for (const row of rows) {
     const wd = row.weekday as number;
     if (wd >= 0 && wd <= 6) {
       base[wd] = {
         weekday: wd as MealPlanEntry['weekday'],
-        recipeId: (row.recipe_id as string) ?? null,
+        breakfastRecipeId: (row.breakfast_recipe_id as string) ?? null,
+        dinnerRecipeId:
+          (row.dinner_recipe_id as string) ?? (row.recipe_id as string) ?? null,
       };
     }
   }

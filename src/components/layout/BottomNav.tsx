@@ -13,7 +13,7 @@ const navItems = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Home' },
   { to: '/haushaltsbuch', icon: Wallet, label: 'Geld' },
   { to: '/kalender', icon: CalendarDays, label: 'Plan' },
-  { to: '/einkauf', icon: ShoppingCart, label: 'Shop' },
+  { to: '/einkauf', icon: ShoppingCart, label: 'Einkauf' },
   { to: '/essen', icon: ChefHat, label: 'Essen' },
 ];
 

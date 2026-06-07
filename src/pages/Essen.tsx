@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Dices, Search, ChevronRight, Clock, Flame } from 'lucide-react';
+import { Dices, Search, ChevronRight, Clock, Flame, Coffee, Moon } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { useAppData } from '@/context/AppDataContext';
-import { getAllRecipes, getRandomRecipe, getRecipeById } from '@/lib/recipes';
-import { WEEKDAY_LABELS, WEEKDAY_FULL } from '@/types/meal-plan';
+import { useRecipes } from '@/context/RecipesContext';
+import { generateBreakfast, generateDinner } from '@/lib/recipes';
+import { WEEKDAY_LABELS, WEEKDAY_FULL, type MealSlot } from '@/types/meal-plan';
 import type { RecipeCategory } from '@/types/recipe';
 
-const CATEGORY_LABELS: Record<RecipeCategory, string> = {
+const CUISINE_LABELS: Record<RecipeCategory, string> = {
   klassiker: 'Klassiker',
   pasta: 'Pasta',
   auflauf: 'Aufläufe',
@@ -22,89 +23,147 @@ const CATEGORY_LABELS: Record<RecipeCategory, string> = {
 
 export function Essen() {
   const { mealPlan, setMealForDay } = useAppData();
-  const recipes = getAllRecipes();
+  const { recipes, loading, getRecipeById } = useRecipes();
   const [search, setSearch] = useState('');
   const [filterCat, setFilterCat] = useState<RecipeCategory | 'all'>('all');
-  const [diceRecipe, setDiceRecipe] = useState<string | null>(null);
   const [assignDay, setAssignDay] = useState<number | null>(null);
+  const [assignSlot, setAssignSlot] = useState<MealSlot>('dinner');
+  const [lastPicked, setLastPicked] = useState<{ slot: MealSlot; id: string } | null>(null);
+
+  const healthyCount = recipes.filter((r) => r.isHealthy).length;
 
   const filtered = recipes.filter((r) => {
     const matchSearch = r.name.toLowerCase().includes(search.toLowerCase());
-    const matchCat = filterCat === 'all' || r.category === filterCat;
+    const matchCat = filterCat === 'all' || r.cuisineCategory === filterCat;
     return matchSearch && matchCat;
   });
 
-  const handleDice = () => {
-    const recipe = getRandomRecipe();
-    setDiceRecipe(recipe.id);
+  const assignRecipe = (recipeId: string, slot: MealSlot) => {
     if (assignDay !== null) {
-      setMealForDay(assignDay, recipe.id);
+      setMealForDay(assignDay, slot, recipeId);
       setAssignDay(null);
     }
+    setLastPicked({ slot, id: recipeId });
   };
 
-  const diceResult = diceRecipe ? getRecipeById(diceRecipe) : null;
+  const handleGenerateBreakfast = () => {
+    const recipe = generateBreakfast(recipes);
+    if (!recipe) return;
+    assignRecipe(recipe.id, 'breakfast');
+  };
+
+  const handleGenerateDinner = () => {
+    const recipe = generateDinner(recipes);
+    if (!recipe) return;
+    assignRecipe(recipe.id, 'dinner');
+  };
+
+  const lastRecipe = lastPicked ? getRecipeById(lastPicked.id) : null;
+
+  const selectDaySlot = (day: number, slot: MealSlot) => {
+    if (assignDay === day && assignSlot === slot) {
+      setAssignDay(null);
+      return;
+    }
+    setAssignDay(day);
+    setAssignSlot(slot);
+  };
 
   return (
     <div className="space-y-5 pb-4">
-      <PageHeader title="Essensplaner" subtitle={`${recipes.length} gesunde Rezepte`} />
+      <PageHeader
+        title="Essensplaner"
+        subtitle={
+          loading
+            ? 'Rezepte werden geladen…'
+            : `${recipes.length} Rezepte · ${healthyCount} gesund`
+        }
+      />
 
       <div className="glass-card p-4">
         <h3 className="mb-3 text-sm font-medium text-white/60">Wochenplan</h3>
-        <div className="grid grid-cols-7 gap-1.5">
-          {WEEKDAY_LABELS.map((label, i) => {
-            const entry = mealPlan.find((m) => m.weekday === i);
-            const recipe = entry?.recipeId ? getRecipeById(entry.recipeId) : null;
-            return (
-              <button
-                key={label}
-                onClick={() => setAssignDay(assignDay === i ? null : i)}
-                className={`rounded-xl p-2 text-center transition-colors ${
-                  assignDay === i ? 'accent-bg-muted ring-1 accent-border' : 'bg-dark-200/50'
-                }`}
-              >
-                <p className="text-[10px] text-white/40">{label}</p>
-                <p className="mt-1 text-[10px] leading-tight text-white/70 line-clamp-2">
-                  {recipe ? recipe.name.split(' ').slice(0, 2).join(' ') : '—'}
-                </p>
-              </button>
-            );
-          })}
+        <div className="space-y-3">
+          {(['breakfast', 'dinner'] as MealSlot[]).map((slot) => (
+            <div key={slot}>
+              <p className="mb-1.5 flex items-center gap-1.5 text-[10px] uppercase tracking-wide text-white/35">
+                {slot === 'breakfast' ? <Coffee size={12} /> : <Moon size={12} />}
+                {slot === 'breakfast' ? 'Frühstück' : 'Abendessen'}
+              </p>
+              <div className="grid grid-cols-7 gap-1.5">
+                {WEEKDAY_LABELS.map((label, i) => {
+                  const entry = mealPlan.find((m) => m.weekday === i);
+                  const recipeId = slot === 'breakfast' ? entry?.breakfastRecipeId : entry?.dinnerRecipeId;
+                  const recipe = recipeId ? getRecipeById(recipeId) : null;
+                  const isSelected = assignDay === i && assignSlot === slot;
+                  return (
+                    <button
+                      key={`${slot}-${label}`}
+                      onClick={() => selectDaySlot(i, slot)}
+                      className={`rounded-xl p-2 text-center transition-colors ${
+                        isSelected ? 'accent-bg-muted ring-1 accent-border' : 'bg-dark-200/50'
+                      }`}
+                    >
+                      <p className="text-[10px] text-white/40">{label}</p>
+                      <p className="mt-1 text-[10px] leading-tight text-white/70 line-clamp-2">
+                        {recipe ? recipe.name.split(' ').slice(0, 2).join(' ') : '—'}
+                      </p>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
         {assignDay !== null && (
           <p className="mt-2 text-center text-xs text-white/40">
-            Tag ausgewählt: {WEEKDAY_FULL[assignDay]} – Würfeln oder Rezept antippen
+            {WEEKDAY_FULL[assignDay]} · {assignSlot === 'breakfast' ? 'Frühstück' : 'Abendessen'} – Würfeln oder Rezept wählen
           </p>
         )}
       </div>
 
-      <motion.button
-        whileTap={{ scale: 0.97 }}
-        onClick={handleDice}
-        className="glass-card flex w-full items-center justify-center gap-3 border py-4 accent-border"
-      >
-        <motion.div animate={{ rotate: [0, 360] }} transition={{ duration: 0.6 }} key={diceRecipe}>
-          <Dices size={28} className="accent-text" />
-        </motion.div>
-        <span className="font-display text-sm font-bold accent-gradient-text">
-          {assignDay !== null ? `Zufallsgericht für ${WEEKDAY_FULL[assignDay]}` : 'Zufalls-Würfel'}
-        </span>
-      </motion.button>
+      <div className="grid grid-cols-2 gap-3">
+        <motion.button
+          whileTap={{ scale: 0.97 }}
+          onClick={handleGenerateBreakfast}
+          disabled={loading || recipes.length === 0}
+          className="glass-card flex flex-col items-center gap-2 border py-4 accent-border disabled:opacity-40"
+        >
+          <Coffee size={22} className="accent-text" />
+          <span className="text-center font-display text-xs font-bold accent-gradient-text">
+            Frühstück würfeln
+          </span>
+        </motion.button>
+        <motion.button
+          whileTap={{ scale: 0.97 }}
+          onClick={handleGenerateDinner}
+          disabled={loading || recipes.length === 0}
+          className="glass-card flex flex-col items-center gap-2 border py-4 accent-border disabled:opacity-40"
+        >
+          <Dices size={22} className="accent-text" />
+          <span className="text-center font-display text-xs font-bold accent-gradient-text">
+            Abendessen würfeln
+          </span>
+        </motion.button>
+      </div>
 
-      {diceResult && (
+      {lastRecipe && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className="glass-card border p-4 accent-border"
         >
-          <Link to={`/essen/${diceResult.id}`} className="flex items-center gap-3">
+          <Link to={`/essen/${lastRecipe.id}`} className="flex items-center gap-3">
             <div className="rounded-xl p-3 accent-bg-muted">
               <Flame size={20} className="accent-text" />
             </div>
             <div className="flex-1">
-              <p className="font-medium accent-gradient-text">{diceResult.name}</p>
+              <p className="text-[10px] uppercase text-white/35">
+                {lastPicked?.slot === 'breakfast' ? 'Frühstück' : 'Abendessen'}
+                {lastRecipe.isHealthy && ' · Gesund'}
+              </p>
+              <p className="font-medium accent-gradient-text">{lastRecipe.name}</p>
               <p className="text-xs text-white/40">
-                {diceResult.nutrition.calories} kcal · {diceResult.prepTime + diceResult.cookTime} Min.
+                {lastRecipe.nutrition.calories} kcal · {lastRecipe.prepTime + lastRecipe.cookTime} Min.
               </p>
             </div>
             <ChevronRight size={18} className="text-white/30" />
@@ -132,7 +191,7 @@ export function Essen() {
         >
           Alle
         </button>
-        {(Object.keys(CATEGORY_LABELS) as RecipeCategory[]).map((cat) => (
+        {(Object.keys(CUISINE_LABELS) as RecipeCategory[]).map((cat) => (
           <button
             key={cat}
             onClick={() => setFilterCat(cat)}
@@ -140,7 +199,7 @@ export function Essen() {
               filterCat === cat ? 'accent-bg-muted accent-text' : 'text-white/40'
             }`}
           >
-            {CATEGORY_LABELS[cat]}
+            {CUISINE_LABELS[cat]}
           </button>
         ))}
       </div>
@@ -157,14 +216,14 @@ export function Essen() {
               to={`/essen/${recipe.id}`}
               onClick={() => {
                 if (assignDay !== null) {
-                  setMealForDay(assignDay, recipe.id);
+                  setMealForDay(assignDay, assignSlot, recipe.id);
                   setAssignDay(null);
                 }
               }}
               className="glass-card flex items-center gap-3 p-3 transition-colors hover:bg-white/5"
             >
               <div className="rounded-lg px-2 py-1 text-[10px] accent-bg-muted accent-text">
-                {CATEGORY_LABELS[recipe.category]}
+                {recipe.mealCategory}
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm">{recipe.name}</p>
@@ -173,17 +232,18 @@ export function Essen() {
                   {recipe.prepTime + recipe.cookTime} Min.
                   <span>·</span>
                   {recipe.nutrition.calories} kcal
+                  {recipe.isHealthy && (
+                    <>
+                      <span>·</span>
+                      <span className="text-green-400/80">gesund</span>
+                    </>
+                  )}
                 </div>
               </div>
               <ChevronRight size={16} className="text-white/20" />
             </Link>
           </motion.div>
         ))}
-        {filtered.length > 30 && (
-          <p className="text-center text-xs text-white/30">
-            +{filtered.length - 30} weitere Rezepte (Suche eingrenzen)
-          </p>
-        )}
       </div>
     </div>
   );

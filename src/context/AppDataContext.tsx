@@ -18,7 +18,12 @@ import {
 
 import type { Expense, ExpenseCategory } from '@/types/expense';
 
-import type { MealPlanEntry } from '@/types/meal-plan';
+import {
+  createDefaultMealPlan,
+  normalizeMealPlanEntry,
+  type MealPlanEntry,
+  type MealSlot,
+} from '@/types/meal-plan';
 
 import type {
 
@@ -120,13 +125,13 @@ function loadTasksWithoutPrefab(): Task[] {
 
 
 
-const DEFAULT_MEAL_PLAN: MealPlanEntry[] = Array.from({ length: 7 }, (_, i) => ({
+const DEFAULT_MEAL_PLAN = createDefaultMealPlan();
 
-  weekday: i as MealPlanEntry['weekday'],
-
-  recipeId: null,
-
-}));
+function loadMealPlan(): MealPlanEntry[] {
+  const stored = loadFromStorage<Record<string, unknown>[]>(KEYS.mealPlan, []);
+  if (!stored.length) return DEFAULT_MEAL_PLAN;
+  return stored.map((entry) => normalizeMealPlanEntry(entry));
+}
 
 
 
@@ -200,7 +205,7 @@ interface AppDataContextValue {
 
   mealPlan: MealPlanEntry[];
 
-  setMealForDay: (weekday: number, recipeId: string | null) => void;
+  setMealForDay: (weekday: number, slot: MealSlot, recipeId: string | null) => void;
 
 }
 
@@ -224,7 +229,7 @@ function loadLocalData() {
 
     events: loadFromStorage<CalendarEvent[]>(KEYS.events, EMPTY_EVENTS),
 
-    mealPlan: loadFromStorage<MealPlanEntry[]>(KEYS.mealPlan, DEFAULT_MEAL_PLAN),
+    mealPlan: loadMealPlan(),
 
   };
 
@@ -687,7 +692,11 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
             change.eventType === 'DELETE'
 
-              ? { weekday: change.weekday as MealPlanEntry['weekday'], recipeId: null }
+              ? {
+                  weekday: change.weekday as MealPlanEntry['weekday'],
+                  breakfastRecipeId: null,
+                  dinnerRecipeId: null,
+                }
 
               : change.entry;
 
@@ -1277,18 +1286,19 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
 
 
-  const setMealForDay = useCallback((weekday: number, recipeId: string | null) => {
-
-    const entry: MealPlanEntry = { weekday: weekday as MealPlanEntry['weekday'], recipeId };
-
-    setMealPlan((prev) =>
-
-      prev.map((e) => (e.weekday === weekday ? entry : e)),
-
-    );
-
-    void cloudWrite(() => upsertMealPlanEntry(entry));
-
+  const setMealForDay = useCallback((weekday: number, slot: MealSlot, recipeId: string | null) => {
+    setMealPlan((prev) => {
+      const next = prev.map((e) => {
+        if (e.weekday !== weekday) return e;
+        return slot === 'breakfast'
+          ? { ...e, breakfastRecipeId: recipeId }
+          : { ...e, dinnerRecipeId: recipeId };
+      });
+      const entry = next.find((e) => e.weekday === weekday)!;
+      saveToStorage(KEYS.mealPlan, next);
+      void cloudWrite(() => upsertMealPlanEntry(entry));
+      return next;
+    });
   }, [cloudWrite]);
 
 

@@ -574,7 +574,11 @@ export function parseRealtimeChange(table: SyncTable, payload: PostgresChangePay
 
             weekday: weekday as MealPlanEntry['weekday'],
 
-            recipeId: (newRow.recipe_id as string) ?? null,
+            breakfastRecipeId: (newRow.breakfast_recipe_id as string) ?? null,
+
+            dinnerRecipeId:
+
+              (newRow.dinner_recipe_id as string) ?? (newRow.recipe_id as string) ?? null,
 
           },
 

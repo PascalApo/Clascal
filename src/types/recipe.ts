@@ -9,6 +9,9 @@ export type RecipeCategory =
   | 'suppe'
   | 'fruehstueck';
 
+/** Supabase-Spalte category: Frühstück oder Abendessen */
+export type MealCategory = 'Frühstück' | 'Abendessen';
+
 export type MeatType = 'rind' | 'schwein' | 'haehnchen' | 'keins';
 
 export interface Ingredient {
@@ -29,7 +32,11 @@ export interface Nutrition {
 export interface Recipe {
   id: string;
   name: string;
-  category: RecipeCategory;
+  /** Supabase: category ('Frühstück' | 'Abendessen') */
+  mealCategory: MealCategory;
+  isHealthy: boolean;
+  /** Lokale Küchen-Kategorie (JSON) oder cuisine_category aus Supabase */
+  cuisineCategory?: RecipeCategory;
   description: string;
   prepTime: number;
   cookTime: number;
@@ -37,6 +44,7 @@ export interface Recipe {
   difficulty: 'einfach' | 'mittel' | 'anspruchsvoll';
   meatType: MeatType;
   ingredients: Ingredient[];
+  /** Schritt-für-Schritt-Anleitung als Array */
   steps: string[];
   nutrition: Nutrition;
   tags: string[];
