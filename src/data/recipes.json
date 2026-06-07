@@ -1,0 +1,6295 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-06-07",
+  "recipes": [
+    {
+      "id": "r001",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Spaghetti Bolognese",
+      "category": "klassiker",
+      "description": "Der zeitlose Klassiker mit Rinderhack und Tomatensoße.",
+      "prepTime": 15,
+      "cookTime": 40,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Spaghetti",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Tomaten (Dose)",
+          "amount": 400,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 1,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Knoblauch",
+          "amount": 2,
+          "unit": "Zehen",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Tomatenmark",
+          "amount": 2,
+          "unit": "EL",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Oregano",
+          "amount": 1,
+          "unit": "TL",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Basilikum",
+          "amount": 1,
+          "unit": "Bund",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Zwiebel und Knoblauch fein würfeln und in Olivenöl anbraten.",
+        "Rinderhack hinzufügen und krümelig braten.",
+        "Tomatenmark einrühren, dann Dosentomaten und Gewürze zugeben.",
+        "30 Min. köcheln lassen. Spaghetti kochen und mit Soße servieren."
+      ],
+      "nutrition": {
+        "calories": 520,
+        "protein": 32,
+        "carbs": 58,
+        "fat": 18,
+        "fiber": 6
+      },
+      "tags": [
+        "klassiker",
+        "pasta",
+        "rind"
+      ]
+    },
+    {
+      "id": "r002",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Nudeln mit Tomatensoße",
+      "category": "klassiker",
+      "description": "Einfache, gesunde Tomatensoße über Penne.",
+      "prepTime": 10,
+      "cookTime": 25,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Penne",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Tomaten (Dose)",
+          "amount": 400,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Knoblauch",
+          "amount": 3,
+          "unit": "Zehen",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 3,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Basilikum",
+          "amount": 1,
+          "unit": "Bund",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Zucker",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "sonstiges"
+        }
+      ],
+      "steps": [
+        "Knoblauch in Olivenöl andünsten.",
+        "Tomaten zugeben, würzen und 20 Min. köcheln.",
+        "Penne al dente kochen, mit Soße und Basilikum servieren."
+      ],
+      "nutrition": {
+        "calories": 380,
+        "protein": 12,
+        "carbs": 62,
+        "fat": 10,
+        "fiber": 5
+      },
+      "tags": [
+        "vegetarisch",
+        "pasta",
+        "schnell"
+      ]
+    },
+    {
+      "id": "r003",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Geschnetzeltes mit Reis",
+      "category": "klassiker",
+      "description": "Zartes Hähnchengeschnetzeltes in Sahnesoße mit Basmatireis.",
+      "prepTime": 15,
+      "cookTime": 25,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Basmatireis",
+          "amount": 200,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Sahne",
+          "amount": 150,
+          "unit": "ml",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 1,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprika",
+          "amount": 1,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Brühe",
+          "amount": 100,
+          "unit": "ml",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Petersilie",
+          "amount": 1,
+          "unit": "Bund",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Reis kochen. Hähnchen in Streifen schneiden.",
+        "Zwiebel und Paprika anbraten, Hähnchen zugeben und braten.",
+        "Sahne und Brühe einrühren, 10 Min. köcheln.",
+        "Mit Petersilie bestreuen und mit Reis servieren."
+      ],
+      "nutrition": {
+        "calories": 480,
+        "protein": 38,
+        "carbs": 45,
+        "fat": 16,
+        "fiber": 3
+      },
+      "tags": [
+        "klassiker",
+        "haehnchen",
+        "reis"
+      ]
+    },
+    {
+      "id": "r004",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchensalat mit Gurke",
+      "category": "salat",
+      "description": "Leichter, proteinreicher Salat mit gegrilltem Hähnchen.",
+      "prepTime": 20,
+      "cookTime": 15,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Salat (gemischt)",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Gurke",
+          "amount": 1,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 3,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Zitronensaft",
+          "amount": 2,
+          "unit": "EL",
+          "category": "obst"
+        },
+        {
+          "name": "Honig",
+          "amount": 1,
+          "unit": "TL",
+          "category": "sonstiges"
+        }
+      ],
+      "steps": [
+        "Hähnchen würzen und in der Pfanne braten, dann in Streifen schneiden.",
+        "Salat, Gurke und Tomaten vorbereiten.",
+        "Dressing aus Olivenöl, Zitronensaft und Honig mixen.",
+        "Alles vermengen und servieren."
+      ],
+      "nutrition": {
+        "calories": 320,
+        "protein": 35,
+        "carbs": 12,
+        "fat": 16,
+        "fiber": 4
+      },
+      "tags": [
+        "salat",
+        "haehnchen",
+        "gesund"
+      ]
+    },
+    {
+      "id": "r005",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rindersteak mit Kartoffeln",
+      "category": "ofen",
+      "description": "Saftiges Rindersteak mit Ofenkartoffeln und Kräuterbutter.",
+      "prepTime": 15,
+      "cookTime": 35,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rindersteak",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 500,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Rosmarin",
+          "amount": 2,
+          "unit": "Zweige",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Butter",
+          "amount": 40,
+          "unit": "g",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Knoblauch",
+          "amount": 2,
+          "unit": "Zehen",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 3,
+          "unit": "EL",
+          "category": "sonstiges"
+        }
+      ],
+      "steps": [
+        "Kartoffeln halbieren, mit Öl und Rosmarin im Ofen 30 Min. backen.",
+        "Steaks bei hoher Hitze 3-4 Min. pro Seite braten.",
+        "Kräuterbutter aus Butter und Knoblauch formen.",
+        "Steak mit Butter und Kartoffeln servieren."
+      ],
+      "nutrition": {
+        "calories": 580,
+        "protein": 42,
+        "carbs": 38,
+        "fat": 28,
+        "fiber": 4
+      },
+      "tags": [
+        "rind",
+        "ofen",
+        "kartoffeln"
+      ]
+    },
+    {
+      "id": "r006",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Schweineschnitzel Wiener Art",
+      "category": "pfanne",
+      "description": "Knuspriges paniertes Schnitzel mit Zitrone.",
+      "prepTime": 20,
+      "cookTime": 15,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweineschnitzel",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Paniermehl",
+          "amount": 100,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Eier",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Mehl",
+          "amount": 50,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Zitrone",
+          "amount": 1,
+          "unit": "Stück",
+          "category": "obst"
+        },
+        {
+          "name": "Butter",
+          "amount": 60,
+          "unit": "g",
+          "category": "milchprodukte"
+        }
+      ],
+      "steps": [
+        "Schnitzel klopfen und würzen.",
+        "Mehl, Ei, Paniermehl – nacheinander panieren.",
+        "In Butter goldbraun braten.",
+        "Mit Zitronenspalten servieren."
+      ],
+      "nutrition": {
+        "calories": 520,
+        "protein": 40,
+        "carbs": 28,
+        "fat": 26,
+        "fiber": 1
+      },
+      "tags": [
+        "schwein",
+        "klassiker"
+      ]
+    },
+    {
+      "id": "r007",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Kartoffelgratin",
+      "category": "auflauf",
+      "description": "Cremiger Kartoffelauflauf mit Käsekruste.",
+      "prepTime": 20,
+      "cookTime": 45,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Kartoffeln",
+          "amount": 600,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Sahne",
+          "amount": 200,
+          "unit": "ml",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Gruyère",
+          "amount": 150,
+          "unit": "g",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Knoblauch",
+          "amount": 2,
+          "unit": "Zehen",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Muskat",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Kartoffeln in dünne Scheiben schneiden.",
+        "Mit Sahne, Knoblauch und Muskat schichten.",
+        "Käse darüber streuen und 45 Min. backen."
+      ],
+      "nutrition": {
+        "calories": 420,
+        "protein": 14,
+        "carbs": 48,
+        "fat": 20,
+        "fiber": 5
+      },
+      "tags": [
+        "vegetarisch",
+        "auflauf",
+        "kartoffeln"
+      ]
+    },
+    {
+      "id": "r008",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchen-Wrap mit Paprika",
+      "category": "wrap",
+      "description": "Frischer Wrap mit gegrilltem Hähnchen und Gemüse.",
+      "prepTime": 15,
+      "cookTime": 12,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Tortilla-Wraps",
+          "amount": 4,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Paprika",
+          "amount": 1,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Salat",
+          "amount": 80,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Joghurt",
+          "amount": 100,
+          "unit": "g",
+          "category": "milchprodukte"
+        }
+      ],
+      "steps": [
+        "Hähnchen würzen und in Streifen braten.",
+        "Paprika und Tomaten schneiden.",
+        "Wraps mit Joghurt, Salat, Gemüse und Hähnchen füllen.",
+        "Einrollen und halbieren."
+      ],
+      "nutrition": {
+        "calories": 380,
+        "protein": 32,
+        "carbs": 35,
+        "fat": 12,
+        "fiber": 4
+      },
+      "tags": [
+        "wrap",
+        "haehnchen",
+        "schnell"
+      ]
+    },
+    {
+      "id": "r009",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rinderhack-Pfanne mit Nudeln",
+      "category": "pfanne",
+      "description": "Würzige Hackfleischpfanne mit Paprika und Nudeln.",
+      "prepTime": 15,
+      "cookTime": 25,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Fusilli",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 3,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 1,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprikapulver",
+          "amount": 1,
+          "unit": "TL",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Nudeln kochen. Hackfleisch anbraten.",
+        "Zwiebel und Paprika zugeben, würzen.",
+        "Tomaten hinzufügen und 10 Min. köcheln.",
+        "Mit Nudeln servieren."
+      ],
+      "nutrition": {
+        "calories": 510,
+        "protein": 34,
+        "carbs": 52,
+        "fat": 18,
+        "fiber": 5
+      },
+      "tags": [
+        "rind",
+        "pfanne",
+        "pasta"
+      ]
+    },
+    {
+      "id": "r010",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Gurkensalat mit Dill",
+      "category": "salat",
+      "description": "Erfrischender Sommersalat mit saurer Note.",
+      "prepTime": 10,
+      "cookTime": 0,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Gurke",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Saure Sahne",
+          "amount": 150,
+          "unit": "g",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Dill",
+          "amount": 1,
+          "unit": "Bund",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Essig",
+          "amount": 1,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Zucker",
+          "amount": 1,
+          "unit": "TL",
+          "category": "sonstiges"
+        }
+      ],
+      "steps": [
+        "Gurken in dünne Scheiben hobeln.",
+        "Saure Sahne mit Essig, Zucker und Dill verrühren.",
+        "Gurken unterheben und 30 Min. ziehen lassen."
+      ],
+      "nutrition": {
+        "calories": 120,
+        "protein": 3,
+        "carbs": 10,
+        "fat": 8,
+        "fiber": 2
+      },
+      "tags": [
+        "salat",
+        "vegetarisch",
+        "beilage"
+      ]
+    },
+    {
+      "id": "r011",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Penne Arrabbiata",
+      "category": "pasta",
+      "description": "Scharfe Tomatensoße mit Knoblauch und Chili.",
+      "prepTime": 10,
+      "cookTime": 20,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Penne",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Tomaten (Dose)",
+          "amount": 400,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Knoblauch",
+          "amount": 4,
+          "unit": "Zehen",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Chiliflocken",
+          "amount": 1,
+          "unit": "TL",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 3,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Petersilie",
+          "amount": 1,
+          "unit": "Bund",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Knoblauch und Chili in Öl anbraten.",
+        "Tomaten zugeben und 15 Min. einkochen.",
+        "Penne kochen und mit Soße vermengen."
+      ],
+      "nutrition": {
+        "calories": 390,
+        "protein": 12,
+        "carbs": 64,
+        "fat": 10,
+        "fiber": 5
+      },
+      "tags": [
+        "pasta",
+        "vegetarisch",
+        "scharf"
+      ]
+    },
+    {
+      "id": "r012",
+      "servings": 2,
+      "difficulty": "anspruchsvoll",
+      "name": "Tagliatelle mit Rinder-Ragù",
+      "category": "pasta",
+      "description": "Langsam geschmortes Rindfleisch-Ragù über breite Nudeln.",
+      "prepTime": 20,
+      "cookTime": 120,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Tagliatelle",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Rindergulasch",
+          "amount": 500,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Tomaten (Dose)",
+          "amount": 400,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Rotwein",
+          "amount": 150,
+          "unit": "ml",
+          "category": "getraenke"
+        },
+        {
+          "name": "Karotten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Sellerie",
+          "amount": 2,
+          "unit": "Stangen",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 1,
+          "unit": "Stück",
+          "category": "gemuese"
+        }
+      ],
+      "steps": [
+        "Fleisch scharf anbraten, Gemüse zugeben.",
+        "Rotwein und Tomaten hinzufügen.",
+        "2 Stunden langsam schmoren.",
+        "Tagliatelle kochen und mit Ragù servieren."
+      ],
+      "nutrition": {
+        "calories": 560,
+        "protein": 38,
+        "carbs": 55,
+        "fat": 20,
+        "fiber": 5
+      },
+      "tags": [
+        "pasta",
+        "rind",
+        "schmoren"
+      ]
+    },
+    {
+      "id": "r013",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Carbonara Light",
+      "category": "pasta",
+      "description": "Leichtere Variante mit weniger Sahne, mehr Ei.",
+      "prepTime": 10,
+      "cookTime": 15,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Spaghetti",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Speck",
+          "amount": 150,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Eier",
+          "amount": 3,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Parmesan",
+          "amount": 60,
+          "unit": "g",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Pfeffer",
+          "amount": 1,
+          "unit": "TL",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Speck knusprig braten. Spaghetti kochen.",
+        "Eier mit Parmesan verquirlen.",
+        "Nudeln abgießen, mit Speck und Ei-Mischung vermengen."
+      ],
+      "nutrition": {
+        "calories": 520,
+        "protein": 28,
+        "carbs": 58,
+        "fat": 20,
+        "fiber": 3
+      },
+      "tags": [
+        "pasta",
+        "schwein",
+        "klassiker"
+      ]
+    },
+    {
+      "id": "r014",
+      "servings": 2,
+      "difficulty": "mittel",
+      "name": "Lasagne klassisch",
+      "category": "auflauf",
+      "description": "Schichten aus Nudeln, Hackfleisch und Béchamel.",
+      "prepTime": 30,
+      "cookTime": 45,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Lasagneplatten",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Tomaten (Dose)",
+          "amount": 400,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Milch",
+          "amount": 500,
+          "unit": "ml",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Butter",
+          "amount": 50,
+          "unit": "g",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Mehl",
+          "amount": 50,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Mozzarella",
+          "amount": 200,
+          "unit": "g",
+          "category": "milchprodukte"
+        }
+      ],
+      "steps": [
+        "Hacksoße und Béchamel zubereiten.",
+        "Schichtweise in Form legen: Soße, Platten, Béchamel.",
+        "Mit Mozzarella bestreuen und 45 Min. backen."
+      ],
+      "nutrition": {
+        "calories": 580,
+        "protein": 32,
+        "carbs": 52,
+        "fat": 26,
+        "fiber": 4
+      },
+      "tags": [
+        "auflauf",
+        "rind",
+        "pasta"
+      ]
+    },
+    {
+      "id": "r015",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Pasta mit Hähnchen und Tomaten",
+      "category": "pasta",
+      "description": "Cremige Tomatensoße mit zartem Hähnchen.",
+      "prepTime": 15,
+      "cookTime": 25,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Farfalle",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Hähnchenbrust",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Tomaten (Dose)",
+          "amount": 400,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Sahne",
+          "amount": 100,
+          "unit": "ml",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Basilikum",
+          "amount": 1,
+          "unit": "Bund",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Hähnchen würfeln und anbraten.",
+        "Tomaten und Sahne zugeben, 15 Min. köcheln.",
+        "Farfalle kochen und vermengen."
+      ],
+      "nutrition": {
+        "calories": 490,
+        "protein": 36,
+        "carbs": 54,
+        "fat": 14,
+        "fiber": 4
+      },
+      "tags": [
+        "pasta",
+        "haehnchen"
+      ]
+    },
+    {
+      "id": "r016",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Nudelsalat mediterran",
+      "category": "salat",
+      "description": "Kalter Nudelsalat mit Tomaten und Paprika.",
+      "prepTime": 15,
+      "cookTime": 12,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Fusilli",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 3,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprika",
+          "amount": 1,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Gurke",
+          "amount": 1,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 4,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Feta",
+          "amount": 100,
+          "unit": "g",
+          "category": "milchprodukte"
+        }
+      ],
+      "steps": [
+        "Nudeln kochen und abkühlen.",
+        "Gemüse würfeln und mit Nudeln vermengen.",
+        "Mit Olivenöl und Feta servieren."
+      ],
+      "nutrition": {
+        "calories": 380,
+        "protein": 14,
+        "carbs": 48,
+        "fat": 16,
+        "fiber": 4
+      },
+      "tags": [
+        "salat",
+        "pasta",
+        "vegetarisch"
+      ]
+    },
+    {
+      "id": "r017",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Spaghetti Aglio e Olio",
+      "category": "pasta",
+      "description": "Minimalistisch: Knoblauch, Öl und Petersilie.",
+      "prepTime": 5,
+      "cookTime": 15,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Spaghetti",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Knoblauch",
+          "amount": 6,
+          "unit": "Zehen",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 6,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Petersilie",
+          "amount": 1,
+          "unit": "Bund",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Chiliflocken",
+          "amount": 0.5,
+          "unit": "TL",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Spaghetti kochen. Knoblauch in Öl langsam goldbraun braten.",
+        "Nudeln mit etwas Kochwasser in die Pfanne.",
+        "Petersilie und Chili unterheben."
+      ],
+      "nutrition": {
+        "calories": 420,
+        "protein": 11,
+        "carbs": 60,
+        "fat": 16,
+        "fiber": 3
+      },
+      "tags": [
+        "pasta",
+        "vegetarisch",
+        "schnell"
+      ]
+    },
+    {
+      "id": "r018",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rigatoni al Forno",
+      "category": "auflauf",
+      "description": "Überbackene Rigatoni mit Tomaten und Mozzarella.",
+      "prepTime": 15,
+      "cookTime": 30,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Rigatoni",
+          "amount": 300,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Tomaten (Dose)",
+          "amount": 400,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Mozzarella",
+          "amount": 200,
+          "unit": "g",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Parmesan",
+          "amount": 50,
+          "unit": "g",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Basilikum",
+          "amount": 1,
+          "unit": "Bund",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Rigatoni kochen, mit Tomatensoße vermengen.",
+        "In Auflaufform füllen, Käse darüber.",
+        "30 Min. bei 180°C backen."
+      ],
+      "nutrition": {
+        "calories": 450,
+        "protein": 20,
+        "carbs": 58,
+        "fat": 16,
+        "fiber": 4
+      },
+      "tags": [
+        "auflauf",
+        "pasta",
+        "vegetarisch"
+      ]
+    },
+    {
+      "id": "r019",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Schweinefilet mit Nudeln",
+      "category": "pasta",
+      "description": "Medaillons vom Schweinefilet auf Bandnudeln.",
+      "prepTime": 15,
+      "cookTime": 20,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefilet",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Tagliatelle",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Sahne",
+          "amount": 150,
+          "unit": "ml",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Senf",
+          "amount": 1,
+          "unit": "TL",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Petersilie",
+          "amount": 1,
+          "unit": "Bund",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Filet in Medaillons schneiden und braten.",
+        "Sahne-Senf-Soße zubereiten.",
+        "Tagliatelle kochen und mit Medaillons servieren."
+      ],
+      "nutrition": {
+        "calories": 540,
+        "protein": 40,
+        "carbs": 52,
+        "fat": 18,
+        "fiber": 3
+      },
+      "tags": [
+        "schwein",
+        "pasta"
+      ]
+    },
+    {
+      "id": "r020",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Tomaten-Basilikum-Pasta",
+      "category": "pasta",
+      "description": "Frische Kirschtomaten mit Basilikum und Knoblauch.",
+      "prepTime": 10,
+      "cookTime": 15,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Linguine",
+          "amount": 250,
+          "unit": "g",
+          "category": "getreide"
+        },
+        {
+          "name": "Kirschtomaten",
+          "amount": 400,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Basilikum",
+          "amount": 2,
+          "unit": "Bund",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Knoblauch",
+          "amount": 3,
+          "unit": "Zehen",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 4,
+          "unit": "EL",
+          "category": "sonstiges"
+        }
+      ],
+      "steps": [
+        "Tomaten halbieren, mit Knoblauch in Öl anbraten.",
+        "Linguine kochen und unterheben.",
+        "Frisches Basilikum unterrühren."
+      ],
+      "nutrition": {
+        "calories": 400,
+        "protein": 12,
+        "carbs": 62,
+        "fat": 12,
+        "fiber": 5
+      },
+      "tags": [
+        "pasta",
+        "vegetarisch",
+        "sommer"
+      ]
+    },
+    {
+      "id": "r021",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Kartoffel-Hack-Auflauf mediterran",
+      "category": "auflauf",
+      "description": "Kartoffel-Hack-Auflauf mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 10,
+      "cookTime": 15,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 250,
+        "protein": 15,
+        "carbs": 20,
+        "fat": 8,
+        "fiber": 2
+      },
+      "tags": [
+        "auflauf",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r022",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Zucchini-Tomaten-Auflauf mediterran",
+      "category": "auflauf",
+      "description": "Zucchini-Tomaten-Auflauf mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 11,
+      "cookTime": 16,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Zucchini",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 251,
+        "protein": 16,
+        "carbs": 21,
+        "fat": 9,
+        "fiber": 3
+      },
+      "tags": [
+        "auflauf",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r023",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchen-Reis-Auflauf mediterran",
+      "category": "auflauf",
+      "description": "Hähnchen-Reis-Auflauf mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 12,
+      "cookTime": 17,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Reis",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 252,
+        "protein": 17,
+        "carbs": 22,
+        "fat": 10,
+        "fiber": 4
+      },
+      "tags": [
+        "auflauf",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r024",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Nudel-Schinken-Auflauf mediterran",
+      "category": "auflauf",
+      "description": "Nudel-Schinken-Auflauf mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 13,
+      "cookTime": 18,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Nudeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 253,
+        "protein": 18,
+        "carbs": 23,
+        "fat": 11,
+        "fiber": 5
+      },
+      "tags": [
+        "auflauf",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r025",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Kartoffel-Schweinehack-Gratin mediterran",
+      "category": "auflauf",
+      "description": "Kartoffel-Schweinehack-Gratin mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 14,
+      "cookTime": 19,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Sahne",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 254,
+        "protein": 19,
+        "carbs": 24,
+        "fat": 12,
+        "fiber": 6
+      },
+      "tags": [
+        "auflauf",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r026",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rindfleisch-Kartoffel-Auflauf mediterran",
+      "category": "auflauf",
+      "description": "Rindfleisch-Kartoffel-Auflauf mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 15,
+      "cookTime": 20,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Karotten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 255,
+        "protein": 20,
+        "carbs": 25,
+        "fat": 13,
+        "fiber": 7
+      },
+      "tags": [
+        "auflauf",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r027",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Paprika-Reis-Auflauf mediterran",
+      "category": "auflauf",
+      "description": "Paprika-Reis-Auflauf mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 16,
+      "cookTime": 21,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Reis",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 256,
+        "protein": 21,
+        "carbs": 26,
+        "fat": 14,
+        "fiber": 2
+      },
+      "tags": [
+        "auflauf",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r028",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Tomaten-Mozzarella-Auflauf mediterran",
+      "category": "auflauf",
+      "description": "Tomaten-Mozzarella-Auflauf mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 17,
+      "cookTime": 22,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zucchini",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 257,
+        "protein": 22,
+        "carbs": 27,
+        "fat": 15,
+        "fiber": 3
+      },
+      "tags": [
+        "auflauf",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r029",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hackfleisch-Lasagne-Röllchen mediterran",
+      "category": "auflauf",
+      "description": "Hackfleisch-Lasagne-Röllchen mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 18,
+      "cookTime": 23,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Lasagneplatten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 258,
+        "protein": 23,
+        "carbs": 28,
+        "fat": 16,
+        "fiber": 4
+      },
+      "tags": [
+        "auflauf",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r030",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Kartoffel-Hähnchen-Gratin mediterran",
+      "category": "auflauf",
+      "description": "Kartoffel-Hähnchen-Gratin mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 19,
+      "cookTime": 24,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Sahne",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 259,
+        "protein": 24,
+        "carbs": 29,
+        "fat": 17,
+        "fiber": 5
+      },
+      "tags": [
+        "auflauf",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r031",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchen-Paprika-Pfanne mediterran",
+      "category": "pfanne",
+      "description": "Hähnchen-Paprika-Pfanne mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 20,
+      "cookTime": 25,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 260,
+        "protein": 25,
+        "carbs": 30,
+        "fat": 18,
+        "fiber": 6
+      },
+      "tags": [
+        "pfanne",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r032",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rinderstreifen-Pfanne mediterran",
+      "category": "pfanne",
+      "description": "Rinderstreifen-Pfanne mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 21,
+      "cookTime": 26,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 261,
+        "protein": 26,
+        "carbs": 31,
+        "fat": 19,
+        "fiber": 7
+      },
+      "tags": [
+        "pfanne",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r033",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Schweinegeschnetzeltes mediterran",
+      "category": "pfanne",
+      "description": "Schweinegeschnetzeltes mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 22,
+      "cookTime": 27,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Sahne",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 262,
+        "protein": 27,
+        "carbs": 32,
+        "fat": 20,
+        "fiber": 2
+      },
+      "tags": [
+        "pfanne",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r034",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hackfleisch-Kartoffel-Pfanne mediterran",
+      "category": "pfanne",
+      "description": "Hackfleisch-Kartoffel-Pfanne mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 23,
+      "cookTime": 28,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 263,
+        "protein": 28,
+        "carbs": 33,
+        "fat": 21,
+        "fiber": 3
+      },
+      "tags": [
+        "pfanne",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r035",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchen-Tomaten-Pfanne mediterran",
+      "category": "pfanne",
+      "description": "Hähnchen-Tomaten-Pfanne mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 24,
+      "cookTime": 29,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 264,
+        "protein": 29,
+        "carbs": 34,
+        "fat": 22,
+        "fiber": 4
+      },
+      "tags": [
+        "pfanne",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r036",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Schweinehack-Paprika-Pfanne mediterran",
+      "category": "pfanne",
+      "description": "Schweinehack-Paprika-Pfanne mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 25,
+      "cookTime": 30,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 265,
+        "protein": 30,
+        "carbs": 35,
+        "fat": 23,
+        "fiber": 5
+      },
+      "tags": [
+        "pfanne",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r037",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rinderhack-Reis-Pfanne mediterran",
+      "category": "pfanne",
+      "description": "Rinderhack-Reis-Pfanne mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 26,
+      "cookTime": 31,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Reis",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 266,
+        "protein": 31,
+        "carbs": 36,
+        "fat": 24,
+        "fiber": 6
+      },
+      "tags": [
+        "pfanne",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r038",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchen-Gurken-Pfanne mediterran",
+      "category": "pfanne",
+      "description": "Hähnchen-Gurken-Pfanne mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 27,
+      "cookTime": 32,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Gurke",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 267,
+        "protein": 32,
+        "carbs": 37,
+        "fat": 25,
+        "fiber": 7
+      },
+      "tags": [
+        "pfanne",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r039",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Schweinefilet-Pfanne mediterran",
+      "category": "pfanne",
+      "description": "Schweinefilet-Pfanne mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 28,
+      "cookTime": 33,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Sahne",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 268,
+        "protein": 33,
+        "carbs": 38,
+        "fat": 8,
+        "fiber": 2
+      },
+      "tags": [
+        "pfanne",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r040",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rindergulasch-Pfanne mediterran",
+      "category": "pfanne",
+      "description": "Rindergulasch-Pfanne mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 29,
+      "cookTime": 34,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 269,
+        "protein": 34,
+        "carbs": 39,
+        "fat": 9,
+        "fiber": 3
+      },
+      "tags": [
+        "pfanne",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r041",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchen-Salat-Wrap mediterran",
+      "category": "wrap",
+      "description": "Hähnchen-Salat-Wrap mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 10,
+      "cookTime": 35,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Gurke",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 270,
+        "protein": 35,
+        "carbs": 40,
+        "fat": 10,
+        "fiber": 4
+      },
+      "tags": [
+        "wrap",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r042",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rinderhack-Wrap mediterran",
+      "category": "wrap",
+      "description": "Rinderhack-Wrap mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 11,
+      "cookTime": 36,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 271,
+        "protein": 36,
+        "carbs": 41,
+        "fat": 11,
+        "fiber": 5
+      },
+      "tags": [
+        "wrap",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r043",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Schweinefilet-Wrap mediterran",
+      "category": "wrap",
+      "description": "Schweinefilet-Wrap mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 12,
+      "cookTime": 37,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Gurke",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 272,
+        "protein": 37,
+        "carbs": 42,
+        "fat": 12,
+        "fiber": 6
+      },
+      "tags": [
+        "wrap",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r044",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Tomaten-Mozzarella-Wrap mediterran",
+      "category": "wrap",
+      "description": "Tomaten-Mozzarella-Wrap mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 13,
+      "cookTime": 38,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 273,
+        "protein": 38,
+        "carbs": 43,
+        "fat": 13,
+        "fiber": 7
+      },
+      "tags": [
+        "wrap",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r045",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchen-Avocado-Wrap mediterran",
+      "category": "wrap",
+      "description": "Hähnchen-Avocado-Wrap mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 14,
+      "cookTime": 39,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Avocado",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 274,
+        "protein": 39,
+        "carbs": 44,
+        "fat": 14,
+        "fiber": 2
+      },
+      "tags": [
+        "wrap",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r046",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Paprika-Hack-Wrap mediterran",
+      "category": "wrap",
+      "description": "Paprika-Hack-Wrap mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 15,
+      "cookTime": 40,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 275,
+        "protein": 15,
+        "carbs": 45,
+        "fat": 15,
+        "fiber": 3
+      },
+      "tags": [
+        "wrap",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r047",
+      "servings": 2,
+      "difficulty": "mittel",
+      "name": "Gurkensalat-Wrap mediterran",
+      "category": "wrap",
+      "description": "Gurkensalat-Wrap mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 16,
+      "cookTime": 41,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Gurke",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 276,
+        "protein": 16,
+        "carbs": 46,
+        "fat": 16,
+        "fiber": 4
+      },
+      "tags": [
+        "wrap",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r048",
+      "servings": 2,
+      "difficulty": "mittel",
+      "name": "Schweinehack-Wrap mediterran",
+      "category": "wrap",
+      "description": "Schweinehack-Wrap mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 17,
+      "cookTime": 42,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 277,
+        "protein": 17,
+        "carbs": 47,
+        "fat": 17,
+        "fiber": 5
+      },
+      "tags": [
+        "wrap",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r049",
+      "servings": 2,
+      "difficulty": "mittel",
+      "name": "Hähnchen-Paprika-Wrap mediterran",
+      "category": "wrap",
+      "description": "Hähnchen-Paprika-Wrap mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 18,
+      "cookTime": 43,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 278,
+        "protein": 18,
+        "carbs": 48,
+        "fat": 18,
+        "fiber": 6
+      },
+      "tags": [
+        "wrap",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r050",
+      "servings": 2,
+      "difficulty": "mittel",
+      "name": "Rinderstreifen-Wrap mediterran",
+      "category": "wrap",
+      "description": "Rinderstreifen-Wrap mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 19,
+      "cookTime": 44,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Gurke",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 279,
+        "protein": 19,
+        "carbs": 49,
+        "fat": 19,
+        "fiber": 7
+      },
+      "tags": [
+        "wrap",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r051",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Ofen-Hähnchen mit Kartoffeln mediterran",
+      "category": "ofen",
+      "description": "Ofen-Hähnchen mit Kartoffeln mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 20,
+      "cookTime": 15,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 280,
+        "protein": 20,
+        "carbs": 50,
+        "fat": 20,
+        "fiber": 2
+      },
+      "tags": [
+        "ofen",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r052",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Schweinebraten im Ofen mediterran",
+      "category": "ofen",
+      "description": "Schweinebraten im Ofen mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 21,
+      "cookTime": 16,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 281,
+        "protein": 21,
+        "carbs": 51,
+        "fat": 21,
+        "fiber": 3
+      },
+      "tags": [
+        "ofen",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r053",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rinderbraten mit Gemüse mediterran",
+      "category": "ofen",
+      "description": "Rinderbraten mit Gemüse mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 22,
+      "cookTime": 17,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Karotten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 282,
+        "protein": 22,
+        "carbs": 52,
+        "fat": 22,
+        "fiber": 4
+      },
+      "tags": [
+        "ofen",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r054",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Ofenkartoffeln mit Kräutern mediterran",
+      "category": "ofen",
+      "description": "Ofenkartoffeln mit Kräutern mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 23,
+      "cookTime": 18,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Rosmarin",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 283,
+        "protein": 23,
+        "carbs": 53,
+        "fat": 23,
+        "fiber": 5
+      },
+      "tags": [
+        "ofen",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r055",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchenschenkel aus dem Ofen mediterran",
+      "category": "ofen",
+      "description": "Hähnchenschenkel aus dem Ofen mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 24,
+      "cookTime": 19,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 284,
+        "protein": 24,
+        "carbs": 54,
+        "fat": 24,
+        "fiber": 6
+      },
+      "tags": [
+        "ofen",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r056",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Schweinekotelett im Ofen mediterran",
+      "category": "ofen",
+      "description": "Schweinekotelett im Ofen mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 25,
+      "cookTime": 20,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 285,
+        "protein": 25,
+        "carbs": 55,
+        "fat": 25,
+        "fiber": 7
+      },
+      "tags": [
+        "ofen",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r057",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rinderrouladen mediterran",
+      "category": "ofen",
+      "description": "Rinderrouladen mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 26,
+      "cookTime": 21,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Gurken",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 286,
+        "protein": 26,
+        "carbs": 56,
+        "fat": 8,
+        "fiber": 2
+      },
+      "tags": [
+        "ofen",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r058",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Ofen-Gemüse mit Hähnchen mediterran",
+      "category": "ofen",
+      "description": "Ofen-Gemüse mit Hähnchen mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 27,
+      "cookTime": 22,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zucchini",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 287,
+        "protein": 27,
+        "carbs": 57,
+        "fat": 9,
+        "fiber": 3
+      },
+      "tags": [
+        "ofen",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r059",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Kartoffel-Hähnchen-Blech mediterran",
+      "category": "ofen",
+      "description": "Kartoffel-Hähnchen-Blech mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 28,
+      "cookTime": 23,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 288,
+        "protein": 28,
+        "carbs": 58,
+        "fat": 10,
+        "fiber": 4
+      },
+      "tags": [
+        "ofen",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r060",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Schweinefilet im Speckmantel mediterran",
+      "category": "ofen",
+      "description": "Schweinefilet im Speckmantel mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 29,
+      "cookTime": 24,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 289,
+        "protein": 29,
+        "carbs": 59,
+        "fat": 11,
+        "fiber": 5
+      },
+      "tags": [
+        "ofen",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r061",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Tomaten-Mozzarella-Salat mediterran",
+      "category": "salat",
+      "description": "Tomaten-Mozzarella-Salat mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 10,
+      "cookTime": 0,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Mozzarella",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Basilikum",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 290,
+        "protein": 30,
+        "carbs": 20,
+        "fat": 12,
+        "fiber": 6
+      },
+      "tags": [
+        "salat",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r062",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Griechischer Salat mediterran",
+      "category": "salat",
+      "description": "Griechischer Salat mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 11,
+      "cookTime": 0,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Gurke",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Oliven",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 291,
+        "protein": 31,
+        "carbs": 21,
+        "fat": 13,
+        "fiber": 7
+      },
+      "tags": [
+        "salat",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r063",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Caesar Salad mit Hähnchen mediterran",
+      "category": "salat",
+      "description": "Caesar Salad mit Hähnchen mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 12,
+      "cookTime": 0,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Parmesan",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Croutons",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 292,
+        "protein": 32,
+        "carbs": 22,
+        "fat": 14,
+        "fiber": 2
+      },
+      "tags": [
+        "salat",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r064",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rindfleischsalat mediterran",
+      "category": "salat",
+      "description": "Rindfleischsalat mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 13,
+      "cookTime": 0,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Gurke",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 293,
+        "protein": 33,
+        "carbs": 23,
+        "fat": 15,
+        "fiber": 3
+      },
+      "tags": [
+        "salat",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r065",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Paprika-Tomaten-Salat mediterran",
+      "category": "salat",
+      "description": "Paprika-Tomaten-Salat mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 14,
+      "cookTime": 0,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 294,
+        "protein": 34,
+        "carbs": 24,
+        "fat": 16,
+        "fiber": 4
+      },
+      "tags": [
+        "salat",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r066",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchen-Avocado-Salat mediterran",
+      "category": "salat",
+      "description": "Hähnchen-Avocado-Salat mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 15,
+      "cookTime": 0,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Avocado",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 295,
+        "protein": 35,
+        "carbs": 25,
+        "fat": 17,
+        "fiber": 5
+      },
+      "tags": [
+        "salat",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r067",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Kartoffelsalat klassisch mediterran",
+      "category": "salat",
+      "description": "Kartoffelsalat klassisch mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 16,
+      "cookTime": 0,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Gurke",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 296,
+        "protein": 36,
+        "carbs": 26,
+        "fat": 18,
+        "fiber": 6
+      },
+      "tags": [
+        "salat",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r068",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Wurstsalat mediterran",
+      "category": "salat",
+      "description": "Wurstsalat mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 17,
+      "cookTime": 0,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Gurke",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 297,
+        "protein": 37,
+        "carbs": 27,
+        "fat": 19,
+        "fiber": 7
+      },
+      "tags": [
+        "salat",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r069",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Salat mit Rinderstreifen mediterran",
+      "category": "salat",
+      "description": "Salat mit Rinderstreifen mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 18,
+      "cookTime": 0,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 298,
+        "protein": 38,
+        "carbs": 28,
+        "fat": 20,
+        "fiber": 2
+      },
+      "tags": [
+        "salat",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r070",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Sommersalat mit Obst mediterran",
+      "category": "salat",
+      "description": "Sommersalat mit Obst mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 19,
+      "cookTime": 0,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Salat",
+          "amount": 150,
+          "unit": "g",
+          "category": "gemuese"
+        },
+        {
+          "name": "Apfel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "obst"
+        },
+        {
+          "name": "Trauben",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "obst"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 299,
+        "protein": 39,
+        "carbs": 29,
+        "fat": 21,
+        "fiber": 3
+      },
+      "tags": [
+        "salat",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r071",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Tomatensuppe cremig mediterran",
+      "category": "suppe",
+      "description": "Tomatensuppe cremig mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 20,
+      "cookTime": 35,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Sahne",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Basilikum",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 300,
+        "protein": 15,
+        "carbs": 30,
+        "fat": 22,
+        "fiber": 4
+      },
+      "tags": [
+        "suppe",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r072",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchensuppe mit Nudeln mediterran",
+      "category": "suppe",
+      "description": "Hähnchensuppe mit Nudeln mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 21,
+      "cookTime": 36,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Karotten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Sellerie",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Nudeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 301,
+        "protein": 16,
+        "carbs": 31,
+        "fat": 23,
+        "fiber": 5
+      },
+      "tags": [
+        "suppe",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r073",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Kartoffelsuppe mediterran",
+      "category": "suppe",
+      "description": "Kartoffelsuppe mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 22,
+      "cookTime": 37,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Sahne",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 302,
+        "protein": 17,
+        "carbs": 32,
+        "fat": 24,
+        "fiber": 6
+      },
+      "tags": [
+        "suppe",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r074",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rinderkraftbrühe mit Einlage mediterran",
+      "category": "suppe",
+      "description": "Rinderkraftbrühe mit Einlage mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 23,
+      "cookTime": 38,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Karotten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Sellerie",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Nudeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 303,
+        "protein": 18,
+        "carbs": 33,
+        "fat": 25,
+        "fiber": 7
+      },
+      "tags": [
+        "suppe",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r075",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Gulaschsuppe mediterran",
+      "category": "suppe",
+      "description": "Gulaschsuppe mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 24,
+      "cookTime": 39,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 304,
+        "protein": 19,
+        "carbs": 34,
+        "fat": 8,
+        "fiber": 2
+      },
+      "tags": [
+        "suppe",
+        "rind",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r076",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Gemüsesuppe mediterran mediterran",
+      "category": "suppe",
+      "description": "Gemüsesuppe mediterran mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 25,
+      "cookTime": 40,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zucchini",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 305,
+        "protein": 20,
+        "carbs": 35,
+        "fat": 9,
+        "fiber": 3
+      },
+      "tags": [
+        "suppe",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r077",
+      "servings": 2,
+      "difficulty": "mittel",
+      "name": "Hähnchen-Kartoffel-Suppe mediterran",
+      "category": "suppe",
+      "description": "Hähnchen-Kartoffel-Suppe mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 26,
+      "cookTime": 41,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Karotten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 306,
+        "protein": 21,
+        "carbs": 36,
+        "fat": 10,
+        "fiber": 4
+      },
+      "tags": [
+        "suppe",
+        "haehnchen",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r078",
+      "servings": 2,
+      "difficulty": "mittel",
+      "name": "Linsensuppe (ohne Erbsen) mediterran",
+      "category": "suppe",
+      "description": "Linsensuppe (ohne Erbsen) mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 27,
+      "cookTime": 42,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Linsen",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Karotten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 307,
+        "protein": 22,
+        "carbs": 37,
+        "fat": 11,
+        "fiber": 5
+      },
+      "tags": [
+        "suppe",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r079",
+      "servings": 2,
+      "difficulty": "mittel",
+      "name": "Schweinefleisch-Suppe mediterran",
+      "category": "suppe",
+      "description": "Schweinefleisch-Suppe mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 28,
+      "cookTime": 43,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Karotten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 308,
+        "protein": 23,
+        "carbs": 38,
+        "fat": 12,
+        "fiber": 6
+      },
+      "tags": [
+        "suppe",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r080",
+      "servings": 2,
+      "difficulty": "mittel",
+      "name": "Paprika-Tomaten-Suppe mediterran",
+      "category": "suppe",
+      "description": "Paprika-Tomaten-Suppe mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 29,
+      "cookTime": 44,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 309,
+        "protein": 24,
+        "carbs": 39,
+        "fat": 13,
+        "fiber": 7
+      },
+      "tags": [
+        "suppe",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r081",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rührei mit Paprika mediterran",
+      "category": "fruehstueck",
+      "description": "Rührei mit Paprika mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 10,
+      "cookTime": 15,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Eier",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 310,
+        "protein": 25,
+        "carbs": 40,
+        "fat": 14,
+        "fiber": 2
+      },
+      "tags": [
+        "fruehstueck",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r082",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Haferflocken mit Apfel mediterran",
+      "category": "fruehstueck",
+      "description": "Haferflocken mit Apfel mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 11,
+      "cookTime": 16,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Haferflocken",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Apfel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "obst"
+        },
+        {
+          "name": "Zimt",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 311,
+        "protein": 26,
+        "carbs": 41,
+        "fat": 15,
+        "fiber": 3
+      },
+      "tags": [
+        "fruehstueck",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r083",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "French Toast mediterran",
+      "category": "fruehstueck",
+      "description": "French Toast mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 12,
+      "cookTime": 17,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Brot",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Eier",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Zimt",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gewuerze"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 312,
+        "protein": 27,
+        "carbs": 42,
+        "fat": 16,
+        "fiber": 4
+      },
+      "tags": [
+        "fruehstueck",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r084",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Joghurt mit Beeren mediterran",
+      "category": "fruehstueck",
+      "description": "Joghurt mit Beeren mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 13,
+      "cookTime": 18,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Joghurt",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Himbeeren",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "obst"
+        },
+        {
+          "name": "Blaubeeren",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "obst"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 313,
+        "protein": 28,
+        "carbs": 43,
+        "fat": 17,
+        "fiber": 5
+      },
+      "tags": [
+        "fruehstueck",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r085",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Omelett mit Schinken mediterran",
+      "category": "fruehstueck",
+      "description": "Omelett mit Schinken mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 14,
+      "cookTime": 19,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Eier",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Schinken",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "fleisch"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 314,
+        "protein": 29,
+        "carbs": 44,
+        "fat": 18,
+        "fiber": 6
+      },
+      "tags": [
+        "fruehstueck",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r086",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Smoothie Bowl mediterran",
+      "category": "fruehstueck",
+      "description": "Smoothie Bowl mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 15,
+      "cookTime": 20,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Banane",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "obst"
+        },
+        {
+          "name": "Beeren",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "obst"
+        },
+        {
+          "name": "Joghurt",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 315,
+        "protein": 30,
+        "carbs": 45,
+        "fat": 19,
+        "fiber": 7
+      },
+      "tags": [
+        "fruehstueck",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r087",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Avocado-Toast mediterran",
+      "category": "fruehstueck",
+      "description": "Avocado-Toast mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 16,
+      "cookTime": 21,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Avocado",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Brot",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 316,
+        "protein": 31,
+        "carbs": 46,
+        "fat": 20,
+        "fiber": 2
+      },
+      "tags": [
+        "fruehstueck",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r088",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Pancakes klassisch mediterran",
+      "category": "fruehstueck",
+      "description": "Pancakes klassisch mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 17,
+      "cookTime": 22,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Mehl",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Eier",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Milch",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 317,
+        "protein": 32,
+        "carbs": 47,
+        "fat": 21,
+        "fiber": 3
+      },
+      "tags": [
+        "fruehstueck",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r089",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Müsli mit Obst mediterran",
+      "category": "fruehstueck",
+      "description": "Müsli mit Obst mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 18,
+      "cookTime": 23,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Haferflocken",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Apfel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "obst"
+        },
+        {
+          "name": "Banane",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "obst"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 318,
+        "protein": 33,
+        "carbs": 48,
+        "fat": 22,
+        "fiber": 4
+      },
+      "tags": [
+        "fruehstueck",
+        "vegetarisch",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r090",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rührei mit Speck mediterran",
+      "category": "fruehstueck",
+      "description": "Rührei mit Speck mediterran – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 19,
+      "cookTime": 24,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Eier",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Speck",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "fleisch"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 319,
+        "protein": 34,
+        "carbs": 49,
+        "fat": 23,
+        "fiber": 5
+      },
+      "tags": [
+        "fruehstueck",
+        "schwein",
+        "mediterran"
+      ]
+    },
+    {
+      "id": "r091",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Kartoffel-Hack-Auflauf klassisch",
+      "category": "auflauf",
+      "description": "Kartoffel-Hack-Auflauf klassisch – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 20,
+      "cookTime": 25,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 320,
+        "protein": 35,
+        "carbs": 50,
+        "fat": 24,
+        "fiber": 6
+      },
+      "tags": [
+        "auflauf",
+        "rind",
+        "klassisch"
+      ]
+    },
+    {
+      "id": "r092",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Zucchini-Tomaten-Auflauf klassisch",
+      "category": "auflauf",
+      "description": "Zucchini-Tomaten-Auflauf klassisch – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 21,
+      "cookTime": 26,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Zucchini",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 321,
+        "protein": 36,
+        "carbs": 51,
+        "fat": 25,
+        "fiber": 7
+      },
+      "tags": [
+        "auflauf",
+        "vegetarisch",
+        "klassisch"
+      ]
+    },
+    {
+      "id": "r093",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hähnchen-Reis-Auflauf klassisch",
+      "category": "auflauf",
+      "description": "Hähnchen-Reis-Auflauf klassisch – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 22,
+      "cookTime": 27,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Reis",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 322,
+        "protein": 37,
+        "carbs": 52,
+        "fat": 8,
+        "fiber": 2
+      },
+      "tags": [
+        "auflauf",
+        "haehnchen",
+        "klassisch"
+      ]
+    },
+    {
+      "id": "r094",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Nudel-Schinken-Auflauf klassisch",
+      "category": "auflauf",
+      "description": "Nudel-Schinken-Auflauf klassisch – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 23,
+      "cookTime": 28,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Nudeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 323,
+        "protein": 38,
+        "carbs": 53,
+        "fat": 9,
+        "fiber": 3
+      },
+      "tags": [
+        "auflauf",
+        "schwein",
+        "klassisch"
+      ]
+    },
+    {
+      "id": "r095",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Kartoffel-Schweinehack-Gratin klassisch",
+      "category": "auflauf",
+      "description": "Kartoffel-Schweinehack-Gratin klassisch – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 24,
+      "cookTime": 29,
+      "meatType": "schwein",
+      "ingredients": [
+        {
+          "name": "Schweinefleisch",
+          "amount": 400,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Sahne",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 324,
+        "protein": 39,
+        "carbs": 54,
+        "fat": 10,
+        "fiber": 4
+      },
+      "tags": [
+        "auflauf",
+        "schwein",
+        "klassisch"
+      ]
+    },
+    {
+      "id": "r096",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Rindfleisch-Kartoffel-Auflauf klassisch",
+      "category": "auflauf",
+      "description": "Rindfleisch-Kartoffel-Auflauf klassisch – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 25,
+      "cookTime": 30,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Karotten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 325,
+        "protein": 15,
+        "carbs": 55,
+        "fat": 11,
+        "fiber": 5
+      },
+      "tags": [
+        "auflauf",
+        "rind",
+        "klassisch"
+      ]
+    },
+    {
+      "id": "r097",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Paprika-Reis-Auflauf klassisch",
+      "category": "auflauf",
+      "description": "Paprika-Reis-Auflauf klassisch – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 26,
+      "cookTime": 31,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Reis",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Paprika",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 326,
+        "protein": 16,
+        "carbs": 56,
+        "fat": 12,
+        "fiber": 6
+      },
+      "tags": [
+        "auflauf",
+        "haehnchen",
+        "klassisch"
+      ]
+    },
+    {
+      "id": "r098",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Tomaten-Mozzarella-Auflauf klassisch",
+      "category": "auflauf",
+      "description": "Tomaten-Mozzarella-Auflauf klassisch – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 27,
+      "cookTime": 32,
+      "meatType": "keins",
+      "ingredients": [
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Zucchini",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Gemüse vorbereiten und würzen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 327,
+        "protein": 17,
+        "carbs": 57,
+        "fat": 13,
+        "fiber": 7
+      },
+      "tags": [
+        "auflauf",
+        "vegetarisch",
+        "klassisch"
+      ]
+    },
+    {
+      "id": "r099",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Hackfleisch-Lasagne-Röllchen klassisch",
+      "category": "auflauf",
+      "description": "Hackfleisch-Lasagne-Röllchen klassisch – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 28,
+      "cookTime": 33,
+      "meatType": "rind",
+      "ingredients": [
+        {
+          "name": "Rinderhackfleisch",
+          "amount": 300,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Lasagneplatten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Tomaten",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "gemuese"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 328,
+        "protein": 18,
+        "carbs": 58,
+        "fat": 14,
+        "fiber": 2
+      },
+      "tags": [
+        "auflauf",
+        "rind",
+        "klassisch"
+      ]
+    },
+    {
+      "id": "r100",
+      "servings": 2,
+      "difficulty": "einfach",
+      "name": "Kartoffel-Hähnchen-Gratin klassisch",
+      "category": "auflauf",
+      "description": "Kartoffel-Hähnchen-Gratin klassisch – ein gesundes, hausgemachtes Gericht für zwei Personen.",
+      "prepTime": 29,
+      "cookTime": 34,
+      "meatType": "haehnchen",
+      "ingredients": [
+        {
+          "name": "Hähnchenbrust",
+          "amount": 350,
+          "unit": "g",
+          "category": "fleisch"
+        },
+        {
+          "name": "Kartoffeln",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "getreide"
+        },
+        {
+          "name": "Sahne",
+          "amount": 2,
+          "unit": "Stück",
+          "category": "milchprodukte"
+        },
+        {
+          "name": "Olivenöl",
+          "amount": 2,
+          "unit": "EL",
+          "category": "sonstiges"
+        },
+        {
+          "name": "Salz & Pfeffer",
+          "amount": 1,
+          "unit": "Prise",
+          "category": "gewuerze"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten vorbereiten und schneiden.",
+        "Fleisch würzen und in der Pfanne/Ofen garen.",
+        "Weitere Zutaten hinzufügen und nach Rezeptart zubereiten.",
+        "Anrichten und sofort servieren."
+      ],
+      "nutrition": {
+        "calories": 329,
+        "protein": 19,
+        "carbs": 59,
+        "fat": 15,
+        "fiber": 3
+      },
+      "tags": [
+        "auflauf",
+        "haehnchen",
+        "klassisch"
+      ]
+    }
+  ]
+}
