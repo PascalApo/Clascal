@@ -73,8 +73,13 @@ export function SupabaseSetup() {
 
       {supabaseConfigError && (
         <div className="glass-card border border-red-500/30 bg-red-500/10 p-4 text-xs text-red-300">
-          <p className="font-medium">Ungültige Supabase-URL</p>
+          <p className="font-medium">Supabase nicht konfiguriert</p>
           <p className="mt-1 text-red-200/80">{supabaseConfigError}</p>
+          {import.meta.env.PROD && (
+            <p className="mt-2 text-red-200/60">
+              GitHub: Settings → Secrets and variables → Actions → New repository secret
+            </p>
+          )}
         </div>
       )}
 

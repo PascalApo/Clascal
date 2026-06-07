@@ -25,9 +25,12 @@ function validateSupabaseEnv(): { ok: true; url: string; anonKey: string } | { o
   const anonKey = readEnvKey();
 
   if (!url || !anonKey) {
+    const hint = import.meta.env.PROD
+      ? 'Für GitHub Pages: Repository → Settings → Secrets and variables → Actions → VITE_SUPABASE_URL und VITE_SUPABASE_ANON_KEY als Secrets anlegen, dann neu deployen.'
+      : 'Lokal: .env.local anlegen (siehe .env.example), dann npm run dev neu starten.';
     return {
       ok: false,
-      error: 'VITE_SUPABASE_URL und VITE_SUPABASE_ANON_KEY fehlen (.env.local anlegen, siehe .env.example).',
+      error: `VITE_SUPABASE_URL und VITE_SUPABASE_ANON_KEY fehlen. ${hint}`,
     };
   }
 

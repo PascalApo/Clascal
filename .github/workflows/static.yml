@@ -22,6 +22,10 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_HOUSEHOLD_ID: ${{ secrets.VITE_HOUSEHOLD_ID }}
         run: npm run build
       - name: SPA fallback für Client-Routing
         run: cp dist/index.html dist/404.html
