@@ -15,7 +15,7 @@ import { Radar } from '@/pages/Radar';
 
 function LoadingScreen() {
   return (
-    <div className="flex min-h-dvh items-center justify-center text-sm text-white/40">
+    <div className="flex min-h-dvh items-center justify-center text-sm text-white/65">
       Wird geladen…
     </div>
   );

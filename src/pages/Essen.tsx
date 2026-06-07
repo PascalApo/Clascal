@@ -138,7 +138,7 @@ export function Essen() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs text-white/40">Rezept auswählen für</p>
+                <p className="text-xs text-white/65">Rezept auswählen für</p>
                 <p className="font-display text-sm font-bold accent-gradient-text">
                   {WEEKDAY_FULL[selectedDay]} · {selectedSlot === 'breakfast' ? 'Frühstück' : 'Abendessen'}
                 </p>
@@ -146,7 +146,7 @@ export function Essen() {
               <button
                 type="button"
                 onClick={() => setSelectedDay(null)}
-                className="rounded-lg p-1.5 text-white/30 hover:bg-white/10"
+                className="rounded-lg p-1.5 text-white/55 hover:bg-white/10"
               >
                 <X size={18} />
               </button>
@@ -163,7 +163,7 @@ export function Essen() {
               {selectedSlot === 'breakfast' ? 'Frühstück würfeln' : 'Abendessen würfeln'}
             </motion.button>
 
-            <p className="text-center text-[11px] text-white/30">
+            <p className="text-center text-[11px] text-white/55">
               Oder ein Rezept aus der Liste unten antippen
             </p>
           </motion.div>
@@ -171,13 +171,13 @@ export function Essen() {
       </AnimatePresence>
 
       {selectedDay === null && (
-        <p className="text-center text-xs text-white/30">
+        <p className="text-center text-xs text-white/55">
           Tippe auf Frühstück oder Abendessen, um das Gericht für den Tag zu wählen
         </p>
       )}
 
       <div className="relative">
-        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30" />
+        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/55" />
         <input
           type="text"
           placeholder={
@@ -196,7 +196,7 @@ export function Essen() {
           type="button"
           onClick={() => setFilterCat('all')}
           className={`shrink-0 rounded-full px-3 py-1 text-xs ${
-            filterCat === 'all' ? 'accent-bg-muted accent-text' : 'text-white/40'
+            filterCat === 'all' ? 'accent-bg-muted accent-text' : 'text-white/65'
           }`}
         >
           Alle
@@ -207,7 +207,7 @@ export function Essen() {
             type="button"
             onClick={() => setFilterCat(cat)}
             className={`shrink-0 rounded-full px-3 py-1 text-xs ${
-              filterCat === cat ? 'accent-bg-muted accent-text' : 'text-white/40'
+              filterCat === cat ? 'accent-bg-muted accent-text' : 'text-white/65'
             }`}
           >
             {CUISINE_LABELS[cat]}
@@ -216,14 +216,14 @@ export function Essen() {
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-xs font-medium uppercase tracking-wider text-white/40">
+        <h3 className="text-xs font-medium uppercase tracking-wider text-white/65">
           {selectedDay !== null
             ? `${selectedSlot === 'breakfast' ? 'Frühstücks' : 'Abendessen'}-Rezepte (${displayRecipes.length})`
             : `Alle Rezepte (${displayRecipes.length})`}
         </h3>
 
         {displayRecipes.length === 0 ? (
-          <p className="py-8 text-center text-sm text-white/30">Keine Rezepte gefunden</p>
+          <p className="py-8 text-center text-sm text-white/55">Keine Rezepte gefunden</p>
         ) : (
           displayRecipes.slice(0, 40).map((recipe, i) => (
             <motion.div
@@ -246,7 +246,7 @@ export function Essen() {
                   className="glass-card flex items-center gap-3 p-3 transition-colors hover:bg-white/5"
                 >
                   <RecipeListItemContent recipe={recipe} />
-                  <ChevronRight size={16} className="shrink-0 text-white/20" />
+                  <ChevronRight size={16} className="shrink-0 text-white/50" />
                 </Link>
               )}
             </motion.div>
@@ -265,7 +265,7 @@ function RecipeListItemContent({ recipe }: { recipe: { id: string; name: string;
       </div>
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm">{recipe.name}</p>
-        <div className="flex items-center gap-2 text-xs text-white/30">
+        <div className="flex items-center gap-2 text-xs text-white/55">
           <Clock size={10} />
           {recipe.prepTime + recipe.cookTime} Min.
           <span>·</span>

@@ -17,8 +17,8 @@ export function PlaceholderPage({ title, description }: PlaceholderPageProps) {
         <Construction size={40} className="accent-text" />
       </div>
       <h2 className="font-display text-xl font-bold accent-gradient-text">{title}</h2>
-      <p className="mt-2 max-w-xs text-sm text-white/40">{description}</p>
-      <p className="mt-4 text-xs text-white/25">Kommt in Schritt 2+</p>
+      <p className="mt-2 max-w-xs text-sm text-white/65">{description}</p>
+      <p className="mt-4 text-xs text-white/55">Kommt in Schritt 2+</p>
     </motion.div>
   );
 }

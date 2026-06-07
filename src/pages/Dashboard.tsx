@@ -54,7 +54,7 @@ export function Dashboard() {
         <h2 className="mt-1 font-display text-2xl font-bold accent-gradient-text">
           Alles im Blick
         </h2>
-        <p className="mt-2 text-sm text-white/40">
+        <p className="mt-2 text-sm text-white/65">
           Radar, Finanzen, Planung, Einkauf und Essen — alles vernetzt.
         </p>
       </motion.div>
@@ -76,11 +76,11 @@ export function Dashboard() {
               </div>
               <div className="flex-1">
                 <h3 className="font-medium text-white">{title}</h3>
-                <p className="text-xs text-white/40">{desc}</p>
+                <p className="text-xs text-white/65">{desc}</p>
               </div>
               <ArrowRight
                 size={18}
-                className="text-white/20 transition-transform group-hover:translate-x-1 group-hover:text-white/50"
+                className="text-white/50 transition-transform group-hover:translate-x-1 group-hover:text-white/50"
               />
             </Link>
           </motion.div>

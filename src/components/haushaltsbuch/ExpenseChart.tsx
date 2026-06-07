@@ -22,7 +22,7 @@ export function ExpenseChart({ expenses, accentColor }: ExpenseChartProps) {
   if (total === 0) {
     return (
       <div className="glass-card flex h-64 items-center justify-center">
-        <p className="text-sm text-white/30">Noch keine Ausgaben erfasst</p>
+        <p className="text-sm text-white/60">Noch keine Ausgaben erfasst</p>
       </div>
     );
   }
@@ -64,7 +64,7 @@ export function ExpenseChart({ expenses, accentColor }: ExpenseChartProps) {
           </PieChart>
         </ResponsiveContainer>
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-xs text-white/40">Gesamt</span>
+          <span className="text-xs text-white/65">Gesamt</span>
           <span className="font-display text-2xl font-bold" style={{ color: accentColor }}>
             {total.toFixed(0)} €
           </span>

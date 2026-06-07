@@ -58,14 +58,14 @@ export function PantrySection() {
               placeholder="Artikel (z.B. Milch)"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full rounded-lg bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none focus:ring-1 accent-ring"
+              className="w-full rounded-lg bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/55 outline-none focus:ring-1 accent-ring"
             />
             <input
               type="text"
               placeholder="Menge (optional)"
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
-              className="w-full rounded-lg bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none focus:ring-1 accent-ring"
+              className="w-full rounded-lg bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/55 outline-none focus:ring-1 accent-ring"
             />
             <input
               type="date"
@@ -85,7 +85,7 @@ export function PantrySection() {
       </AnimatePresence>
 
       {sorted.length === 0 ? (
-        <p className="text-xs text-white/30">Noch keine Vorräte erfasst — Ablaufdaten helfen beim Zero-Waste-Plan.</p>
+        <p className="text-xs text-white/55">Noch keine Vorräte erfasst — Ablaufdaten helfen beim Zero-Waste-Plan.</p>
       ) : (
         <div className="space-y-1.5">
           {sorted.map((item) => {
@@ -105,7 +105,7 @@ export function PantrySection() {
                 )}
                 <div className="flex-1 min-w-0">
                   <p className="text-sm text-white">{item.name}</p>
-                  <p className="text-xs text-white/40">
+                  <p className="text-xs text-white/65">
                     {item.quantity && `${item.quantity} · `}
                     {days < 0
                       ? 'Abgelaufen'
@@ -117,7 +117,7 @@ export function PantrySection() {
                 <button
                   type="button"
                   onClick={() => removePantryItem(item.id)}
-                  className="rounded p-1 text-white/20 hover:text-red-400"
+                  className="rounded p-1 text-white/50 hover:text-red-400"
                 >
                   <Trash2 size={14} />
                 </button>

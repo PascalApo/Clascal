@@ -48,14 +48,14 @@ function MealSlotRow({
       </div>
 
       <div className="min-w-0 flex-1">
-        <p className="text-[10px] uppercase tracking-wide text-white/35">{label}</p>
+        <p className="text-[10px] uppercase tracking-wide text-white/60">{label}</p>
         {recipe ? (
           <p className="truncate text-sm font-medium text-white">{recipe.name}</p>
         ) : (
-          <p className="text-sm text-white/30">Noch nicht geplant</p>
+          <p className="text-sm text-white/55">Noch nicht geplant</p>
         )}
         {recipe && (
-          <p className="text-[10px] text-white/30">
+          <p className="text-[10px] text-white/55">
             {recipe.nutrition.calories} kcal · {recipe.prepTime + recipe.cookTime} Min.
           </p>
         )}
@@ -66,7 +66,7 @@ function MealSlotRow({
           <Link
             to={`/essen/${recipe.id}`}
             onClick={(e) => e.stopPropagation()}
-            className="rounded-lg p-1.5 text-white/30 hover:bg-white/10 hover:text-white"
+            className="rounded-lg p-1.5 text-white/55 hover:bg-white/10 hover:text-white"
             aria-label="Rezept ansehen"
           >
             <ChevronRight size={16} />
@@ -77,14 +77,14 @@ function MealSlotRow({
               e.stopPropagation();
               onClear();
             }}
-            className="rounded-lg p-1.5 text-white/20 hover:bg-red-500/20 hover:text-red-300"
+            className="rounded-lg p-1.5 text-white/50 hover:bg-red-500/20 hover:text-red-300"
             aria-label={`${label} entfernen`}
           >
             <X size={14} />
           </button>
         </div>
       ) : (
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-dashed border-white/15 text-white/25 group-hover:border-white/30 group-hover:text-white/50">
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-dashed border-white/15 text-white/55 group-hover:border-white/30 group-hover:text-white/50">
           <Plus size={14} />
         </div>
       )}
@@ -135,7 +135,7 @@ export function WeeklyMealOverview({
                   </span>
                 )}
               </div>
-              <span className="text-[10px] text-white/25">
+              <span className="text-[10px] text-white/55">
                 {[breakfast, dinner].filter(Boolean).length}/2 geplant
               </span>
             </div>

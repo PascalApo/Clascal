@@ -69,10 +69,10 @@ export function BureaucracySection() {
                   <option key={t.id} value={t.id}>{t.title}</option>
                 ))}
               </select>
-              <ChevronDown size={14} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-white/40" />
+              <ChevronDown size={14} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-white/65" />
             </div>
             {selectedTemplate && (
-              <p className="text-xs text-white/40">
+              <p className="text-xs text-white/65">
                 {BUREAUCRACY_TEMPLATES.find((t) => t.id === selectedTemplate)?.description}
               </p>
             )}
@@ -104,7 +104,7 @@ export function BureaucracySection() {
       </AnimatePresence>
 
       {open.length === 0 && done.length === 0 ? (
-        <p className="text-xs text-white/30">Keine Fristen — deutsche Vorlagen mit einem Klick hinzufügen.</p>
+        <p className="text-xs text-white/55">Keine Fristen — deutsche Vorlagen mit einem Klick hinzufügen.</p>
       ) : (
         <div className="space-y-1.5">
           {open.map((deadline) => {
@@ -117,11 +117,11 @@ export function BureaucracySection() {
                   onClick={() => toggleBureaucracyDeadline(deadline.id)}
                   className="rounded-full border border-white/20 p-1 hover:border-green-400"
                 >
-                  <Check size={12} className="text-white/30" />
+                  <Check size={12} className="text-white/55" />
                 </button>
                 <div className="flex-1 min-w-0">
                   <p className={`text-sm ${urgent ? 'text-amber-300' : 'text-white'}`}>{deadline.title}</p>
-                  <p className="text-xs text-white/40">
+                  <p className="text-xs text-white/65">
                     {deadline.dueDate} · {days <= 0 ? 'Überfällig' : `in ${days} Tagen`}
                     {deadline.estimatedCost ? ` · ~${deadline.estimatedCost} €` : ''}
                   </p>
@@ -129,7 +129,7 @@ export function BureaucracySection() {
                 <button
                   type="button"
                   onClick={() => removeBureaucracyDeadline(deadline.id)}
-                  className="rounded p-1 text-white/20 hover:text-red-400"
+                  className="rounded p-1 text-white/50 hover:text-red-400"
                 >
                   <Trash2 size={14} />
                 </button>
@@ -137,7 +137,7 @@ export function BureaucracySection() {
             );
           })}
           {done.length > 0 && (
-            <p className="pt-2 text-xs text-white/25">{done.length} erledigt</p>
+            <p className="pt-2 text-xs text-white/55">{done.length} erledigt</p>
           )}
         </div>
       )}

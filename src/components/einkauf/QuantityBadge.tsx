@@ -12,7 +12,7 @@ export function QuantityBadge({ quantity, categoryColor, onClick }: QuantityBadg
       <button
         type="button"
         onClick={onClick}
-        className="rounded-lg border border-dashed border-white/15 px-2.5 py-1 text-[10px] italic text-white/35 hover:border-white/30 hover:text-white/50"
+        className="rounded-lg border border-dashed border-white/15 px-2.5 py-1 text-[10px] italic text-white/60 hover:border-white/30 hover:text-white/50"
       >
         + Menge
       </button>

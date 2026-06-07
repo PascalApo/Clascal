@@ -19,7 +19,7 @@ export function AppLayout() {
         <header className="safe-top sticky top-0 z-40 px-4 py-4">
           <div className="glass-card flex items-center justify-between px-4 py-3">
             <div>
-              <p className="text-xs text-white/40">Willkommen zurück</p>
+              <p className="text-xs text-white/65">Willkommen zurück</p>
               <h1 className="font-display text-lg font-bold accent-gradient-text">
                 {user?.name}
               </h1>
@@ -41,7 +41,7 @@ export function AppLayout() {
                 aria-label="Abmelden"
               >
                 <LogOut size={16} className="accent-text" />
-                <span className="text-white/60">Logout</span>
+                <span className="text-white/75">Logout</span>
               </motion.button>
             </div>
           </div>

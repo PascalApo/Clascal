@@ -18,7 +18,7 @@ export function SupabaseSetup() {
   const statusConfig = {
     local: {
       icon: WifiOff,
-      color: 'text-white/40',
+      color: 'text-white/65',
       bg: 'bg-white/5',
       label: 'Lokal',
       desc: configured
@@ -61,9 +61,9 @@ export function SupabaseSetup() {
         </div>
         <div>
           <p className={`font-medium ${statusConfig.color}`}>{statusConfig.label}</p>
-          <p className="text-xs text-white/40">{statusConfig.desc}</p>
+          <p className="text-xs text-white/65">{statusConfig.desc}</p>
           {configured && (
-            <p className="mt-1 text-[10px] text-white/25">
+            <p className="mt-1 text-[10px] text-white/55">
               Haushalt-ID: {HOUSEHOLD_ID}
             </p>
           )}
@@ -103,7 +103,7 @@ export function SupabaseSetup() {
               </li>
             ))}
           </ol>
-          <div className="mt-4 rounded-xl bg-dark-200/50 p-3 font-mono text-[10px] text-white/40">
+          <div className="mt-4 rounded-xl bg-dark-200/50 p-3 font-mono text-[10px] text-white/65">
             <p>VITE_SUPABASE_URL=https://xxx.supabase.co</p>
             <p className="mt-1 text-amber-400/80">
               Nicht api.supabase.com/platform – nur die Project URL aus dem API-Tab!
@@ -115,7 +115,7 @@ export function SupabaseSetup() {
       )}
 
       {syncStatus === 'live' && (
-        <p className="text-xs text-white/35">
+        <p className="text-xs text-white/60">
           Synchronisiert: Einkaufsliste, Aufgaben, Termine, Essensplan & Ausgaben
         </p>
       )}

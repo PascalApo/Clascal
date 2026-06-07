@@ -47,7 +47,7 @@ export function RadarBriefingCards({ briefing }: RadarBriefingCardsProps) {
         animate={{ opacity: 1, y: 0 }}
         className="glass-card border accent-border p-4"
       >
-        <p className="text-xs text-white/40">{briefing.weekLabel}</p>
+        <p className="text-xs text-white/65">{briefing.weekLabel}</p>
         <h3 className="mt-1 font-display text-lg font-bold text-white">{briefing.summary}</h3>
         {briefing.collisionCount > 0 && (
           <p className="mt-1 text-xs text-white/50">
@@ -58,7 +58,7 @@ export function RadarBriefingCards({ briefing }: RadarBriefingCardsProps) {
 
       {briefing.collisions.length > 0 && (
         <section className="space-y-2">
-          <h4 className="text-xs font-medium uppercase tracking-wider text-white/40">Kollisionen</h4>
+          <h4 className="text-xs font-medium uppercase tracking-wider text-white/65">Kollisionen</h4>
           {briefing.collisions.map((collision, i) => {
             const Icon = MODULE_ICONS[collision.relatedModule];
             return (
@@ -75,9 +75,9 @@ export function RadarBriefingCards({ briefing }: RadarBriefingCardsProps) {
                   <SeverityIcon severity={collision.severity} />
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-white">{collision.title}</p>
-                    <p className="text-xs text-white/40">{collision.description}</p>
+                    <p className="text-xs text-white/65">{collision.description}</p>
                   </div>
-                  <Icon size={16} className="shrink-0 text-white/20" />
+                  <Icon size={16} className="shrink-0 text-white/50" />
                 </Link>
               </motion.div>
             );
@@ -87,7 +87,7 @@ export function RadarBriefingCards({ briefing }: RadarBriefingCardsProps) {
 
       {briefing.foodActions.length > 0 && (
         <section className="space-y-2">
-          <h4 className="text-xs font-medium uppercase tracking-wider text-white/40">Essen</h4>
+          <h4 className="text-xs font-medium uppercase tracking-wider text-white/65">Essen</h4>
           {briefing.foodActions.map((action, i) => (
             <motion.div
               key={`${action.type}-${i}`}
@@ -102,9 +102,9 @@ export function RadarBriefingCards({ briefing }: RadarBriefingCardsProps) {
                 <ChefHat size={16} className="shrink-0 accent-text" />
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-white">{action.title}</p>
-                  <p className="text-xs text-white/40">{action.description}</p>
+                  <p className="text-xs text-white/65">{action.description}</p>
                 </div>
-                <ArrowRight size={14} className="shrink-0 text-white/20" />
+                <ArrowRight size={14} className="shrink-0 text-white/50" />
               </Link>
             </motion.div>
           ))}
@@ -113,7 +113,7 @@ export function RadarBriefingCards({ briefing }: RadarBriefingCardsProps) {
 
       {briefing.assignments.length > 0 && (
         <section className="space-y-2">
-          <h4 className="text-xs font-medium uppercase tracking-wider text-white/40">Vorschläge</h4>
+          <h4 className="text-xs font-medium uppercase tracking-wider text-white/65">Vorschläge</h4>
           {briefing.assignments.map((assignment, i) => (
             <motion.div
               key={`${assignment.title}-${i}`}
@@ -123,7 +123,7 @@ export function RadarBriefingCards({ briefing }: RadarBriefingCardsProps) {
               className="glass-card p-3"
             >
               <p className="text-sm font-medium text-white">{assignment.title}</p>
-              <p className="text-xs text-white/40">{assignment.description}</p>
+              <p className="text-xs text-white/65">{assignment.description}</p>
               <p className="mt-1 text-xs accent-text">
                 → {assignment.suggestedAssignee === 'both' ? 'Beide' : assignment.suggestedAssignee === 'user1' ? 'Clara' : 'Pascal'}
                 {' · '}{assignment.reason}
@@ -135,7 +135,7 @@ export function RadarBriefingCards({ briefing }: RadarBriefingCardsProps) {
 
       {briefing.shoppingSuggestions.length > 0 && (
         <section className="space-y-2">
-          <h4 className="text-xs font-medium uppercase tracking-wider text-white/40">Einkauf</h4>
+          <h4 className="text-xs font-medium uppercase tracking-wider text-white/65">Einkauf</h4>
           <Link
             to="/einkauf"
             className="glass-card block p-3 transition-colors hover-accent-bg-muted"

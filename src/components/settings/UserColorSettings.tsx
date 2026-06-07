@@ -31,14 +31,14 @@ function UserColorRow({ id, isCurrentUser }: UserColorRowProps) {
           />
           <div>
             <p className="font-medium">{name}</p>
-            <p className="text-xs text-white/40">
+            <p className="text-xs text-white/65">
               {isCurrentUser ? 'Dein Profil' : 'Partner-Profil'} · {color.toUpperCase()}
             </p>
           </div>
         </div>
         <button
           onClick={() => resetUserColor(id)}
-          className="flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] text-white/30 hover:bg-white/5 hover:text-white/60"
+          className="flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] text-white/55 hover:bg-white/5 hover:text-white/60"
           title="Standardfarbe"
         >
           <RotateCcw size={12} />
@@ -99,7 +99,7 @@ export function UserColorSettings() {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-white/40">
+      <p className="text-sm text-white/65">
         Wähle deine Lieblingsfarbe — sie wird in der gesamten App als Akzentfarbe verwendet.
       </p>
       <UserColorRow id="user1" isCurrentUser={userId === 'user1'} />

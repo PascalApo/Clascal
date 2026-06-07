@@ -40,13 +40,13 @@ export function BottomNav() {
                   <Icon
                     size={22}
                     className={`transition-colors duration-200 ${
-                      isActive ? '' : 'text-white/40'
+                      isActive ? '' : 'text-white/60'
                     }`}
                     style={isActive ? { color: accentColor } : undefined}
                   />
                   <span
                     className={`text-[10px] font-medium transition-colors duration-200 ${
-                      isActive ? '' : 'text-white/40'
+                      isActive ? '' : 'text-white/60'
                     }`}
                     style={isActive ? { color: accentColor } : undefined}
                   >

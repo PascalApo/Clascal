@@ -34,15 +34,15 @@ export function FairnessSection({ fairness }: FairnessSectionProps) {
         <div className="grid grid-cols-2 gap-3 text-center">
           <div>
             <p className="text-lg font-bold" style={{ color: userColors.user1 }}>{user1Pct}%</p>
-            <p className="text-xs text-white/40">Clara</p>
-            <p className="text-[10px] text-white/25">
+            <p className="text-xs text-white/65">Clara</p>
+            <p className="text-[10px] text-white/55">
               Planung {fairness.user1Planning} · Ausführung {fairness.user1Execution}
             </p>
           </div>
           <div>
             <p className="text-lg font-bold" style={{ color: userColors.user2 }}>{user2Pct}%</p>
-            <p className="text-xs text-white/40">Pascal</p>
-            <p className="text-[10px] text-white/25">
+            <p className="text-xs text-white/65">Pascal</p>
+            <p className="text-[10px] text-white/55">
               Planung {fairness.user2Planning} · Ausführung {fairness.user2Execution}
             </p>
           </div>

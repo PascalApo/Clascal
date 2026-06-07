@@ -166,7 +166,7 @@ export function Kalender() {
             </h3>
             <button
               onClick={goToToday}
-              className="mt-0.5 text-[10px] text-white/40 hover:text-white/70"
+              className="mt-0.5 text-[10px] text-white/65 hover:text-white/70"
             >
               Heute
             </button>
@@ -183,7 +183,7 @@ export function Kalender() {
         {/* Wochentage */}
         <div className="mb-1 grid grid-cols-7 gap-1">
           {CALENDAR_WEEKDAYS.map((wd) => (
-            <div key={wd} className="py-1 text-center text-[10px] font-medium text-white/30">
+            <div key={wd} className="py-1 text-center text-[10px] font-medium text-white/55">
               {wd}
             </div>
           ))}
@@ -243,7 +243,7 @@ export function Kalender() {
                           />
                         ))}
                         {total > 2 && (
-                          <span className="text-center text-[8px] text-white/30">+{total - 2}</span>
+                          <span className="text-center text-[8px] text-white/55">+{total - 2}</span>
                         )}
                       </div>
                     )}
@@ -260,7 +260,7 @@ export function Kalender() {
         <h4 className="mb-3 text-sm font-medium text-white/60">{selectedLabel}</h4>
 
         {selectedItems.tasks.length === 0 && selectedItems.events.length === 0 ? (
-          <p className="py-4 text-center text-xs text-white/25">Nichts geplant</p>
+          <p className="py-4 text-center text-xs text-white/55">Nichts geplant</p>
         ) : (
           <div className="space-y-2">
             {selectedItems.tasks.map((task) => (
@@ -283,12 +283,12 @@ export function Kalender() {
                 >
                   {task.completed && <Check size={12} className="text-green-400" />}
                 </button>
-                <ListTodo size={14} className="shrink-0 text-white/30" />
+                <ListTodo size={14} className="shrink-0 text-white/55" />
                 <div className="min-w-0 flex-1">
-                  <p className={`truncate text-sm ${task.completed ? 'text-white/30 line-through' : ''}`}>
+                  <p className={`truncate text-sm ${task.completed ? 'text-white/55 line-through' : ''}`}>
                     {task.title}
                   </p>
-                  <p className="text-[10px] text-white/30">
+                  <p className="text-[10px] text-white/55">
                     Aufgabe · {task.recurring ? 'Wöchentlich' : 'Einmalig'} ·{' '}
                     {task.assignedTo === 'both' ? 'Beide' : USER_BASE[task.assignedTo].name}
                   </p>
@@ -300,7 +300,7 @@ export function Kalender() {
                       task.assignedTo === 'both' ? getAssigneeColor('both') : getAssigneeColor(task.assignedTo),
                   }}
                 />
-                <button onClick={() => removeTask(task.id)} className="text-white/20 hover:text-red-400">
+                <button onClick={() => removeTask(task.id)} className="text-white/50 hover:text-red-400">
                   <Trash2 size={12} />
                 </button>
               </motion.div>
@@ -316,12 +316,12 @@ export function Kalender() {
                 <CalendarDays size={14} className="shrink-0" style={{ color: EVENT_COLOR }} />
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm">{ev.title}</p>
-                  <p className="text-[10px] text-white/30">
+                  <p className="text-[10px] text-white/55">
                     Termin · {creatorLabel(ev.createdBy)}
                     {ev.description ? ` · ${ev.description}` : ''}
                   </p>
                 </div>
-                <button onClick={() => removeEvent(ev.id)} className="text-white/20 hover:text-red-400">
+                <button onClick={() => removeEvent(ev.id)} className="text-white/50 hover:text-red-400">
                   <Trash2 size={12} />
                 </button>
               </motion.div>

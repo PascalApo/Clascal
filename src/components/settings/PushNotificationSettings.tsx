@@ -45,13 +45,13 @@ export function PushNotificationSettings() {
         </div>
         <div>
           <p className="font-medium">Push-Benachrichtigungen</p>
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-white/65">
             Nur der Partner wird informiert – nicht du selbst
           </p>
         </div>
       </div>
 
-      <div className="rounded-xl bg-dark-200/40 px-3 py-2 text-[11px] text-white/35">
+      <div className="rounded-xl bg-dark-200/40 px-3 py-2 text-[11px] text-white/60">
         <p className="flex items-center gap-1.5">
           <Smartphone size={12} />
           iPhone: App zum Home-Bildschirm hinzufügen, dann hier aktivieren
@@ -65,7 +65,7 @@ export function PushNotificationSettings() {
       )}
 
       {!pushSupported && (
-        <p className="text-xs text-white/35">Push wird auf diesem Browser/Gerät nicht unterstützt.</p>
+        <p className="text-xs text-white/60">Push wird auf diesem Browser/Gerät nicht unterstützt.</p>
       )}
 
       {message && (

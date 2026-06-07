@@ -43,7 +43,7 @@ export function ProfileSelect() {
           Clara & Pascal
         </h1>
         <p className="mt-2 text-sm text-white/50">Haushalts- & Beziehungs-Hub</p>
-        <div className="mt-3 flex items-center justify-center gap-1 text-xs text-white/30">
+        <div className="mt-3 flex items-center justify-center gap-1 text-xs text-white/55">
           <Sparkles size={12} />
           <span>Wähle dein Profil</span>
           <Sparkles size={12} />
@@ -87,7 +87,7 @@ export function ProfileSelect() {
                   >
                     {profile.name}
                   </p>
-                  <p className="text-sm text-white/40">Persönliche Farbzone</p>
+                  <p className="text-sm text-white/65">Persönliche Farbzone</p>
                 </div>
                 <span
                   className="ml-auto h-6 w-6 rounded-full ring-2 ring-white/20"
@@ -110,7 +110,7 @@ export function ProfileSelect() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
-        className="mt-12 text-center text-xs text-white/25"
+        className="mt-12 text-center text-xs text-white/55"
       >
         Privat · Synchronisiert · Für uns zwei
       </motion.p>

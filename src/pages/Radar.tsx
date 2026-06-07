@@ -111,7 +111,7 @@ export function Radar() {
       </motion.div>
 
       {notifyStatus && (
-        <p className="text-center text-xs text-white/40">{notifyStatus}</p>
+        <p className="text-center text-xs text-white/65">{notifyStatus}</p>
       )}
 
       <RadarBriefingCards briefing={briefing} />

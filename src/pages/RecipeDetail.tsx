@@ -21,13 +21,13 @@ export function RecipeDetail() {
     : false;
 
   if (loading) {
-    return <p className="py-20 text-center text-white/40">Rezept wird geladen…</p>;
+    return <p className="py-20 text-center text-white/65">Rezept wird geladen…</p>;
   }
 
   if (!recipe) {
     return (
       <div className="py-20 text-center">
-        <p className="text-white/40">Rezept nicht gefunden</p>
+        <p className="text-white/65">Rezept nicht gefunden</p>
         <Link to="/essen" className="mt-4 inline-block text-sm accent-text">
           Zurück
         </Link>
@@ -71,7 +71,7 @@ export function RecipeDetail() {
         </div>
         <h1 className="mt-2 font-display text-xl font-bold accent-gradient-text">{recipe.name}</h1>
         <p className="mt-2 text-sm text-white/50">{recipe.description}</p>
-        <div className="mt-4 flex flex-wrap gap-3 text-xs text-white/40">
+        <div className="mt-4 flex flex-wrap gap-3 text-xs text-white/65">
           <span className="flex items-center gap-1">
             <Clock size={12} /> {recipe.prepTime + recipe.cookTime} Min.
           </span>
@@ -117,7 +117,7 @@ export function RecipeDetail() {
           ].map((n) => (
             <div key={n.label} className="rounded-xl bg-dark-200/50 p-2">
               <p className="text-sm font-bold accent-text">{n.value}</p>
-              <p className="text-[10px] text-white/30">{n.label}</p>
+              <p className="text-[10px] text-white/55">{n.label}</p>
             </div>
           ))}
         </div>
@@ -129,19 +129,19 @@ export function RecipeDetail() {
           {isInMealPlan ? (
             <Link
               to="/einkauf"
-              className="text-[10px] text-white/30 hover:text-white/50"
+              className="text-[10px] text-white/55 hover:text-white/50"
             >
               In Einkauf abhaken →
             </Link>
           ) : (
-            <span className="text-[10px] text-white/25">Erst im Wochenplan eintragen</span>
+            <span className="text-[10px] text-white/55">Erst im Wochenplan eintragen</span>
           )}
         </div>
         <ul className="space-y-2">
           {ingredients.map((ing, i) => (
             <li key={i} className="flex justify-between text-sm">
               <span className="text-white/80">{ing.name}</span>
-              <span className="text-white/40">
+              <span className="text-white/65">
                 {ing.amount} {ing.unit}
               </span>
             </li>
@@ -152,7 +152,7 @@ export function RecipeDetail() {
       <div className="glass-card p-4">
         <h3 className="mb-3 text-sm font-medium text-white/60">Zubereitung</h3>
         {recipe.steps.length === 0 ? (
-          <p className="text-sm text-white/35">Keine Schritte hinterlegt.</p>
+          <p className="text-sm text-white/60">Keine Schritte hinterlegt.</p>
         ) : (
           <ol className="space-y-4">
             {recipe.steps.map((step, i) => (

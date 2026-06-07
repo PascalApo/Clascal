@@ -87,7 +87,7 @@ export function Haushaltsbuch() {
           ) : (
             <Upload size={24} className="accent-text" />
           )}
-          <span className="text-xs text-white/60">Kontoauszug PDF</span>
+          <span className="text-xs text-white/75">Kontoauszug PDF</span>
         </motion.button>
         <input ref={fileRef} type="file" accept=".pdf" className="hidden" onChange={handlePdfUpload} />
 
@@ -97,7 +97,7 @@ export function Haushaltsbuch() {
           className="glass-card flex flex-col items-center gap-2 border p-4 accent-border"
         >
           <Plus size={24} className="accent-text" />
-          <span className="text-xs text-white/60">Manuell hinzufügen</span>
+          <span className="text-xs text-white/75">Manuell hinzufügen</span>
         </motion.button>
       </div>
 
@@ -110,9 +110,9 @@ export function Haushaltsbuch() {
             className={`text-center text-sm ${parseResult > 0 ? 'text-green-400' : 'text-amber-400'}`}
           >
             {parseResult > 0
-              ? `${parseResult} Umsätze importiert`
+              ? `${parseResult} Ausgaben aus PDF importiert`
               : parseResult === 0
-                ? 'Keine Umsätze erkannt – bitte manuell eingeben'
+                ? 'Keine Ausgaben erkannt – ING-PDF mit Text (kein Scan)? Sonst manuell erfassen.'
                 : 'PDF konnte nicht gelesen werden'}
           </motion.p>
         )}
@@ -132,7 +132,7 @@ export function Haushaltsbuch() {
               placeholder="Beschreibung"
               value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })}
-              className="w-full rounded-xl bg-dark-200 px-3 py-2.5 text-sm outline-none focus:ring-1 focus:ring-cyan-accent/50"
+              className="field-input"
               required
             />
             <div className="grid grid-cols-2 gap-3">
@@ -142,20 +142,20 @@ export function Haushaltsbuch() {
                 placeholder="Betrag €"
                 value={form.amount}
                 onChange={(e) => setForm({ ...form, amount: e.target.value })}
-                className="rounded-xl bg-dark-200 px-3 py-2.5 text-sm outline-none focus:ring-1 focus:ring-cyan-accent/50"
+                className="field-input"
                 required
               />
               <input
                 type="date"
                 value={form.date}
                 onChange={(e) => setForm({ ...form, date: e.target.value })}
-                className="rounded-xl bg-dark-200 px-3 py-2.5 text-sm outline-none focus:ring-1 focus:ring-cyan-accent/50"
+                className="field-input"
               />
             </div>
             <select
               value={form.category}
               onChange={(e) => setForm({ ...form, category: e.target.value as ExpenseCategory })}
-              className="w-full rounded-xl bg-dark-200 px-3 py-2.5 text-sm outline-none"
+              className="field-input"
             >
               {EXPENSE_CATEGORIES.map((c) => (
                 <option key={c.id} value={c.id}>{c.label}</option>
@@ -172,9 +172,9 @@ export function Haushaltsbuch() {
       </AnimatePresence>
 
       <div className="space-y-2">
-        <h3 className="text-sm font-medium text-white/50">Letzte Ausgaben</h3>
+        <h3 className="text-sm font-medium text-white/70">Letzte Ausgaben</h3>
         {expenses.length === 0 ? (
-          <p className="text-center text-xs text-white/25 py-8">Noch leer – PDF hochladen oder manuell erfassen</p>
+          <p className="text-center text-xs text-white/55 py-8">Noch leer – PDF hochladen oder manuell erfassen</p>
         ) : (
           expenses.slice(0, 20).map((exp) => {
             const cat = EXPENSE_CATEGORIES.find((c) => c.id === exp.category);
@@ -196,12 +196,12 @@ export function Haushaltsbuch() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm">{exp.description}</p>
-                  <p className="text-xs text-white/30">
+                  <p className="text-xs text-white/55">
                     {new Date(exp.date).toLocaleDateString('de-DE')} · {cat?.label}
                   </p>
                 </div>
-                <span className="text-sm font-medium text-white/80">-{exp.amount.toFixed(2)} €</span>
-                <button onClick={() => removeExpense(exp.id)} className="text-white/20 hover:text-red-400">
+                <span className="text-sm font-medium text-white/90">-{exp.amount.toFixed(2)} €</span>
+                <button onClick={() => removeExpense(exp.id)} className="text-white/50 hover:text-red-400">
                   <Trash2 size={14} />
                 </button>
               </motion.div>

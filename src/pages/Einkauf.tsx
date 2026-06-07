@@ -444,7 +444,7 @@ export function Einkauf() {
 
                 onClick={() => setEditingQtyId(null)}
 
-                className="text-xs text-white/40"
+                className="text-xs text-white/65"
 
               >
 
@@ -478,7 +478,7 @@ export function Einkauf() {
 
           onClick={() => removeShoppingItem(item.id)}
 
-          className="shrink-0 text-white/20 hover:text-red-400"
+          className="shrink-0 text-white/50 hover:text-red-400"
 
         >
 
@@ -520,7 +520,7 @@ export function Einkauf() {
 
           className={`flex shrink-0 items-center gap-1 rounded-lg px-2 py-1 text-[10px] ${
 
-            syncOnline ? 'text-green-400' : 'text-white/30'
+            syncOnline ? 'text-green-400' : 'text-white/55'
 
           }`}
 
@@ -562,7 +562,7 @@ export function Einkauf() {
       </motion.button>
 
       {notifyState === 'error' && notifyError && (
-        <p className="text-center text-[10px] text-white/30">
+        <p className="text-center text-[10px] text-white/55">
           Partner muss unter Einstellungen Push aktivieren (iPhone: App zum Home-Bildschirm).
         </p>
       )}
@@ -571,7 +571,7 @@ export function Einkauf() {
 
         <div className="relative">
 
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/55" />
 
           <input
 
@@ -603,7 +603,7 @@ export function Einkauf() {
 
               onClick={clearSearch}
 
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white/60"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-white/55 hover:text-white/60"
 
             >
 
@@ -633,7 +633,7 @@ export function Einkauf() {
 
             >
 
-              <p className="mb-2 text-[10px] uppercase tracking-wide text-white/35">Treffer</p>
+              <p className="mb-2 text-[10px] uppercase tracking-wide text-white/60">Treffer</p>
 
               <div className="flex flex-wrap gap-2">
 
@@ -689,7 +689,7 @@ export function Einkauf() {
 
                         <p className="text-sm font-medium leading-tight">{product.name}</p>
 
-                        <p className="text-[10px] text-white/35">
+                        <p className="text-[10px] text-white/60">
 
                           {cat?.label} · {product.defaultQuantity}
 
@@ -721,7 +721,7 @@ export function Einkauf() {
 
         {searchQuery.trim() && searchResults.length === 0 && (
 
-          <p className="text-xs text-white/35">
+          <p className="text-xs text-white/60">
 
             Kein Treffer – du kannst „{searchQuery}" trotzdem manuell hinzufügen.
 
@@ -757,7 +757,7 @@ export function Einkauf() {
 
               <p className="truncate text-sm font-medium">{displayName}</p>
 
-              <p className="text-[10px] text-white/40">
+              <p className="text-[10px] text-white/65">
 
                 {SHOPPING_CATEGORIES.find((c) => c.id === (selectedProduct?.category ?? newCategory))?.label}
 
@@ -855,7 +855,7 @@ export function Einkauf() {
 
           className={`shrink-0 rounded-full px-3 py-1.5 text-xs transition-colors ${
 
-            activeCategory === 'all' ? 'accent-bg-muted accent-text' : 'text-white/40 hover:text-white/60'
+            activeCategory === 'all' ? 'accent-bg-muted accent-text' : 'text-white/65 hover:text-white/60'
 
           }`}
 
@@ -885,7 +885,7 @@ export function Einkauf() {
 
               className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-xs transition-colors ${
 
-                isActive ? 'ring-1' : 'text-white/40 hover:text-white/60'
+                isActive ? 'ring-1' : 'text-white/65 hover:text-white/60'
 
               }`}
 
@@ -953,7 +953,7 @@ export function Einkauf() {
 
         <div>
 
-          <h3 className="mb-2 text-xs text-white/40">
+          <h3 className="mb-2 text-xs text-white/65">
 
             Beliebte Artikel
 
@@ -1027,7 +1027,7 @@ export function Einkauf() {
 
                 <span className="font-medium">{category.label}</span>
 
-                <span className="text-white/40">({items.length})</span>
+                <span className="text-white/65">({items.length})</span>
 
               </div>
 
@@ -1051,13 +1051,13 @@ export function Einkauf() {
 
             <div className="mb-2 flex items-center justify-between">
 
-              <span className="text-xs text-white/30">Erledigt ({checked.length})</span>
+              <span className="text-xs text-white/55">Erledigt ({checked.length})</span>
 
               <button
 
                 onClick={clearCheckedShopping}
 
-                className="text-xs text-white/30 hover:text-white/60"
+                className="text-xs text-white/55 hover:text-white/60"
 
               >
 
@@ -1119,7 +1119,7 @@ export function Einkauf() {
 
         {unchecked.length === 0 && checked.length === 0 && (
 
-          <p className="py-8 text-center text-xs text-white/25">
+          <p className="py-8 text-center text-xs text-white/55">
 
             {activeCategory === 'all'
 
