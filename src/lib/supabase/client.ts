@@ -1,13 +1,15 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
-/** URLs der Management-API – gehören NICHT in VITE_SUPABASE_URL */
+/** Verbotene URL-Bestandteile – Management-API, REST-Pfad, keine Projekt-Basis-URL */
 const FORBIDDEN_URL_FRAGMENTS = [
   'api.supabase.com',
-  '/platform',
+  'platform',
+  '/rest/v1/',
   'pg-meta',
   'supabase.com/dashboard',
 ] as const;
 
+/** Nur https://<projekt-id>.supabase.co (ohne Pfade) */
 const PROJECT_API_URL_PATTERN = /^https:\/\/[a-z0-9]+\.supabase\.co\/?$/i;
 
 function readEnvUrl(): string {
@@ -29,13 +31,14 @@ function validateSupabaseEnv(): { ok: true; url: string; anonKey: string } | { o
     };
   }
 
-  const forbidden = FORBIDDEN_URL_FRAGMENTS.find((fragment) => url.includes(fragment));
+  const lowerUrl = url.toLowerCase();
+  const forbidden = FORBIDDEN_URL_FRAGMENTS.find((fragment) => lowerUrl.includes(fragment));
   if (forbidden) {
     return {
       ok: false,
       error:
-        `VITE_SUPABASE_URL enthält "${forbidden}" – das ist die Supabase-Management-API, nicht dein Projekt. ` +
-        'Nutze die Project URL aus Supabase → Project Settings → API (https://<ref>.supabase.co).',
+        `VITE_SUPABASE_URL enthält "${forbidden}" – ungültige URL. ` +
+        'Nutze nur die Project URL: https://<projekt-id>.supabase.co (Supabase → Project Settings → API).',
     };
   }
 
@@ -43,7 +46,7 @@ function validateSupabaseEnv(): { ok: true; url: string; anonKey: string } | { o
     return {
       ok: false,
       error:
-        'VITE_SUPABASE_URL muss exakt https://<projekt-ref>.supabase.co sein (Project Settings → API → Project URL).',
+        'VITE_SUPABASE_URL muss exakt https://<projekt-id>.supabase.co sein – ohne /rest/v1/ oder andere Pfade.',
     };
   }
 
@@ -62,14 +65,13 @@ let client: SupabaseClient | null = null;
 
 export function getSupabaseClient(): SupabaseClient | null {
   if (!envCheck.ok) {
-    if (import.meta.env.DEV) {
-      console.warn('[Supabase]', envCheck.error);
-    }
-    return null;
+    throw new Error(`[Supabase] ${envCheck.error}`);
   }
 
+  const { url, anonKey } = envCheck;
+
   if (!client) {
-    client = createClient(envCheck.url, envCheck.anonKey, {
+    client = createClient(url, anonKey, {
       auth: {
         persistSession: true,
         autoRefreshToken: true,
@@ -81,5 +83,5 @@ export function getSupabaseClient(): SupabaseClient | null {
 }
 
 if (supabaseConfigError && import.meta.env.DEV) {
-  console.warn('[Supabase] Client deaktiviert:', supabaseConfigError);
+  console.error('[Supabase] Client deaktiviert:', supabaseConfigError);
 }
