@@ -16,7 +16,8 @@ import { useUser } from '@/context/UserContext';
 import { buildWeeklyBriefing } from '@/lib/radar/engine';
 import { SyncStatusPill } from '@/components/ui/SyncStatusPill';
 import { LiveActivityFeed } from '@/components/live/LiveActivityFeed';
-import { EXPENSE_CATEGORIES } from '@/types/expense';
+import { getMonthSummary } from '@/lib/expense-utils';
+import { USER_BASE } from '@/types';
 import { toDateKey, dateToWeekday, taskOccursOnDate, eventOccursOnDate } from '@/lib/calendar-utils';
 import { PartnerDot } from '@/components/ui/PartnerDot';
 
@@ -49,31 +50,16 @@ export function DashboardWidgets() {
   const dinnerRecipeId = mealPlan.find((m) => m.weekday === weekday)?.dinnerRecipeId;
   const dinnerRecipe = dinnerRecipeId ? getRecipeById(dinnerRecipeId) : null;
 
-  const monthExpenses = useMemo(() => {
-    const m = today.getMonth();
-    const y = today.getFullYear();
-    return expenses
-      .filter((e) => {
-        const d = new Date(e.date);
-        return d.getMonth() === m && d.getFullYear() === y;
-      })
-      .reduce((s, e) => s + e.amount, 0);
-  }, [expenses, today]);
+  const moneySummary = useMemo(
+    () =>
+      getMonthSummary(expenses, today.getFullYear(), today.getMonth(), {
+        user1: USER_BASE.user1.name,
+        user2: USER_BASE.user2.name,
+      }),
+    [expenses, today],
+  );
 
-  const topCategory = useMemo(() => {
-    const m = today.getMonth();
-    const y = today.getFullYear();
-    const totals = EXPENSE_CATEGORIES.map((cat) => ({
-      ...cat,
-      total: expenses
-        .filter((e) => {
-          const d = new Date(e.date);
-          return d.getMonth() === m && d.getFullYear() === y && e.category === cat.id;
-        })
-        .reduce((s, e) => s + e.amount, 0),
-    }));
-    return totals.sort((a, b) => b.total - a.total).find((c) => c.total > 0);
-  }, [expenses, today]);
+  const topCategory = moneySummary.byCategory[0];
 
   const briefing = useMemo(
     () =>
@@ -148,9 +134,11 @@ export function DashboardWidgets() {
         </WidgetCard>
 
         <WidgetCard to="/haushaltsbuch" icon={Wallet} title="Geld">
-          <p className="text-lg font-bold text-white">{monthExpenses.toFixed(0)} €</p>
+          <p className="text-lg font-bold text-white">{moneySummary.total.toFixed(0)} €</p>
           <p className="text-[10px] text-white/55 truncate">
-            {topCategory ? topCategory.label : 'diesen Monat'}
+            {topCategory
+              ? `${topCategory.label} · ${moneySummary.transactionCount} Buch.`
+              : 'diesen Monat'}
           </p>
         </WidgetCard>
       </div>

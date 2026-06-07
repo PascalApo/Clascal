@@ -1,21 +1,44 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Upload, Plus, Trash2, FileText, Loader2 } from 'lucide-react';
+import { Upload, Plus, Loader2 } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { ExpenseChart } from '@/components/haushaltsbuch/ExpenseChart';
-import { PartnerDot } from '@/components/ui/PartnerDot';
+import { ExpenseSummary } from '@/components/haushaltsbuch/ExpenseSummary';
+import { ExpenseFilters } from '@/components/haushaltsbuch/ExpenseFilters';
+import { ExpenseList } from '@/components/haushaltsbuch/ExpenseList';
 import { useAppData } from '@/context/AppDataContext';
 import { useUser } from '@/context/UserContext';
 import { parseBankStatementPdf, guessCategory } from '@/lib/pdf-parser';
 import { EXPENSE_CATEGORIES, type ExpenseCategory } from '@/types/expense';
+import { USER_BASE } from '@/types';
+import {
+  filterExpensesByMonth,
+  filterExpenses,
+  sortExpenses,
+  groupExpenses,
+  getMonthSummary,
+  type ExpenseSortBy,
+  type ExpenseGroupBy,
+} from '@/lib/expense-utils';
 
 export function Haushaltsbuch() {
   const { theme, userId } = useUser();
   const { expenses, addExpense, addExpensesBulk, removeExpense, isLiveSync, showToast } = useAppData();
   const fileRef = useRef<HTMLInputElement>(null);
+  const today = new Date();
+
+  const [viewYear, setViewYear] = useState(today.getFullYear());
+  const [viewMonth, setViewMonth] = useState(today.getMonth());
   const [parsing, setParsing] = useState(false);
   const [parseResult, setParseResult] = useState<number | null>(null);
   const [showForm, setShowForm] = useState(false);
+
+  const [category, setCategory] = useState<ExpenseCategory | 'all'>('all');
+  const [person, setPerson] = useState<string | 'all'>('all');
+  const [search, setSearch] = useState('');
+  const [sortBy, setSortBy] = useState<ExpenseSortBy>('date-desc');
+  const [groupBy, setGroupBy] = useState<ExpenseGroupBy>('none');
+
   const [form, setForm] = useState({
     description: '',
     amount: '',
@@ -24,6 +47,48 @@ export function Haushaltsbuch() {
   });
 
   const accentColor = theme?.accent ?? '#00d4ff';
+
+  const monthExpenses = useMemo(
+    () => filterExpensesByMonth(expenses, viewYear, viewMonth),
+    [expenses, viewYear, viewMonth],
+  );
+
+  const summary = useMemo(
+    () =>
+      getMonthSummary(expenses, viewYear, viewMonth, {
+        user1: USER_BASE.user1.name,
+        user2: USER_BASE.user2.name,
+      }),
+    [expenses, viewYear, viewMonth],
+  );
+
+  const categoryCounts = useMemo(() => {
+    const counts: Record<ExpenseCategory | 'all', number> = { all: monthExpenses.length } as Record<
+      ExpenseCategory | 'all',
+      number
+    >;
+    for (const cat of EXPENSE_CATEGORIES) {
+      counts[cat.id] = monthExpenses.filter((e) => e.category === cat.id).length;
+    }
+    return counts;
+  }, [monthExpenses]);
+
+  const displayGroups = useMemo(() => {
+    const filtered = filterExpenses(monthExpenses, { category, person, search });
+    const sorted = sortExpenses(filtered, sortBy);
+    return groupExpenses(sorted, groupBy);
+  }, [monthExpenses, category, person, search, sortBy, groupBy]);
+
+  const goToMonth = (offset: number) => {
+    const d = new Date(viewYear, viewMonth + offset, 1);
+    setViewYear(d.getFullYear());
+    setViewMonth(d.getMonth());
+  };
+
+  const goToToday = () => {
+    setViewYear(today.getFullYear());
+    setViewMonth(today.getMonth());
+  };
 
   const handlePdfUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -69,40 +134,54 @@ export function Haushaltsbuch() {
       source: 'manual',
       createdBy: userId,
     });
-    setForm({ description: '', amount: '', date: new Date().toISOString().split('T')[0], category: 'sonstiges' });
+    setForm({
+      description: '',
+      amount: '',
+      date: new Date().toISOString().split('T')[0],
+      category: 'sonstiges',
+    });
     setShowForm(false);
   };
 
   return (
-    <div className="space-y-5 pb-4">
-      <PageHeader title="Haushaltsbuch" subtitle="PDF-Import & Ausgaben-Tracking" />
+    <div className="space-y-4 pb-4">
+      <PageHeader title="Haushaltsbuch" subtitle="Monatsübersicht & Buchungen" />
 
-      <ExpenseChart expenses={expenses} accentColor={accentColor} />
+      <ExpenseSummary
+        year={viewYear}
+        month={viewMonth}
+        summary={summary}
+        onPrevMonth={() => goToMonth(-1)}
+        onNextMonth={() => goToMonth(1)}
+        onToday={goToToday}
+      />
 
-      <div className="grid grid-cols-2 gap-3">
-        <motion.button
-          whileTap={{ scale: 0.97 }}
+      <ExpenseChart
+        expenses={monthExpenses}
+        accentColor={accentColor}
+        year={viewYear}
+        month={viewMonth}
+      />
+
+      <div className="flex gap-2">
+        <button
+          type="button"
           onClick={() => fileRef.current?.click()}
           disabled={parsing}
-          className="glass-card flex flex-col items-center gap-2 border p-4 accent-border"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 py-2.5 text-xs text-white/75 transition-colors hover-accent-bg-muted disabled:opacity-50"
         >
-          {parsing ? (
-            <Loader2 size={24} className="animate-spin accent-text" />
-          ) : (
-            <Upload size={24} className="accent-text" />
-          )}
-          <span className="text-xs text-white/75">Kontoauszug PDF</span>
-        </motion.button>
+          {parsing ? <Loader2 size={14} className="animate-spin" /> : <Upload size={14} />}
+          PDF importieren
+        </button>
         <input ref={fileRef} type="file" accept=".pdf" className="hidden" onChange={handlePdfUpload} />
-
-        <motion.button
-          whileTap={{ scale: 0.97 }}
+        <button
+          type="button"
           onClick={() => setShowForm(!showForm)}
-          className="glass-card flex flex-col items-center gap-2 border p-4 accent-border"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 py-2.5 text-xs text-white/75 transition-colors hover-accent-bg-muted"
         >
-          <Plus size={24} className="accent-text" />
-          <span className="text-xs text-white/75">Manuell hinzufügen</span>
-        </motion.button>
+          <Plus size={14} />
+          Hinzufügen
+        </button>
       </div>
 
       <AnimatePresence>
@@ -111,12 +190,12 @@ export function Haushaltsbuch() {
             initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className={`text-center text-sm ${parseResult > 0 ? 'text-green-400' : 'text-amber-400'}`}
+            className={`text-center text-xs ${parseResult > 0 ? 'text-green-400' : 'text-amber-400'}`}
           >
             {parseResult > 0
-              ? `${parseResult} Ausgaben aus PDF importiert`
+              ? `${parseResult} Ausgaben importiert`
               : parseResult === 0
-                ? 'Keine Ausgaben erkannt – ING-PDF mit Text (kein Scan)? Sonst manuell erfassen.'
+                ? 'Keine Ausgaben erkannt — ING-PDF mit Text?'
                 : 'PDF konnte nicht gelesen werden'}
           </motion.p>
         )}
@@ -162,7 +241,9 @@ export function Haushaltsbuch() {
               className="field-input"
             >
               {EXPENSE_CATEGORIES.map((c) => (
-                <option key={c.id} value={c.id}>{c.label}</option>
+                <option key={c.id} value={c.id}>
+                  {c.label}
+                </option>
               ))}
             </select>
             <button
@@ -175,46 +256,25 @@ export function Haushaltsbuch() {
         )}
       </AnimatePresence>
 
-      <div className="space-y-2">
-        <h3 className="text-sm font-medium text-white/70">Letzte Ausgaben</h3>
-        {expenses.length === 0 ? (
-          <p className="text-center text-xs text-white/55 py-8">Noch leer – PDF hochladen oder manuell erfassen</p>
-        ) : (
-          expenses.slice(0, 20).map((exp) => {
-            const cat = EXPENSE_CATEGORIES.find((c) => c.id === exp.category);
-            return (
-              <motion.div
-                key={exp.id}
-                layout
-                className="glass-card flex items-center gap-3 p-3"
-              >
-                <div
-                  className="flex h-9 w-9 items-center justify-center rounded-lg"
-                  style={{ backgroundColor: `${cat?.color}20` }}
-                >
-                  {exp.source === 'pdf' ? (
-                    <FileText size={16} style={{ color: cat?.color }} />
-                  ) : (
-                    <span className="text-xs font-bold" style={{ color: cat?.color }}>€</span>
-                  )}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="flex items-center gap-1.5 truncate text-sm">
-                    {exp.description}
-                    <PartnerDot userId={exp.createdBy} />
-                  </p>
-                  <p className="text-xs text-white/55">
-                    {new Date(exp.date).toLocaleDateString('de-DE')} · {cat?.label}
-                  </p>
-                </div>
-                <span className="text-sm font-medium text-white/90">-{exp.amount.toFixed(2)} €</span>
-                <button onClick={() => removeExpense(exp.id)} className="text-white/50 hover:text-red-400">
-                  <Trash2 size={14} />
-                </button>
-              </motion.div>
-            );
-          })
-        )}
+      <ExpenseFilters
+        category={category}
+        person={person}
+        search={search}
+        sortBy={sortBy}
+        groupBy={groupBy}
+        categoryCounts={categoryCounts}
+        onCategoryChange={setCategory}
+        onPersonChange={setPerson}
+        onSearchChange={setSearch}
+        onSortChange={setSortBy}
+        onGroupChange={setGroupBy}
+      />
+
+      <div>
+        <h3 className="mb-2 text-sm font-medium text-white/70">
+          Buchungen ({displayGroups.reduce((s, g) => s + g.items.length, 0)})
+        </h3>
+        <ExpenseList groups={displayGroups} groupBy={groupBy} onRemove={removeExpense} />
       </div>
     </div>
   );
