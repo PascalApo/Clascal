@@ -16,7 +16,7 @@ export function ProfileSelect() {
 
   const handleSelect = (id: UserId) => {
     login(id);
-    navigate('/dashboard');
+    navigate('/radar');
   };
 
   return (

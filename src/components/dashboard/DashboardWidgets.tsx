@@ -6,15 +6,11 @@ import {
   ShoppingCart,
   ChefHat,
   Wallet,
-  Radar,
-  ArrowRight,
   ListTodo,
 } from 'lucide-react';
 import { useAppData } from '@/context/AppDataContext';
 import { useRecipes } from '@/context/RecipesContext';
 import { useUser } from '@/context/UserContext';
-import { buildWeeklyBriefing } from '@/lib/radar/engine';
-import { SyncStatusPill } from '@/components/ui/SyncStatusPill';
 import { LiveActivityFeed } from '@/components/live/LiveActivityFeed';
 import { getMonthSummary } from '@/lib/expense-utils';
 import { USER_BASE } from '@/types';
@@ -30,12 +26,9 @@ export function DashboardWidgets() {
     shoppingItems,
     mealPlan,
     expenses,
-    pantryItems,
-    bureaucracyDeadlines,
-    mentalLoadEvents,
     isLiveSync,
   } = useAppData();
-  const { recipes, getRecipeById } = useRecipes();
+  const { getRecipeById } = useRecipes();
   const { userId, getOtherMemberNames } = useUser();
 
   const today = new Date();
@@ -61,23 +54,6 @@ export function DashboardWidgets() {
 
   const topCategory = moneySummary.byCategory[0];
 
-  const briefing = useMemo(
-    () =>
-      buildWeeklyBriefing({
-        tasks,
-        events,
-        mealPlan,
-        shoppingItems,
-        pantry: pantryItems,
-        deadlines: bureaucracyDeadlines,
-        mentalLoad: mentalLoadEvents,
-        recipes,
-      }),
-    [tasks, events, mealPlan, shoppingItems, pantryItems, bureaucracyDeadlines, mentalLoadEvents, recipes],
-  );
-
-  const topCollision = briefing.collisions[0];
-
   const quickLinks = [
     { to: '/einkauf', label: '+ Einkauf', icon: ShoppingCart },
     { to: `/kalender?date=${todayKey}`, label: '+ Aufgabe', icon: ListTodo },
@@ -87,14 +63,11 @@ export function DashboardWidgets() {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-sm text-white/65">
-            {WEEKDAYS[today.getDay()]}, {today.toLocaleDateString('de-DE', { day: 'numeric', month: 'long' })}
-          </p>
-          <h2 className="font-display text-xl font-bold accent-gradient-text">Alles im Blick</h2>
-        </div>
-        <SyncStatusPill />
+      <div>
+        <p className="text-sm text-white/65">
+          {WEEKDAYS[today.getDay()]}, {today.toLocaleDateString('de-DE', { day: 'numeric', month: 'long' })}
+        </p>
+        <h2 className="font-display text-xl font-bold accent-gradient-text">Alles im Blick</h2>
       </div>
 
       {!isLiveSync && (
@@ -142,20 +115,6 @@ export function DashboardWidgets() {
           </p>
         </WidgetCard>
       </div>
-
-      {topCollision && (
-        <Link
-          to="/radar"
-          className="glass-card flex items-center gap-3 border accent-border p-3 transition-colors hover-accent-bg-muted"
-        >
-          <Radar size={18} className="shrink-0 accent-text" />
-          <div className="min-w-0 flex-1">
-            <p className="text-xs text-white/55">Radar-Hinweis</p>
-            <p className="truncate text-sm font-medium text-white">{topCollision.title}</p>
-          </div>
-          <ArrowRight size={14} className="text-white/50" />
-        </Link>
-      )}
 
       <div className="flex flex-wrap gap-2">
         {quickLinks.map(({ to, label, icon: Icon }) => (

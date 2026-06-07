@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { LogOut, Palette } from 'lucide-react';
 import { BottomNav } from './BottomNav';
 import { ThemeScope } from '@/components/theme/ThemeScope';
-import { LiveActivityFeed } from '@/components/live/LiveActivityFeed';
 import { PullToRefresh } from '@/components/ui/PullToRefresh';
 import { SyncStatusPill } from '@/components/ui/SyncStatusPill';
 import { useUser } from '@/context/UserContext';
@@ -53,9 +52,6 @@ export function AppLayout() {
                 <span className="text-white/75">Logout</span>
               </motion.button>
             </div>
-            </div>
-            <div className="mt-2">
-              <LiveActivityFeed compact />
             </div>
           </div>
         </header>
