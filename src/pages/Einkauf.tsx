@@ -18,6 +18,10 @@ import {
 
   X,
 
+  Bell,
+
+  Loader2,
+
 } from 'lucide-react';
 
 import { PageHeader } from '@/components/ui/PageHeader';
@@ -29,7 +33,15 @@ import { MealPlanShoppingChecklist } from '@/components/einkauf/MealPlanShopping
 
 import { useAppData } from '@/context/AppDataContext';
 
+import { useRecipes } from '@/context/RecipesContext';
+
 import { useUser } from '@/context/UserContext';
+
+import { collectMealPlanIngredients } from '@/lib/meal-plan-ingredients';
+
+import { notifyPartnerShoppingUpdate } from '@/lib/push/partner-notify';
+
+import { getPartnerName } from '@/types/user';
 
 import {
 
@@ -55,6 +67,8 @@ export function Einkauf() {
 
   const { userId } = useUser();
 
+  const { getRecipeById } = useRecipes();
+
   const {
 
     isLiveSync,
@@ -66,6 +80,8 @@ export function Einkauf() {
     shoppingItems,
 
     shoppingUsage,
+
+    mealPlan,
 
     addShoppingItem,
 
@@ -93,7 +109,13 @@ export function Einkauf() {
 
   const [editingQtyId, setEditingQtyId] = useState<string | null>(null);
 
+  const [notifyState, setNotifyState] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+
+  const [notifyError, setNotifyError] = useState<string | null>(null);
+
   const searchRef = useRef<HTMLInputElement>(null);
+
+  const partnerName = userId ? getPartnerName(userId) : 'Partner';
 
 
 
@@ -117,13 +139,39 @@ export function Einkauf() {
 
 
 
+  const mealPlanIngredientKeys = useMemo(() => {
+
+    const lines = collectMealPlanIngredients(mealPlan, getRecipeById);
+
+    return new Set(lines.map((l) => l.key));
+
+  }, [mealPlan, getRecipeById]);
+
+
+
+  const manualShoppingItems = useMemo(
+
+    () =>
+
+      shoppingItems.filter(
+
+        (i) => !mealPlanIngredientKeys.has(i.name.toLowerCase().trim()),
+
+      ),
+
+    [shoppingItems, mealPlanIngredientKeys],
+
+  );
+
+
+
   const filtered =
 
     activeCategory === 'all'
 
-      ? shoppingItems
+      ? manualShoppingItems
 
-      : shoppingItems.filter((i) => i.category === activeCategory);
+      : manualShoppingItems.filter((i) => i.category === activeCategory);
 
 
 
@@ -132,6 +180,36 @@ export function Einkauf() {
   const checked = filtered.filter((i) => i.checked);
 
   const syncOnline = isLiveSync;
+
+
+
+  const handleNotifyPartner = async () => {
+
+    if (!userId || notifyState === 'sending') return;
+
+    setNotifyState('sending');
+
+    setNotifyError(null);
+
+    const result = await notifyPartnerShoppingUpdate(userId);
+
+    if (result.ok) {
+
+      setNotifyState('sent');
+
+      setTimeout(() => setNotifyState('idle'), 3000);
+
+    } else {
+
+      setNotifyState('error');
+
+      setNotifyError(result.error ?? 'Benachrichtigung fehlgeschlagen');
+
+      setTimeout(() => setNotifyState('idle'), 5000);
+
+    }
+
+  };
 
 
 
@@ -433,7 +511,7 @@ export function Einkauf() {
 
               ? `Filter: ${activeCategoryMeta.label}`
 
-              : `${shoppingItems.filter((i) => !i.checked).length} offen`
+              : `${manualShoppingItems.filter((i) => !i.checked).length} offen`
 
           }
 
@@ -458,6 +536,37 @@ export function Einkauf() {
       </div>
 
       <MealPlanShoppingChecklist />
+
+      <motion.button
+        whileTap={{ scale: notifyState === 'sending' ? 1 : 0.98 }}
+        type="button"
+        onClick={() => void handleNotifyPartner()}
+        disabled={!userId || !syncOnline || notifyState === 'sending'}
+        className={`flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm transition-colors disabled:opacity-40 ${
+          notifyState === 'sent'
+            ? 'border-green-500/30 bg-green-500/10 text-green-400'
+            : notifyState === 'error'
+              ? 'border-red-500/30 bg-red-500/10 text-red-300'
+              : 'border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.06]'
+        }`}
+      >
+        {notifyState === 'sending' ? (
+          <Loader2 size={16} className="animate-spin" />
+        ) : (
+          <Bell size={16} />
+        )}
+        {notifyState === 'sent'
+          ? `${partnerName} informiert`
+          : notifyState === 'error'
+            ? notifyError ?? 'Fehler'
+            : `${partnerName} informieren`}
+      </motion.button>
+
+      {notifyState === 'error' && notifyError && (
+        <p className="text-center text-[10px] text-white/30">
+          Partner muss unter Einstellungen Push aktivieren (iPhone: App zum Home-Bildschirm).
+        </p>
+      )}
 
       <div className="glass-card space-y-3 p-4">
 
@@ -755,7 +864,7 @@ export function Einkauf() {
 
           Alle
 
-          <span className="ml-1 opacity-60">({shoppingItems.filter((i) => !i.checked).length})</span>
+          <span className="ml-1 opacity-60">({manualShoppingItems.filter((i) => !i.checked).length})</span>
 
         </button>
 
@@ -763,7 +872,7 @@ export function Einkauf() {
 
           const Icon = cat.icon;
 
-          const count = shoppingItems.filter((i) => i.category === cat.id && !i.checked).length;
+          const count = manualShoppingItems.filter((i) => i.category === cat.id && !i.checked).length;
 
           const isActive = activeCategory === cat.id;
 

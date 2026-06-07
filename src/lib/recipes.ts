@@ -67,16 +67,20 @@ export function filterDinnerRecipes(recipes: Recipe[]): Recipe[] {
   return recipes.filter((r) => r.mealCategory !== 'Frühstück');
 }
 
-export function generateBreakfast(recipes: Recipe[]): Recipe | null {
-  const pool = filterBreakfastRecipes(recipes);
+function pickRandomRecipe(pool: Recipe[], excludeIds: string[] = []): Recipe | null {
   if (pool.length === 0) return null;
-  return pool[Math.floor(Math.random() * pool.length)];
+  const exclude = new Set(excludeIds);
+  const candidates = pool.filter((r) => !exclude.has(r.id));
+  const pickFrom = candidates.length > 0 ? candidates : pool;
+  return pickFrom[Math.floor(Math.random() * pickFrom.length)];
 }
 
-export function generateDinner(recipes: Recipe[]): Recipe | null {
-  const pool = filterDinnerRecipes(recipes);
-  if (pool.length === 0) return null;
-  return pool[Math.floor(Math.random() * pool.length)];
+export function generateBreakfast(recipes: Recipe[], excludeIds: string[] = []): Recipe | null {
+  return pickRandomRecipe(filterBreakfastRecipes(recipes), excludeIds);
+}
+
+export function generateDinner(recipes: Recipe[], excludeIds: string[] = []): Recipe | null {
+  return pickRandomRecipe(filterDinnerRecipes(recipes), excludeIds);
 }
 
 /** @deprecated Nutze generateBreakfast / generateDinner */

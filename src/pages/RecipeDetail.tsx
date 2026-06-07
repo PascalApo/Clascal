@@ -1,21 +1,24 @@
 import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, Users, ShoppingCart, Minus, Plus, Flame, Leaf } from 'lucide-react';
-import { useUser } from '@/context/UserContext';
-import { useAppData } from '@/context/AppDataContext';
+import { ArrowLeft, Clock, Users, Minus, Plus, Flame, Leaf } from 'lucide-react';
 import { useRecipes } from '@/context/RecipesContext';
+import { useAppData } from '@/context/AppDataContext';
 import { scaleIngredients } from '@/lib/recipes';
 
 export function RecipeDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { userId } = useUser();
-  const { addIngredientsToShopping } = useAppData();
+  const { mealPlan } = useAppData();
   const { getRecipeById, loading } = useRecipes();
   const recipe = id ? getRecipeById(id) : undefined;
   const [servings, setServings] = useState(recipe?.servings ?? 2);
-  const [added, setAdded] = useState(false);
+
+  const isInMealPlan = recipe
+    ? mealPlan.some(
+        (d) => d.breakfastRecipeId === recipe.id || d.dinnerRecipeId === recipe.id,
+      )
+    : false;
 
   if (loading) {
     return <p className="py-20 text-center text-white/40">Rezept wird geladen…</p>;
@@ -40,13 +43,6 @@ export function RecipeDetail() {
     carbs: Math.round(recipe.nutrition.carbs * scaleFactor),
     fat: Math.round(recipe.nutrition.fat * scaleFactor),
     fiber: Math.round(recipe.nutrition.fiber * scaleFactor),
-  };
-
-  const handleAddToShopping = async () => {
-    if (!userId) return;
-    await addIngredientsToShopping(ingredients, userId);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
   };
 
   return (
@@ -128,18 +124,18 @@ export function RecipeDetail() {
       </div>
 
       <div className="glass-card p-4">
-        <div className="mb-3 flex items-center justify-between">
+        <div className="mb-3 flex items-center justify-between gap-2">
           <h3 className="text-sm font-medium text-white/60">Zutaten</h3>
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={handleAddToShopping}
-            className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs ${
-              added ? 'bg-green-500/20 text-green-400' : 'accent-bg-muted accent-text'
-            }`}
-          >
-            <ShoppingCart size={12} />
-            {added ? 'Hinzugefügt!' : 'Auf Einkaufsliste'}
-          </motion.button>
+          {isInMealPlan ? (
+            <Link
+              to="/einkauf"
+              className="text-[10px] text-white/30 hover:text-white/50"
+            >
+              In Einkauf abhaken →
+            </Link>
+          ) : (
+            <span className="text-[10px] text-white/25">Erst im Wochenplan eintragen</span>
+          )}
         </div>
         <ul className="space-y-2">
           {ingredients.map((ing, i) => (

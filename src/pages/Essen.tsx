@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Dices, Search, ChevronRight, Clock, Flame, Coffee, Moon } from 'lucide-react';
+import { Dices, Search, ChevronRight, Clock, Flame, Coffee, Moon, X } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { useAppData } from '@/context/AppDataContext';
 import { useRecipes } from '@/context/RecipesContext';
@@ -38,6 +38,20 @@ export function Essen() {
     return matchSearch && matchCat;
   });
 
+  const getExcludeIdsForRoll = (slot: MealSlot): string[] => {
+    if (assignDay === null) return [];
+    const entry = mealPlan.find((m) => m.weekday === assignDay);
+    const currentId =
+      slot === 'breakfast' ? entry?.breakfastRecipeId : entry?.dinnerRecipeId;
+
+    const otherDays = mealPlan
+      .filter((m) => m.weekday !== assignDay)
+      .map((m) => (slot === 'breakfast' ? m.breakfastRecipeId : m.dinnerRecipeId))
+      .filter((id): id is string => Boolean(id));
+
+    return currentId ? [...otherDays, currentId] : otherDays;
+  };
+
   const assignRecipe = (recipeId: string, slot: MealSlot) => {
     if (assignDay !== null) {
       setMealForDay(assignDay, slot, recipeId);
@@ -47,13 +61,15 @@ export function Essen() {
   };
 
   const handleGenerateBreakfast = () => {
-    const recipe = generateBreakfast(recipes);
+    if (assignDay === null) return;
+    const recipe = generateBreakfast(recipes, getExcludeIdsForRoll('breakfast'));
     if (!recipe) return;
     assignRecipe(recipe.id, 'breakfast');
   };
 
   const handleGenerateDinner = () => {
-    const recipe = generateDinner(recipes);
+    if (assignDay === null) return;
+    const recipe = generateDinner(recipes, getExcludeIdsForRoll('dinner'));
     if (!recipe) return;
     assignRecipe(recipe.id, 'dinner');
   };
@@ -68,6 +84,31 @@ export function Essen() {
     setAssignDay(day);
     setAssignSlot(slot);
   };
+
+  const clearSelectedMeal = () => {
+    if (assignDay === null) return;
+    setMealForDay(assignDay, assignSlot, null);
+    setAssignDay(null);
+    setLastPicked(null);
+  };
+
+  const removeMeal = (day: number, slot: MealSlot, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setMealForDay(day, slot, null);
+    if (assignDay === day && assignSlot === slot) {
+      setAssignDay(null);
+      setLastPicked(null);
+    }
+  };
+
+  const selectedEntry = assignDay !== null ? mealPlan.find((m) => m.weekday === assignDay) : null;
+  const selectedRecipeId =
+    selectedEntry && assignDay !== null
+      ? assignSlot === 'breakfast'
+        ? selectedEntry.breakfastRecipeId
+        : selectedEntry.dinnerRecipeId
+      : null;
+  const selectedRecipe = selectedRecipeId ? getRecipeById(selectedRecipeId) : null;
 
   return (
     <div className="space-y-5 pb-4">
@@ -99,10 +140,27 @@ export function Essen() {
                     <button
                       key={`${slot}-${label}`}
                       onClick={() => selectDaySlot(i, slot)}
-                      className={`rounded-xl p-2 text-center transition-colors ${
+                      className={`relative rounded-xl p-2 text-center transition-colors ${
                         isSelected ? 'accent-bg-muted ring-1 accent-border' : 'bg-dark-200/50'
                       }`}
                     >
+                      {recipe && (
+                        <span
+                          role="button"
+                          tabIndex={0}
+                          onClick={(e) => removeMeal(i, slot, e)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              removeMeal(i, slot, e as unknown as React.MouseEvent);
+                            }
+                          }}
+                          className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-dark-200 text-white/50 hover:bg-red-500/30 hover:text-red-300"
+                          aria-label={`${recipe.name} entfernen`}
+                        >
+                          <X size={10} />
+                        </span>
+                      )}
                       <p className="text-[10px] text-white/40">{label}</p>
                       <p className="mt-1 text-[10px] leading-tight text-white/70 line-clamp-2">
                         {recipe ? recipe.name.split(' ').slice(0, 2).join(' ') : '—'}
@@ -114,9 +172,26 @@ export function Essen() {
             </div>
           ))}
         </div>
-        {assignDay !== null && (
-          <p className="mt-2 text-center text-xs text-white/40">
-            {WEEKDAY_FULL[assignDay]} · {assignSlot === 'breakfast' ? 'Frühstück' : 'Abendessen'} – Würfeln oder Rezept wählen
+        {assignDay !== null ? (
+          <div className="mt-2 space-y-2 text-center">
+            <p className="text-xs text-white/40">
+              {WEEKDAY_FULL[assignDay]} · {assignSlot === 'breakfast' ? 'Frühstück' : 'Abendessen'} – Würfeln oder Rezept wählen
+            </p>
+            {selectedRecipe && (
+              <motion.button
+                whileTap={{ scale: 0.97 }}
+                type="button"
+                onClick={clearSelectedMeal}
+                className="inline-flex items-center gap-1.5 rounded-full border border-red-500/25 bg-red-500/10 px-3 py-1 text-[11px] text-red-300/90"
+              >
+                <X size={12} />
+                {selectedRecipe.name} entfernen
+              </motion.button>
+            )}
+          </div>
+        ) : (
+          <p className="mt-2 text-center text-xs text-white/30">
+            Tag im Wochenplan antippen, dann würfeln
           </p>
         )}
       </div>
@@ -125,7 +200,7 @@ export function Essen() {
         <motion.button
           whileTap={{ scale: 0.97 }}
           onClick={handleGenerateBreakfast}
-          disabled={loading || recipes.length === 0}
+          disabled={loading || recipes.length === 0 || assignDay === null}
           className="glass-card flex flex-col items-center gap-2 border py-4 accent-border disabled:opacity-40"
         >
           <Coffee size={22} className="accent-text" />
@@ -136,7 +211,7 @@ export function Essen() {
         <motion.button
           whileTap={{ scale: 0.97 }}
           onClick={handleGenerateDinner}
-          disabled={loading || recipes.length === 0}
+          disabled={loading || recipes.length === 0 || assignDay === null}
           className="glass-card flex flex-col items-center gap-2 border py-4 accent-border disabled:opacity-40"
         >
           <Dices size={22} className="accent-text" />

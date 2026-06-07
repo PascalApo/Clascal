@@ -9,13 +9,18 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      strategies: 'injectManifest',
+      srcDir: 'src',
+      filename: 'sw.ts',
       registerType: 'autoUpdate',
       manifestFilename: 'manifest.json',
       includeAssets: ['favicon.svg', 'apple-touch-icon.svg', 'icons/*.svg'],
       manifest: pwaManifest,
-      workbox: {
-        navigateFallback: 'index.html',
+      injectManifest: {
         globPatterns: ['**/*.{js,css,html,svg,json,woff2}'],
+      },
+      devOptions: {
+        enabled: true,
       },
     }),
   ],
