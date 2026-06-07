@@ -5,6 +5,7 @@ import { fileURLToPath, URL } from 'node:url';
 import pwaManifest from './public/manifest.json';
 
 export default defineConfig({
+  base: '/Clascal/',
   plugins: [
     react(),
     VitePWA({

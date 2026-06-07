@@ -50,7 +50,7 @@ export default function App() {
   return (
     <UserProvider>
       <AppDataProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/Clascal">
           <AppRoutes />
         </BrowserRouter>
       </AppDataProvider>
