@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Wifi, WifiOff, Loader2, AlertCircle, CheckCircle2, Cloud } from 'lucide-react';
 import { useAppData } from '@/context/AppDataContext';
-import { isSupabaseConfigured, HOUSEHOLD_ID } from '@/lib/supabase/client';
+import { isSupabaseConfigured, supabaseConfigError, HOUSEHOLD_ID } from '@/lib/supabase/client';
 
 const STEPS = [
   'Kostenloses Projekt auf supabase.com erstellen',
@@ -71,6 +71,13 @@ export function SupabaseSetup() {
         {syncStatus === 'live' && <Wifi size={18} className="ml-auto text-green-400" />}
       </div>
 
+      {supabaseConfigError && (
+        <div className="glass-card border border-red-500/30 bg-red-500/10 p-4 text-xs text-red-300">
+          <p className="font-medium">Ungültige Supabase-URL</p>
+          <p className="mt-1 text-red-200/80">{supabaseConfigError}</p>
+        </div>
+      )}
+
       {!configured && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -93,7 +100,10 @@ export function SupabaseSetup() {
           </ol>
           <div className="mt-4 rounded-xl bg-dark-200/50 p-3 font-mono text-[10px] text-white/40">
             <p>VITE_SUPABASE_URL=https://xxx.supabase.co</p>
-            <p>VITE_SUPABASE_ANON_KEY=eyJ...</p>
+            <p className="mt-1 text-amber-400/80">
+              Nicht api.supabase.com/platform – nur die Project URL aus dem API-Tab!
+            </p>
+            <p className="mt-2">VITE_SUPABASE_ANON_KEY=eyJ...</p>
             <p>VITE_HOUSEHOLD_ID=clara-pascal</p>
           </div>
         </motion.div>
