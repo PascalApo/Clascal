@@ -2,8 +2,8 @@
   "name": "Haushalts-App Clara & Pascal",
   "short_name": "Haushalt",
   "description": "Privates Haushalts- & Beziehungs-Management für Clara und Pascal",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/Clascal/",
+  "scope": "/Clascal/",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#0a0a0f",
@@ -11,19 +11,19 @@
   "lang": "de",
   "icons": [
     {
-      "src": "/icons/icon-192.svg",
+      "src": "/Clascal/icons/icon-192.svg",
       "sizes": "192x192",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-512.svg",
+      "src": "/Clascal/icons/icon-512.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-512.svg",
+      "src": "/Clascal/icons/icon-512.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "maskable"
