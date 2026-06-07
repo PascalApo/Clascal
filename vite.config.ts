@@ -13,6 +13,10 @@ export default defineConfig({
       manifestFilename: 'manifest.json',
       includeAssets: ['favicon.svg', 'apple-touch-icon.svg', 'icons/*.svg'],
       manifest: pwaManifest,
+      workbox: {
+        navigateFallback: 'index.html',
+        globPatterns: ['**/*.{js,css,html,svg,json,woff2}'],
+      },
     }),
   ],
   resolve: {
