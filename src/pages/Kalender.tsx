@@ -10,7 +10,10 @@ import {
   CalendarDays,
 } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
+import { SwipeableRow } from '@/components/ui/SwipeableRow';
+import { PartnerDot } from '@/components/ui/PartnerDot';
 import { useAppData } from '@/context/AppDataContext';
+import { hapticTap } from '@/lib/haptics';
 import { useUser } from '@/context/UserContext';
 import { USER_BASE, type UserId } from '@/types';
 import { generateIcs, downloadIcs } from '@/lib/ics-export';
@@ -22,6 +25,7 @@ import {
   getMonthGrid,
   getItemsForDate,
   formatMonthYear,
+  taskOccursOnDate,
 } from '@/lib/calendar-utils';
 import type { Task } from '@/lib/sync/types';
 
@@ -115,6 +119,24 @@ export function Kalender() {
     });
   }, [selectedDate]);
 
+  const weekSummary = useMemo(() => {
+    const start = new Date(today);
+    const day = start.getDay();
+    const mondayOffset = day === 0 ? -6 : 1 - day;
+    start.setDate(start.getDate() + mondayOffset);
+    const weekDates: Date[] = [];
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(start);
+      d.setDate(start.getDate() + i);
+      weekDates.push(d);
+    }
+    const openTasks = tasks.filter((t) => !t.completed && weekDates.some((d) => taskOccursOnDate(t, d)));
+    const upcoming = events
+      .filter((e) => new Date(e.startDate) >= today)
+      .sort((a, b) => a.startDate.localeCompare(b.startDate))[0];
+    return { openTasks: openTasks.length, upcoming };
+  }, [tasks, events, today]);
+
   return (
     <div className="space-y-4 pb-4">
       <div className="flex items-start justify-between">
@@ -127,6 +149,15 @@ export function Kalender() {
           <Download size={14} />
           .ics
         </motion.button>
+      </div>
+
+      <div className="glass-card flex items-center justify-between px-3 py-2 text-xs text-white/65">
+        <span>{weekSummary.openTasks} offene Aufgaben diese Woche</span>
+        {weekSummary.upcoming && (
+          <span className="truncate text-white/55">
+            Nächster Termin: {weekSummary.upcoming.title}
+          </span>
+        )}
       </div>
 
       {/* Legende */}
@@ -264,46 +295,60 @@ export function Kalender() {
         ) : (
           <div className="space-y-2">
             {selectedItems.tasks.map((task) => (
-              <motion.div
+              <SwipeableRow
                 key={task.id}
-                layout
-                className="flex items-center gap-3 rounded-xl border border-dashed border-white/10 bg-dark-200/40 px-3 py-2"
-                style={{
-                  borderColor:
-                    task.assignedTo === 'both'
-                      ? 'rgba(255,255,255,0.15)'
-                      : `${getAssigneeColor(task.assignedTo)}50`,
+                onSwipeRight={() => {
+                  hapticTap();
+                  toggleTask(task.id);
                 }}
+                onSwipeLeft={() => removeTask(task.id)}
+                rightLabel="Erledigt"
+                leftLabel="Löschen"
               >
-                <button
-                  onClick={() => toggleTask(task.id)}
-                  className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border ${
-                    task.completed ? 'border-green-500 bg-green-500/20' : 'border-white/20'
-                  }`}
-                >
-                  {task.completed && <Check size={12} className="text-green-400" />}
-                </button>
-                <ListTodo size={14} className="shrink-0 text-white/55" />
-                <div className="min-w-0 flex-1">
-                  <p className={`truncate text-sm ${task.completed ? 'text-white/55 line-through' : ''}`}>
-                    {task.title}
-                  </p>
-                  <p className="text-[10px] text-white/55">
-                    Aufgabe · {task.recurring ? 'Wöchentlich' : 'Einmalig'} ·{' '}
-                    {task.assignedTo === 'both' ? 'Beide' : USER_BASE[task.assignedTo].name}
-                  </p>
-                </div>
-                <span
-                  className="h-2.5 w-2.5 shrink-0 rounded-full"
+                <motion.div
+                  layout
+                  className="flex items-center gap-3 rounded-xl border border-dashed border-white/10 bg-dark-200/40 px-3 py-2"
                   style={{
-                    background:
-                      task.assignedTo === 'both' ? getAssigneeColor('both') : getAssigneeColor(task.assignedTo),
+                    borderColor:
+                      task.assignedTo === 'both'
+                        ? 'rgba(255,255,255,0.15)'
+                        : `${getAssigneeColor(task.assignedTo)}50`,
                   }}
-                />
-                <button onClick={() => removeTask(task.id)} className="text-white/50 hover:text-red-400">
-                  <Trash2 size={12} />
-                </button>
-              </motion.div>
+                >
+                  <button
+                    onClick={() => {
+                      hapticTap();
+                      toggleTask(task.id);
+                    }}
+                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border ${
+                      task.completed ? 'border-green-500 bg-green-500/20' : 'border-white/20'
+                    }`}
+                  >
+                    {task.completed && <Check size={12} className="text-green-400" />}
+                  </button>
+                  <ListTodo size={14} className="shrink-0 text-white/55" />
+                  <div className="min-w-0 flex-1">
+                    <p className={`truncate text-sm ${task.completed ? 'text-white/55 line-through' : ''}`}>
+                      {task.title}
+                    </p>
+                    <p className="text-[10px] text-white/55 flex items-center gap-1">
+                      Aufgabe · {task.recurring ? 'Wöchentlich' : 'Einmalig'} ·{' '}
+                      {task.assignedTo === 'both' ? 'Beide' : USER_BASE[task.assignedTo].name}
+                      <PartnerDot userId={task.createdBy} />
+                    </p>
+                  </div>
+                  <span
+                    className="h-2.5 w-2.5 shrink-0 rounded-full"
+                    style={{
+                      background:
+                        task.assignedTo === 'both' ? getAssigneeColor('both') : getAssigneeColor(task.assignedTo),
+                    }}
+                  />
+                  <button onClick={() => removeTask(task.id)} className="text-white/50 hover:text-red-400">
+                    <Trash2 size={12} />
+                  </button>
+                </motion.div>
+              </SwipeableRow>
             ))}
 
             {selectedItems.events.map((ev) => (
@@ -316,8 +361,9 @@ export function Kalender() {
                 <CalendarDays size={14} className="shrink-0" style={{ color: EVENT_COLOR }} />
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm">{ev.title}</p>
-                  <p className="text-[10px] text-white/55">
+                  <p className="text-[10px] text-white/55 flex items-center gap-1">
                     Termin · {creatorLabel(ev.createdBy)}
+                    <PartnerDot userId={ev.createdBy} />
                     {ev.description ? ` · ${ev.description}` : ''}
                   </p>
                 </div>

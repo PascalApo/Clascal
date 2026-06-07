@@ -52,6 +52,15 @@ import { ingredientCategoryToShopping } from '@/lib/shopping-categories';
 
 import { isSupabaseConfigured } from '@/lib/supabase/client';
 
+import { useUser } from '@/context/UserContext';
+
+import {
+  formatPartnerActivity,
+  getActorFromChange,
+  getHighlightIdFromChange,
+  type LiveActivity,
+} from '@/lib/live-activity';
+
 import {
 
   fetchAllData,
@@ -164,13 +173,31 @@ const EMPTY_EVENTS: CalendarEvent[] = [];
 
 export type SyncStatus = 'local' | 'connecting' | 'live' | 'error';
 
-
+export interface AppToast {
+  id: string;
+  message: string;
+  type: 'info' | 'error';
+  actionLabel?: string;
+  onAction?: () => void;
+}
 
 interface AppDataContextValue {
 
   syncStatus: SyncStatus;
 
   isLiveSync: boolean;
+
+  activityFeed: LiveActivity[];
+
+  toasts: AppToast[];
+
+  showToast: (message: string, type?: AppToast['type']) => void;
+
+  dismissToast: (id: string) => void;
+
+  reconnectSync: () => Promise<void>;
+
+  highlightedIds: Set<string>;
 
 
 
@@ -209,6 +236,8 @@ interface AppDataContextValue {
   addTask: (data: Omit<Task, 'id' | 'createdAt' | 'updatedAt' | 'completed'>) => void;
 
   toggleTask: (id: string) => void;
+
+  assignTask: (id: string, assignedTo: Task['assignedTo']) => void;
 
   removeTask: (id: string) => void;
 
@@ -472,6 +501,8 @@ function mergeShoppingItemIntoList(prev: ShoppingListItem[], item: ShoppingListI
 
 export function AppDataProvider({ children }: { children: ReactNode }) {
 
+  const { userId } = useUser();
+
   const local = loadLocalData();
 
   const [syncStatus, setSyncStatus] = useState<SyncStatus>(
@@ -479,6 +510,20 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     isSupabaseConfigured ? 'connecting' : 'local',
 
   );
+
+  const [syncGeneration, setSyncGeneration] = useState(0);
+
+  const [activityFeed, setActivityFeed] = useState<LiveActivity[]>([]);
+
+  const [toasts, setToasts] = useState<AppToast[]>([]);
+
+  const [highlightedIds, setHighlightedIds] = useState<Set<string>>(new Set());
+
+  const userIdRef = useRef(userId);
+
+  useEffect(() => {
+    userIdRef.current = userId;
+  }, [userId]);
 
   const [expenses, setExpenses] = useState<Expense[]>(local.expenses);
 
@@ -582,6 +627,68 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     });
 
   }, [useCloud]);
+
+
+
+  const showToast = useCallback((message: string, type: AppToast['type'] = 'info') => {
+
+    const id = createId();
+
+    setToasts((prev) => [...prev, { id, message, type }]);
+
+    window.setTimeout(() => {
+
+      setToasts((prev) => prev.filter((t) => t.id !== id));
+
+    }, 4000);
+
+  }, []);
+
+
+
+  const dismissToast = useCallback((id: string) => {
+
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+
+  }, []);
+
+
+
+  const pushActivity = useCallback((activity: LiveActivity) => {
+
+    setActivityFeed((prev) => [activity, ...prev].slice(0, 20));
+
+  }, []);
+
+
+
+  const flashHighlight = useCallback((id: string) => {
+
+    setHighlightedIds((prev) => new Set(prev).add(id));
+
+    window.setTimeout(() => {
+
+      setHighlightedIds((prev) => {
+
+        const next = new Set(prev);
+
+        next.delete(id);
+
+        return next;
+
+      });
+
+    }, 1200);
+
+  }, []);
+
+
+
+  const reconnectSync = useCallback(async () => {
+
+    setSyncGeneration((g) => g + 1);
+
+  }, []);
 
 
 
@@ -977,6 +1084,42 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
           if (cancelled) return;
 
+
+
+          const actor = getActorFromChange(change);
+
+          const currentUserId = userIdRef.current;
+
+          if (actor && currentUserId && actor !== currentUserId) {
+
+            const msg = formatPartnerActivity(change);
+
+            if (msg) {
+
+              pushActivity({
+
+                id: createId(),
+
+                message: msg,
+
+                createdBy: actor,
+
+                at: new Date().toISOString(),
+
+              });
+
+              showToast(msg, 'info');
+
+            }
+
+            const highlightId = getHighlightIdFromChange(change);
+
+            if (highlightId) flashHighlight(highlightId);
+
+          }
+
+
+
           if (change.table === 'shopping_items') {
 
             applyRealtimeChange(change);
@@ -1015,7 +1158,23 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
     };
 
-  }, [applyCloudData, applyRealtimeChange]);
+  }, [applyCloudData, applyRealtimeChange, syncGeneration, pushActivity, showToast, flashHighlight]);
+
+
+
+  const prevSyncStatusRef = useRef<SyncStatus>(syncStatus);
+
+  useEffect(() => {
+
+    if (prevSyncStatusRef.current !== 'error' && syncStatus === 'error') {
+
+      showToast('Sync-Verbindung fehlgeschlagen — nach unten ziehen zum Neuverbinden', 'error');
+
+    }
+
+    prevSyncStatusRef.current = syncStatus;
+
+  }, [syncStatus, showToast]);
 
 
 
@@ -1451,6 +1610,28 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
 
 
+  const assignTask = useCallback((id: string, assignedTo: Task['assignedTo']) => {
+
+    setTasks((prev) => {
+
+      const updated = prev.map((t) =>
+
+        t.id === id ? { ...t, assignedTo, updatedAt: new Date().toISOString() } : t,
+
+      );
+
+      const task = updated.find((t) => t.id === id);
+
+      if (task) void cloudWrite(() => upsertTask(task));
+
+      return updated;
+
+    });
+
+  }, [cloudWrite]);
+
+
+
   const removeTask = useCallback((id: string) => {
 
     setTasks((prev) => prev.filter((t) => t.id !== id));
@@ -1597,6 +1778,18 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
 
         isLiveSync: syncStatus === 'live',
 
+        activityFeed,
+
+        toasts,
+
+        showToast,
+
+        dismissToast,
+
+        reconnectSync,
+
+        highlightedIds,
+
         expenses,
 
         addExpense,
@@ -1628,6 +1821,8 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
         addTask,
 
         toggleTask,
+
+        assignTask,
 
         removeTask,
 

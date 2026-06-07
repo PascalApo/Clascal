@@ -12,6 +12,7 @@ import { Essen } from '@/pages/Essen';
 import { RecipeDetail } from '@/pages/RecipeDetail';
 import { Settings } from '@/pages/Settings';
 import { Radar } from '@/pages/Radar';
+import { ToastHost } from '@/components/ui/ToastHost';
 
 function LoadingScreen() {
   return (
@@ -33,7 +34,7 @@ function HomeRoute() {
   const { isAuthenticated, authLoading } = useUser();
 
   if (authLoading) return <LoadingScreen />;
-  if (isAuthenticated) return <Navigate to="/dashboard" replace />;
+  if (isAuthenticated) return <Navigate to="/radar" replace />;
   return <ProfileSelect />;
 }
 
@@ -69,6 +70,7 @@ export default function App() {
         <RecipesProvider>
           <BrowserRouter basename="/Clascal">
             <AppRoutes />
+            <ToastHost />
           </BrowserRouter>
         </RecipesProvider>
       </AppDataProvider>

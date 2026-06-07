@@ -12,6 +12,11 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import type { RadarBriefing } from '@/types/radar';
+import {
+  RadarFoodActionButton,
+  RadarAssignmentButton,
+  RadarShoppingButton,
+} from '@/components/radar/RadarActions';
 
 const MODULE_LINKS = {
   kalender: '/kalender',
@@ -103,6 +108,7 @@ export function RadarBriefingCards({ briefing }: RadarBriefingCardsProps) {
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-white">{action.title}</p>
                   <p className="text-xs text-white/65">{action.description}</p>
+                  <RadarFoodActionButton action={action} />
                 </div>
                 <ArrowRight size={14} className="shrink-0 text-white/50" />
               </Link>
@@ -128,6 +134,7 @@ export function RadarBriefingCards({ briefing }: RadarBriefingCardsProps) {
                 → {assignment.suggestedAssignee === 'both' ? 'Beide' : assignment.suggestedAssignee === 'user1' ? 'Clara' : 'Pascal'}
                 {' · '}{assignment.reason}
               </p>
+              <RadarAssignmentButton assignment={assignment} />
             </motion.div>
           ))}
         </section>
@@ -136,16 +143,14 @@ export function RadarBriefingCards({ briefing }: RadarBriefingCardsProps) {
       {briefing.shoppingSuggestions.length > 0 && (
         <section className="space-y-2">
           <h4 className="text-xs font-medium uppercase tracking-wider text-white/65">Einkauf</h4>
-          <Link
-            to="/einkauf"
-            className="glass-card block p-3 transition-colors hover-accent-bg-muted"
-          >
+          <div className="glass-card p-3">
             {briefing.shoppingSuggestions.map((s, i) => (
               <p key={i} className="text-xs text-white/60">
                 <span className="text-white">{s.name}</span> — {s.reason}
               </p>
             ))}
-          </Link>
+            <RadarShoppingButton suggestions={briefing.shoppingSuggestions} />
+          </div>
         </section>
       )}
     </div>

@@ -3,10 +3,15 @@ import { motion } from 'framer-motion';
 import { LogOut, Palette } from 'lucide-react';
 import { BottomNav } from './BottomNav';
 import { ThemeScope } from '@/components/theme/ThemeScope';
+import { LiveActivityFeed } from '@/components/live/LiveActivityFeed';
+import { PullToRefresh } from '@/components/ui/PullToRefresh';
+import { SyncStatusPill } from '@/components/ui/SyncStatusPill';
 import { useUser } from '@/context/UserContext';
+import { useAppData } from '@/context/AppDataContext';
 
 export function AppLayout() {
   const { user, logout } = useUser();
+  const { isLiveSync } = useAppData();
 
   return (
     <ThemeScope>
@@ -17,14 +22,18 @@ export function AppLayout() {
         />
 
         <header className="safe-top sticky top-0 z-40 px-4 py-4">
-          <div className="glass-card flex items-center justify-between px-4 py-3">
+          <div
+            className={`glass-card px-4 py-3 ${isLiveSync ? 'ring-1 ring-green-500/30' : ''}`}
+          >
+            <div className="flex items-center justify-between">
             <div>
               <p className="text-xs text-white/65">Willkommen zurück</p>
               <h1 className="font-display text-lg font-bold accent-gradient-text">
                 {user?.name}
               </h1>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-2">
+              <SyncStatusPill />
               <Link to="/einstellungen">
                 <motion.span
                   whileTap={{ scale: 0.95 }}
@@ -44,11 +53,17 @@ export function AppLayout() {
                 <span className="text-white/75">Logout</span>
               </motion.button>
             </div>
+            </div>
+            <div className="mt-2">
+              <LiveActivityFeed compact />
+            </div>
           </div>
         </header>
 
         <main className="relative z-10 px-4">
-          <Outlet />
+          <PullToRefresh>
+            <Outlet />
+          </PullToRefresh>
         </main>
 
         <BottomNav />

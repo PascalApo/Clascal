@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Upload, Plus, Trash2, FileText, Loader2 } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { ExpenseChart } from '@/components/haushaltsbuch/ExpenseChart';
+import { PartnerDot } from '@/components/ui/PartnerDot';
 import { useAppData } from '@/context/AppDataContext';
 import { useUser } from '@/context/UserContext';
 import { parseBankStatementPdf, guessCategory } from '@/lib/pdf-parser';
@@ -10,7 +11,7 @@ import { EXPENSE_CATEGORIES, type ExpenseCategory } from '@/types/expense';
 
 export function Haushaltsbuch() {
   const { theme, userId } = useUser();
-  const { expenses, addExpense, addExpensesBulk, removeExpense } = useAppData();
+  const { expenses, addExpense, addExpensesBulk, removeExpense, isLiveSync, showToast } = useAppData();
   const fileRef = useRef<HTMLInputElement>(null);
   const [parsing, setParsing] = useState(false);
   const [parseResult, setParseResult] = useState<number | null>(null);
@@ -45,6 +46,9 @@ export function Haushaltsbuch() {
           })),
         );
         setParseResult(transactions.length);
+        if (isLiveSync) {
+          showToast(`${transactions.length} Ausgaben — für Clara & Pascal sichtbar`, 'info');
+        }
       }
     } catch {
       setParseResult(-1);
@@ -195,7 +199,10 @@ export function Haushaltsbuch() {
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm">{exp.description}</p>
+                  <p className="flex items-center gap-1.5 truncate text-sm">
+                    {exp.description}
+                    <PartnerDot userId={exp.createdBy} />
+                  </p>
                   <p className="text-xs text-white/55">
                     {new Date(exp.date).toLocaleDateString('de-DE')} · {cat?.label}
                   </p>

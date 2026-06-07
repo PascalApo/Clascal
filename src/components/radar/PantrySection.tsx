@@ -58,14 +58,14 @@ export function PantrySection() {
               placeholder="Artikel (z.B. Milch)"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full rounded-lg bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/55 outline-none focus:ring-1 accent-ring"
+              className="field-input"
             />
             <input
               type="text"
               placeholder="Menge (optional)"
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
-              className="w-full rounded-lg bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/55 outline-none focus:ring-1 accent-ring"
+              className="field-input"
             />
             <input
               type="date"

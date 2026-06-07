@@ -26,6 +26,12 @@ import {
 
 import { PageHeader } from '@/components/ui/PageHeader';
 
+import { SwipeableRow } from '@/components/ui/SwipeableRow';
+
+import { PartnerDot } from '@/components/ui/PartnerDot';
+
+import { hapticTap } from '@/lib/haptics';
+
 import { QuantitySelect } from '@/components/einkauf/QuantitySelect';
 
 import { QuantityBadge } from '@/components/einkauf/QuantityBadge';
@@ -75,6 +81,8 @@ export function Einkauf() {
     syncStatus,
 
     isShoppingBusy,
+
+    highlightedIds,
 
     shoppingItems,
 
@@ -382,11 +390,31 @@ export function Einkauf() {
 
 
 
+    const isHighlighted = highlightedIds.has(item.id);
+
     return (
 
-      <motion.div
+      <SwipeableRow
 
         key={item.id}
+
+        onSwipeRight={() => {
+
+          hapticTap();
+
+          void toggleShoppingItem(item.id);
+
+        }}
+
+        onSwipeLeft={() => void removeShoppingItem(item.id)}
+
+        rightLabel="Haken"
+
+        leftLabel="Löschen"
+
+      >
+
+      <motion.div
 
         layout
 
@@ -396,13 +424,19 @@ export function Einkauf() {
 
         exit={{ opacity: 0, x: 10 }}
 
-        className="glass-card flex items-center gap-3 p-3"
+        className={`glass-card flex items-center gap-3 p-3 transition-colors ${isHighlighted ? 'ring-1 ring-[color:var(--accent)]' : ''}`}
 
       >
 
         <button
 
-          onClick={() => toggleShoppingItem(item.id)}
+          onClick={() => {
+
+            hapticTap();
+
+            void toggleShoppingItem(item.id);
+
+          }}
 
           className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-white/20"
 
@@ -418,7 +452,10 @@ export function Einkauf() {
 
         <div className="min-w-0 flex-1">
 
-          <p className="text-sm font-medium">{item.name}</p>
+          <p className="flex items-center gap-1.5 text-sm font-medium">
+            {item.name}
+            <PartnerDot userId={item.createdBy} />
+          </p>
 
           {isEditing ? (
 
@@ -487,6 +524,8 @@ export function Einkauf() {
         </button>
 
       </motion.div>
+
+      </SwipeableRow>
 
     );
 

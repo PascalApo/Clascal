@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  LayoutDashboard,
+  Radar,
   Wallet,
   CalendarDays,
   ShoppingCart,
@@ -10,7 +10,7 @@ import {
 import { useUser } from '@/context/UserContext';
 
 const navItems = [
-  { to: '/dashboard', icon: LayoutDashboard, label: 'Home' },
+  { to: '/radar', icon: Radar, label: 'Home' },
   { to: '/haushaltsbuch', icon: Wallet, label: 'Geld' },
   { to: '/kalender', icon: CalendarDays, label: 'Plan' },
   { to: '/einkauf', icon: ShoppingCart, label: 'Einkauf' },

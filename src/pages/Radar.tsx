@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Bell, Loader2 } from 'lucide-react';
-import { PageHeader } from '@/components/ui/PageHeader';
+import { DashboardWidgets } from '@/components/dashboard/DashboardWidgets';
 import { useAppData } from '@/context/AppDataContext';
 import { useRecipes } from '@/context/RecipesContext';
 import { useUser } from '@/context/UserContext';
@@ -26,10 +26,10 @@ export function Radar() {
     bureaucracyDeadlines,
     mentalLoadEvents,
     recordMentalLoad,
+    showToast,
   } = useAppData();
   const { recipes } = useRecipes();
   const { user, userId } = useUser();
-  const [notifyStatus, setNotifyStatus] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const viewedRef = useRef(false);
   const autoSentRef = useRef<string | null>(null);
@@ -67,7 +67,7 @@ export function Radar() {
       const result = await notifyPartnerRadarBriefing(userId, user.name, briefing);
       if (cancelled) return;
       if (result.ok && (result.sent ?? 0) > 0) {
-        setNotifyStatus(`Briefing an Partner gesendet (${result.sent})`);
+        showToast(`Briefing an Partner gesendet (${result.sent})`, 'info');
       }
     })();
 
@@ -77,22 +77,23 @@ export function Radar() {
   const handleShareBriefing = async () => {
     if (!userId || !user?.name) return;
     setSending(true);
-    setNotifyStatus(null);
     const result = await notifyPartnerRadarBriefing(userId, user.name, briefing);
     setSending(false);
     if (result.ok) {
-      setNotifyStatus(result.sent ? `An ${result.sent} Partner gesendet` : 'Kein Partner registriert');
+      showToast(
+        result.sent ? `An ${result.sent} Partner gesendet` : 'Kein Partner registriert',
+        'info',
+      );
     } else {
-      setNotifyStatus(result.error ?? 'Fehler beim Senden');
+      showToast(result.error ?? 'Fehler beim Senden', 'error');
     }
   };
 
   return (
     <div className="space-y-6 pb-4">
-      <PageHeader
-        title="Haushalts-Radar"
-        subtitle="Dein proaktives Wochen-Briefing"
-      />
+      <DashboardWidgets />
+
+      <h3 className="font-display text-lg font-bold accent-gradient-text">Wochen-Radar</h3>
 
       <motion.div
         initial={{ opacity: 0, y: 8 }}
@@ -109,10 +110,6 @@ export function Radar() {
           Briefing teilen
         </button>
       </motion.div>
-
-      {notifyStatus && (
-        <p className="text-center text-xs text-white/65">{notifyStatus}</p>
-      )}
 
       <RadarBriefingCards briefing={briefing} />
 
